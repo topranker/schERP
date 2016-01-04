@@ -14,7 +14,7 @@ class Web extends CI_Controller {
         $data['breadCrumb'] = 'DashBoard';
         $data['title'] = 'DashBoard';
         $data['last_reg_'] = $this -> mm -> last_registration();
-
+        
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('home', $data);
         $this -> load -> view('templates/footer');

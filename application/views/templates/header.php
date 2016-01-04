@@ -86,11 +86,13 @@
                     <!-- user login dropdown end -->
                 </ul>
                 <!-- notificatoin dropdown end-->
+                <?php if($last_reg_ != 0){ ?>
                 <ul class="nav pull-right top-menu">
                     <li class="eborder-top">
                         <a href="#">Last Reg. No. - <?php echo $last_reg_; ?></a>
                     </li>
                 </ul>
+                <?php } ?>
             </div>
       </header>      
       <!--header end-->

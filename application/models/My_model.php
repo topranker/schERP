@@ -26,8 +26,13 @@ class My_model extends CI_Model {
     }
     function last_registration(){
         $query = $this -> db -> get('_id_');
-        $row_ = $query -> row();
-    return $row_ -> regid_;
+        if($query -> num_rows() != 0) {
+            $row_ = $query -> row();
+            $reg___ = $row_ -> regid_;
+        } else {
+            $reg___ = 0;
+        }
+    return $reg___;
     }
 	function registerStudent(){
         $query = $this -> db -> get('_id_');
