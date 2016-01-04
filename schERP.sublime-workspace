@@ -1,0 +1,520 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"id",
+				"id_"
+			],
+			[
+				"regi",
+				"Register"
+			],
+			[
+				"select",
+				"selected"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "application/views/home.php",
+			"settings":
+			{
+				"buffer_size": 2754,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/Web.php",
+			"settings":
+			{
+				"buffer_size": 702,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/registration/index.php",
+			"settings":
+			{
+				"buffer_size": 22567,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/Put_.php",
+			"settings":
+			{
+				"buffer_size": 639,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/models/My_model.php",
+			"settings":
+			{
+				"buffer_size": 2272,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/config/autoload.php",
+			"settings":
+			{
+				"buffer_size": 3925,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/config/database.php",
+			"settings":
+			{
+				"buffer_size": 4531,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/xampp/htdocs/schERP/application/models/My_model.php",
+		"/D/xampp/htdocs/schERP/application/controllers/put_.php",
+		"/D/xampp/htdocs/migs/_app_/views/onlineReg_/index.php",
+		"/D/xampp/htdocs/schERP/nitnav/css/style.css",
+		"/D/xampp/htdocs/schERP/application/config/autoload.php",
+		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
+		"/D/xampp/htdocs/schERP/application/views/templates/menu.php",
+		"/D/xampp/htdocs/schERP/application/views/index.php",
+		"/D/xampp/htdocs/schERP/application/views/welcome_message.php",
+		"/D/xampp/htdocs/shally/Z_Material_/restaurant-html-template-master/index.html",
+		"/D/xampp/htdocs/shally/Z_Material_/web/contact.html",
+		"/D/xampp/htdocs/shally/_app_/views/about/index.php",
+		"/D/xampp/htdocs/shally/_app_/views/contact/index.php",
+		"/D/xampp/htdocs/shally/_app_/libraries/My_library.php",
+		"/D/xampp/htdocs/shally/_app_/views/templates/navigation.php",
+		"/D/xampp/htdocs/shally/_app_/views/courses/index.php",
+		"/D/xampp/htdocs/shally/_app_/controllers/Scc_.php",
+		"/D/xampp/htdocs/shally/_app_/config/autoload.php",
+		"/D/xampp/htdocs/shally/_app_/views/templates/header.php",
+		"/D/xampp/htdocs/shally/_app_/views/home.php",
+		"/D/xampp/htdocs/shally/_app_/views/inner.php",
+		"/D/xampp/htdocs/shally/_app_/views/templates/header",
+		"/D/xampp/htdocs/shally/Z_Material_/web/about.html",
+		"/D/xampp/htdocs/shally/_app_/config/routes.php",
+		"/D/xampp/htdocs/shally/_app_/views/contact/index",
+		"/D/xampp/htdocs/shally/_app_/controllers/CookeryClasses.php",
+		"/D/xampp/htdocs/migs/_app_/controllers/Site.php",
+		"/D/xampp/htdocs/shally/_app_/config/migration.php",
+		"/D/xampp/htdocs/shally/_app_/config/smileys.php",
+		"/D/xampp/htdocs/shally/_app_/config/user_agents.php",
+		"/D/xampp/htdocs/shally/_app_/config/database.php",
+		"/D/xampp/htdocs/shally/_app_/config/doctypes.php",
+		"/D/xampp/htdocs/shally/_app_/views/templates/footer.php",
+		"/D/xampp/htdocs/shally/Z_Material_/web/index.html",
+		"/D/xampp/htdocs/shally/_app_/controllers/_cc_.php",
+		"/D/xampp/htdocs/shally/_app_/config/config.php",
+		"/D/xampp/htdocs/shally/index.php",
+		"/D/xampp/htdocs/migs__/Material/startbootstrap-sb-admin-2-1.0.8/pages/panels-wells.html",
+		"/D/xampp/htdocs/migs__/Material/startbootstrap-sb-admin-2-1.0.8/pages/buttons.html",
+		"/D/xampp/htdocs/myPrjs/svtm/sarvottam/models/svtmdb.php",
+		"/D/xampp/htdocs/myPrjs/svtm/app_1/models/tt_db.php",
+		"/D/xampp/htdocs/migs__/Material/startbootstrap-sb-admin-2-1.0.8/pages/tables.html",
+		"/D/xampp/htdocs/migs__/Material/startbootstrap-sb-admin-2-1.0.8/pages/grid.html",
+		"/C/Users/nitin/Downloads/startbootstrap-sb-admin-2-1.0.8/pages/forms.html",
+		"/D/xampp/htdocs/Storz/trunk/dks_/quot/dsk_quot.php",
+		"/D/xampp/htdocs/Storz/trunk/dks_/quot/dsk_cquot.php",
+		"/D/xampp/htdocs/uc_/application/models/web_model.php",
+		"/D/xampp/htdocs/Storz/trunk/quot/createquote.php",
+		"/D/xampp/htdocs/Storz/trunk/condb.php",
+		"/D/xampp/htdocs/Storz/trunk/authenticate_user_class.php",
+		"/D/xampp/htdocs/Storz/trunk/dks_/quot/quotCsv.php",
+		"/D/xampp/htdocs/Storz/trunk/dks_/quot/quotation-preview.php",
+		"/D/xampp/htdocs/Storz/trunk/dks_/quot/tc.php",
+		"/D/xampp/htdocs/Storz/trunk/dks_/quot/set_get_sr2.php",
+		"/C/Users/nitin/Desktop/call_js_inFlow.txt",
+		"/D/xampp/htdocs/Storz/trunk/quot/version.php",
+		"/C/Users/nitin/Desktop/ChangesForDealer.txt"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"about-us",
+			"upload",
+			"type=\"submit\"",
+			"Submit",
+			"Submit Button",
+			"Submit",
+			"Submit ",
+			"File input",
+			"myModal1",
+			"#importCsv1",
+			"importCsv1",
+			"addElemento1",
+			"addElement",
+			"addElemento1",
+			"Import Optional CSV",
+			".php",
+			"Import Optional CSV",
+			"import",
+			"show_radio",
+			"showcurtype",
+			"showdl",
+			"dpremark1",
+			"set_get_sr2",
+			"loadXMLDoc1",
+			"Select  Set",
+			"show_radio",
+			"dpremark1",
+			"Quotation Type :",
+			"showcurtype",
+			"dpremark1",
+			"Quotation Type :",
+			"chk() {",
+			"CFormTax",
+			"chk",
+			"showcurtype",
+			"showdl",
+			"Distribution Channel",
+			"Distribution Channel:	",
+			"> ORC <",
+			">ORC<",
+			"\"ORC\"",
+			"ORC",
+			"<button",
+			"cformtaxvalue",
+			"CFormTax",
+			"chk(){",
+			"chk",
+			"Quotation Type :",
+			"getsrc",
+			"Quotation Type :",
+			"display",
+			"product",
+			"Quotation Type :",
+			"suggestions_cus",
+			"lookup_cus",
+			"Quotation Type :",
+			"getForm",
+			"Quotation Type",
+			"subsrch",
+			"getsrch",
+			"subsrch",
+			"getsrch",
+			"suggestions_cus",
+			"lookup_cus",
+			"Search Customer"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "application/views/home.php",
+					"settings":
+					{
+						"buffer_size": 2754,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1185,
+								1185
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/controllers/Web.php",
+					"settings":
+					{
+						"buffer_size": 702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								409,
+								424
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/views/registration/index.php",
+					"settings":
+					{
+						"buffer_size": 22567,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6009,
+								6021
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1520.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/controllers/Put_.php",
+					"settings":
+					{
+						"buffer_size": 639,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								639,
+								639
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/models/My_model.php",
+					"settings":
+					{
+						"buffer_size": 2272,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1836,
+								1836
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 472.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/config/autoload.php",
+					"settings":
+					{
+						"buffer_size": 3925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2331,
+								2331
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 472.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/config/database.php",
+					"settings":
+					{
+						"buffer_size": 4531,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4530,
+								4530
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 907.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/xampp/htdocs/migs/migs.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 284.0,
+	"status_bar_visible": true
+}

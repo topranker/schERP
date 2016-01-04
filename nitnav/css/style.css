@@ -4010,6 +4010,8 @@ ul.amounts li {
 
 .form-horizontal .form-group .help-block {
     margin-bottom: 0;
+    color: #808090;
+    font-size: 11px;
 }
 
 
@@ -4929,4 +4931,7 @@ span.customSelect.changed {
 }
 .customSelectInner {
     background:url(../img/customSelect-arrow.gif) no-repeat center right;
+}
+.mendatory1{
+    color: #ff0000;
 }
