@@ -36,11 +36,12 @@ class My_model extends CI_Model {
     }
     function do_upload_reg_photo($file_reg_name){
         $config = array(
-            'upload_path' => './nitnav/reg_student_photo',
+            'upload_path'   => './nitnav/reg_student_photo',
             'allowed_types' => 'jpg|png',
-            'file_name' => $file_reg_name
+            'max_size'      => 70,
+            'file_name'     => $file_reg_name
         );
-        $file_element_name = 'txtPhoto';
+        $file_element_name = 'txtregPhoto';
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload($file_element_name)) {
@@ -66,9 +67,17 @@ class My_model extends CI_Model {
             $flag_ = FALSE;
         }
 
-        $regid__ = $regid__ . $id_;
+        $file_reg_name = $regid__ = $regid__ . $id_;
         $file_name = $this -> do_upload_reg_photo($regid__);
         
+        $this -> db -> where('REGION', $this->input->post('txtState'));
+        $q = $this -> db -> get('zone_region');
+        if($q -> num_rows() != 0) {
+            $r_ = $q -> row();
+            $zone__ = $r_ -> ZONE_;
+        } else {
+            $zone__ = 'x';
+        }
         $data = array(
             'regid' => $regid__,
             'FULLNAME' => $this->input->post('txtFullName'),
@@ -85,6 +94,7 @@ class My_model extends CI_Model {
             'ADDRESS_' => $this->input->post('txtAddress'),
             'CITY_' => $this->input->post('txtCity'),
             'PINCODE_' => $this->input->post('txtPinCode'),
+            'ZONE_' => $zone__,
             'STATE_' => $this->input->post('txtState'),
             'COUNTRY_' => $this->input->post('txtCountry'),
             'MOBILE_' => $this->input->post('txtMobile'),

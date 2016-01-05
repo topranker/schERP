@@ -13,8 +13,7 @@
     <!--custome script for all page-->
     <script src="<?PHP echo base_url() . 'nitnav/js/scripts.js';?>"></script>
     
-
-  </script>
+    <script src="<?PHP echo base_url() . 'nitnav/js/school_.js';?>"></script>
 
   </body>
 </html>

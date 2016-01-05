@@ -10,7 +10,7 @@
             <div class="col-lg-12">
                 <h3 class="page-header"><i class="fa fa-laptop"></i><?php echo $title; ?></h3>
                 <ol class="breadcrumb">
-                    <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                    <li><i class="fa fa-home"></i><a href="<?php echo site_url('web'); ?>">Home</a></li>
                     <li><i class="fa fa-users"></i></li><li><?php echo $breadCrumb; ?></li>
                 </ol>
             </div>
@@ -31,7 +31,7 @@
                             'id' => 'frmRegistration_',
                         );
                         ?>
-                        <?php echo form_open('put_/register_', $attrib_); ?>
+                        <?php echo form_open_multipart('put_/register_', $attrib_); ?>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label mendatory1">Photo<span class="mendatory1">*</span></label>
                                 <div class="col-sm-8">
@@ -41,13 +41,14 @@
                                         'autocomplete' => 'off',
                                         'required' => 'required',
                                         'class' => 'required form-control',
-                                        'name' => 'txtPhoto',
-                                        'id' => 'txtPhoto',
+                                        'name' => 'txtregPhoto',
+                                        'id' => 'txtregPhoto',
                                         'value' => ''
                                     );
                                     echo form_input($data);
                                     ?>
-                                    <p class="help-block">Note: Select image of dimension [ <b>200x200 px</b> ] having maximum size of [ <b>50 kb</b> ]</p>
+                                    <div style="color: #ff0000; background: #ffff00" id="__reg_err_msg"></div>
+                                    <p class="help-block">Note: Select image of maximum size of [ <b>70 kb</b> ]</p>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -377,7 +378,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-4">
-                                    <button type="submit" class="btn btn-primary col-sm-12">Register Student</button>
+                                    <button type="submit" class="btn btn-primary col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">Register Student</button>
                                 </div>
                                 <div class="col-sm-4">                                    
                                     <button type="reset" class="btn btn-danger col-sm-12">Reset</button>
