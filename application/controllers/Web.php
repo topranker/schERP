@@ -35,7 +35,6 @@ class Web extends CI_Controller {
 	}
 
     function login(){
-
         $data['breadCrumb'] = 'Login';
         $data['title'] = 'Login';
         
@@ -49,4 +48,19 @@ class Web extends CI_Controller {
         //$this -> session -> unset_userdata('_user_status___');
         redirect('web/login');
     }
+    
+    function getRegistrationSlip() {
+        $this -> load -> model('my_model', 'mm');
+
+        $data['breadCrumb'] = 'Registration Slip';
+        $data['title'] = 'Student Registration Slip for Print';
+
+        $data['last_reg_'] = $this -> mm -> last_registration();
+        $data['country_'] = $this -> mm -> get_country();
+        $data['states_'] = $this -> mm -> get_states();
+        
+        $this -> load -> view('templates/header', $data);
+        $this -> load -> view('Registration/regSlip',$data);
+        $this -> load -> view('templates/footer');
+	}
 }
