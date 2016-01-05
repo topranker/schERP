@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"fil",
+				"file_reg_name"
+			],
+			[
+				"u",
+				"ul"
+			],
+			[
+				"pu",
+				"put_city"
+			],
+			[
 				"id",
 				"id_"
 			],
@@ -20,34 +32,10 @@
 	"buffers":
 	[
 		{
-			"file": "application/views/home.php",
-			"settings":
-			{
-				"buffer_size": 2754,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/controllers/Web.php",
-			"settings":
-			{
-				"buffer_size": 702,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/registration/index.php",
-			"settings":
-			{
-				"buffer_size": 22567,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "application/controllers/Put_.php",
 			"settings":
 			{
-				"buffer_size": 639,
+				"buffer_size": 865,
 				"line_ending": "Windows"
 			}
 		},
@@ -55,7 +43,15 @@
 			"file": "application/models/My_model.php",
 			"settings":
 			{
-				"buffer_size": 2272,
+				"buffer_size": 4724,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/registration/index.php",
+			"settings":
+			{
+				"buffer_size": 22825,
 				"line_ending": "Windows"
 			}
 		},
@@ -63,15 +59,7 @@
 			"file": "application/config/autoload.php",
 			"settings":
 			{
-				"buffer_size": 3925,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/config/database.php",
-			"settings":
-			{
-				"buffer_size": 4531,
+				"buffer_size": 3947,
 				"line_ending": "Windows"
 			}
 		}
@@ -101,12 +89,24 @@
 	"file_history":
 	[
 		"/D/xampp/htdocs/schERP/application/models/My_model.php",
+		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
+		"/D/xampp/htdocs/schERP/application/views/home.php",
+		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
+		"/D/xampp/htdocs/schERP/application/libraries/My_library.php",
+		"/D/xampp/htdocs/schERP/application/config/config.php",
+		"/D/xampp/htdocs/schERP/application/config/autoload.php",
+		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
+		"/D/xampp/htdocs/schERP/application/views/login/menu.php",
+		"/D/xampp/htdocs/schERP/application/views/login/header.php",
+		"/D/xampp/htdocs/schERP/application/views/login/footer.php",
+		"/D/xampp/htdocs/schERP/application/views/login/index.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/index.php",
+		"/D/xampp/htdocs/schERP/nitnav/css/style.css",
+		"/D/xampp/htdocs/schERP/application/views/templates/footer.php",
+		"/D/xampp/htdocs/schERP/application/views/templates/menu.php",
+		"/D/xampp/htdocs/schERP/application/config/database.php",
 		"/D/xampp/htdocs/schERP/application/controllers/put_.php",
 		"/D/xampp/htdocs/migs/_app_/views/onlineReg_/index.php",
-		"/D/xampp/htdocs/schERP/nitnav/css/style.css",
-		"/D/xampp/htdocs/schERP/application/config/autoload.php",
-		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
-		"/D/xampp/htdocs/schERP/application/views/templates/menu.php",
 		"/D/xampp/htdocs/schERP/application/views/index.php",
 		"/D/xampp/htdocs/schERP/application/views/welcome_message.php",
 		"/D/xampp/htdocs/shally/Z_Material_/restaurant-html-template-master/index.html",
@@ -174,6 +174,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"help-block",
 			"about-us",
 			"upload",
 			"type=\"submit\"",
@@ -256,29 +257,29 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "application/views/home.php",
+					"file": "application/controllers/Put_.php",
 					"settings":
 					{
-						"buffer_size": 2754,
+						"buffer_size": 865,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1185,
-								1185
+								279,
+								294
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -289,18 +290,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "application/controllers/Web.php",
+					"file": "application/models/My_model.php",
 					"settings":
 					{
-						"buffer_size": 702,
+						"buffer_size": 4724,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								409,
-								424
+								2055,
+								2055
 							]
 						],
 						"settings":
@@ -310,7 +311,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 487.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -320,15 +321,15 @@
 					"file": "application/views/registration/index.php",
 					"settings":
 					{
-						"buffer_size": 22567,
+						"buffer_size": 22825,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6009,
-								6021
+								1492,
+								1501
 							]
 						],
 						"settings":
@@ -338,81 +339,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1520.0,
+						"translation.y": 381.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "application/controllers/Put_.php",
-					"settings":
-					{
-						"buffer_size": 639,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								639,
-								639
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "application/models/My_model.php",
-					"settings":
-					{
-						"buffer_size": 2272,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1836,
-								1836
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 472.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "application/config/autoload.php",
 					"settings":
 					{
-						"buffer_size": 3925,
+						"buffer_size": 3947,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2331,
-								2331
+								2725,
+								2725
 							]
 						],
 						"settings":
@@ -420,34 +365,7 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 472.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "application/config/database.php",
-					"settings":
-					{
-						"buffer_size": 4531,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4530,
-								4530
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 907.0,
+						"translation.y": 877.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

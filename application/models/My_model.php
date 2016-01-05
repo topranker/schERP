@@ -34,6 +34,23 @@ class My_model extends CI_Model {
         }
     return $reg___;
     }
+    function do_upload_reg_photo($file_reg_name){
+        $config = array(
+            'upload_path' => './nitnav/reg_student_photo',
+            'allowed_types' => 'jpg|png',
+            'file_name' => $file_reg_name
+        );
+        $file_element_name = 'txtPhoto';
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload($file_element_name)) {
+            $path_ji = $this->upload->data();
+            $path_ = $path_ji['file_name'];
+        } else {
+            $path_ = 'x';
+        }
+        return $path_;
+    }
 	function registerStudent(){
         $query = $this -> db -> get('_id_');
 
@@ -50,11 +67,14 @@ class My_model extends CI_Model {
         }
 
         $regid__ = $regid__ . $id_;
+        $file_name = $this -> do_upload_reg_photo($regid__);
         
         $data = array(
             'regid' => $regid__,
             'FULLNAME' => $this->input->post('txtFullName'),
             'GENDER' => $this->input->post('optStuGender'),
+            'DOB_' => $this->input->post('txtStudDOB'),
+            'PHOTO_' => $file_name,
             'FATHER' => $this->input->post('txtFthrName'),
             'ADMISSION_FOR' => $this->input->post('cmbAdmFor'),
             'CLASS_FOR_ADMISSION' => $this->input->post('cmbClassForAdm'),
