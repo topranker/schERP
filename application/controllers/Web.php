@@ -9,7 +9,7 @@ class Web extends CI_Controller {
     }
     function index() {
         $this -> load -> model('my_model', 'mm');
-        if(! $this -> session -> userdata('_user___')) redirect('web/login');
+        //$this -> check_login();
 
         $data['breadCrumb'] = 'DashBoard';
         $data['title'] = 'DashBoard';
@@ -20,8 +20,12 @@ class Web extends CI_Controller {
         $this -> load -> view('templates/footer');
 	}
         
+    function check_login(){
+        if(! $this -> session -> userdata('_user___')) $this -> logout();
+    }
     function stuRegistration() {
         $this -> load -> model('my_model', 'mm');
+        $this -> check_login();
 
         $data['breadCrumb'] = 'Register Student';
         $data['title'] = 'Student Registration';
@@ -30,7 +34,7 @@ class Web extends CI_Controller {
         $data['country_'] = $this -> mm -> get_country();
         $data['states_'] = $this -> mm -> get_states();
         $this -> load -> view('templates/header', $data);
-        $this -> load -> view('Registration/index',$data);
+        $this -> load -> view('registration/index',$data);
         $this -> load -> view('templates/footer');
 	}
 
@@ -44,23 +48,40 @@ class Web extends CI_Controller {
     }
 
     function logout(){
-        //$this -> session -> unset_userdata('_user___');
-        //$this -> session -> unset_userdata('_user_status___');
+        $this -> session -> unset_userdata('_user___');
+        $this -> session -> unset_userdata('_user_status___');
         redirect('web/login');
     }
     
-    function getRegistrationSlip() {
+    function getRegistrationSlip($reg_id__) {
         $this -> load -> model('my_model', 'mm');
+        $this -> check_login();
 
         $data['breadCrumb'] = 'Registration Slip';
         $data['title'] = 'Student Registration Slip for Print';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['country_'] = $this -> mm -> get_country();
-        $data['states_'] = $this -> mm -> get_states();
-        
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
+
         $this -> load -> view('templates/header', $data);
-        $this -> load -> view('Registration/regSlip',$data);
+        $this -> load -> view('registration/regSlip',$data);
         $this -> load -> view('templates/footer');
 	}
+
+    function feedfee_($reg_id__){
+        $this -> load -> model ('my_model', 'mm');
+        $this -> check_login();
+
+        $data['breadCrumb'] = 'Registration Fee';
+        $data['title'] = 'Student Registration Fee Form';  
+
+        $data['last_reg_'] = $this -> mm -> last_registration();
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
+
+        $this -> load -> view('templates/header', $data);
+        $this -> load -> view('registration/ff',$data);
+        $this -> load -> view('templates/footer');
+    }
 }

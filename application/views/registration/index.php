@@ -381,7 +381,7 @@
                                     <button type="submit" class="btn btn-primary col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">Register Student</button>
                                 </div>
                                 <div class="col-sm-4">                                    
-                                    <button type="reset" class="btn btn-danger col-sm-12">Reset</button>
+                                    <button type="reset" class="btn btn-danger col-sm-12">Cancel</button>
                                 </div>
                             </div>
                         </form>

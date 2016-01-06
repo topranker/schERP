@@ -18,9 +18,15 @@ class Put_ extends CI_Controller {
         } else {
         	$this -> session -> set_flashdata('reg_msg_', '<b>X</b>: Something goes wrong. Please try again !!! ');
         }
-        redirect('web/stuRegistration');
+        redirect('web/getRegistrationSlip/'.$res_['reg_no']);
 	}
     
+    function feed_fee_($regid__){
+        $this -> load -> model ('my_model', 'mm');
+
+        $this -> mm -> submit_fee($regid__);
+
+    }
     function check_login(){
         $this -> load -> model('my_model' , 'mm');
         $res_ = $this -> mm -> check_login();

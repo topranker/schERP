@@ -14,5 +14,44 @@ $(function(){
 		}
 		
 	});
-	
+
+	$('#optRegistration').click(function(){$('#txtAmount').val(1000);});
+	$('#optAdmission').click(function(){$('#txtAmount').val('');});
+	$('#optWithdrawl').click(function(){$('#txtAmount').val('');});
+
+	$('#optCash').click(function(){
+		$('#sep_1').hide();
+		$('#dd_').hide();
+		$('#cheque_').hide();
+		$('#txtDD_Bank').val('x');
+		$('#txtDD_date').val('x');
+		$('#txtDD').val('x');
+		$('#txtCheque_Bank').val('x');
+		$('#txtCheque_date').val('x');
+		$('#txtChequeNo').val('x');
+	});
+
+	$('#optDD').click(function(){
+		$('#sep_1').show();
+		$('#dd_').show();
+		$('#cheque_').hide();
+		$('#txtDD_Bank').val('');
+		$('#txtDD_date').val('');
+		$('#txtDD').val('');
+		$('#txtCheque_Bank').val('x');
+		$('#txtCheque_date').val('x');
+		$('#txtChequeNo').val('x');
+	});
+
+	$('#optCheque').click(function(){
+		$('#sep_1').show();
+		$('#dd_').hide();
+		$('#cheque_').show();
+		$('#txtDD_Bank').val('x');
+		$('#txtDD_date').val('x');
+		$('#txtDD').val('x');
+		$('#txtCheque_Bank').val('');
+		$('#txtCheque_date').val('');
+		$('#txtChequeNo').val('');
+	});
 });

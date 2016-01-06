@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2016 at 02:25 PM
+-- Generation Time: Jan 06, 2016 at 07:28 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -35,16 +35,18 @@ CREATE TABLE IF NOT EXISTS `bday_data` (
   `PHOTO_` varchar(100) NOT NULL,
   `DOA` varchar(25) NOT NULL,
   `STATUS` int(11) NOT NULL,
-  PRIMARY KEY (`BID`)
+  `USERNAME_` varchar(40) NOT NULL,
+  PRIMARY KEY (`BID`),
+  KEY `USERNAME_` (`USERNAME_`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bday_data`
 --
 
-INSERT INTO `bday_data` (`BID`, `NAME_`, `DOB`, `PHOTO_`, `DOA`, `STATUS`) VALUES
-(1, 'Nitin', '21/12/2015', '1', 'ok', 1),
-(2, 'Gagan', '21/12/2015', '2', 'ok', 1);
+INSERT INTO `bday_data` (`BID`, `NAME_`, `DOB`, `PHOTO_`, `DOA`, `STATUS`, `USERNAME_`) VALUES
+(1, 'Nitin', '21/12/2015', '1', 'ok', 1, ''),
+(2, 'Gagan', '21/12/2015', '2', 'ok', 1, '');
 
 -- --------------------------------------------------------
 
@@ -347,11 +349,37 @@ INSERT INTO `country_` (`ABREV_`, `NAME_`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `fee`
+--
+
+CREATE TABLE IF NOT EXISTS `fee` (
+  `feeID` int(11) NOT NULL AUTO_INCREMENT,
+  `regID` varchar(25) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `Amount` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `feetype` varchar(20) NOT NULL,
+  `feemode` varchar(20) NOT NULL,
+  `bankname` varchar(50) NOT NULL,
+  `dd_ch_no` varchar(20) NOT NULL,
+  `dd_ch_date` varchar(20) NOT NULL,
+  PRIMARY KEY (`feeID`),
+  KEY `regID` (`regID`,`date`),
+  KEY `userID` (`username`),
+  KEY `username` (`username`),
+  KEY `username_2` (`username`),
+  KEY `regID_2` (`regID`),
+  KEY `feetype` (`feetype`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `login`
 --
 
 CREATE TABLE IF NOT EXISTS `login` (
-  `USERNAME_` varchar(100) NOT NULL,
+  `USERNAME_` varchar(40) NOT NULL,
   `PASSWORD_` varchar(25) NOT NULL,
   `USER_STATUS` varchar(5) NOT NULL,
   PRIMARY KEY (`USERNAME_`),
@@ -489,6 +517,7 @@ CREATE TABLE IF NOT EXISTS `register_with_us` (
   `FULLNAME` varchar(150) NOT NULL,
   `FATHER` varchar(150) NOT NULL,
   `DOB_` varchar(150) NOT NULL,
+  `PHOTO_` varchar(250) NOT NULL,
   `GENDER` varchar(10) NOT NULL,
   `NATIONALITY` varchar(25) NOT NULL DEFAULT '-x-',
   `STUDENT_INTEREST` varchar(120) NOT NULL DEFAULT '-x-',
@@ -508,8 +537,18 @@ CREATE TABLE IF NOT EXISTS `register_with_us` (
   `EMAIL_` varchar(100) NOT NULL,
   `PASSWORD_` varchar(25) NOT NULL DEFAULT '123456',
   `DOR_` varchar(25) NOT NULL,
-  PRIMARY KEY (`regid`)
+  `USERNAME_` varchar(40) NOT NULL,
+  PRIMARY KEY (`regid`),
+  KEY `USERNAME_` (`USERNAME_`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `register_with_us`
+--
+
+INSERT INTO `register_with_us` (`regid`, `FULLNAME`, `FATHER`, `DOB_`, `PHOTO_`, `GENDER`, `NATIONALITY`, `STUDENT_INTEREST`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `APPLIED_YEAR`, `TRANSPORT_REQUIRED`, `LAST_SCHOOL_NAME`, `LAST_SCHOOL_GRADE`, `ADDRESS_`, `CITY_`, `PINCODE_`, `ZONE_`, `STATE_`, `COUNTRY_`, `MOBILE_`, `EMAIL_`, `PASSWORD_`, `DOR_`, `USERNAME_`) VALUES
+('2016011001', 'Nitin Deepak', 'VKM', '2016-01-28', '2016011001.jpg', 'M', '-x-', '-x-', 'Team Boarder', '2', 2017, 'YES', 'Campus School', 'A', 'Mukul vihar\r\nTalli bamori', 'Haldwani', '263139', '1', 'UL', 'India', '0976002066', 'nitin.d12@amrapali.ac.in', '123456', '06/01/2016', ''),
+('2016011002', 'Nitin Deepak', 'VKM', '2016-12-31', '2016011002.jpg', 'M', '-x-', '-x-', 'Day Boarder', '1', 2016, 'YES', 'Campus School', 'A', 'Mukul vihar\r\nTalli bamori', 'Haldwani', '263139', '1', 'UL', 'India', '0976002066', 'nitin.d12@amrapali.ac.in', '123456', '06/01/2016', '');
 
 -- --------------------------------------------------------
 
@@ -645,6 +684,13 @@ CREATE TABLE IF NOT EXISTS `_id_` (
   `regid_` varchar(25) NOT NULL,
   PRIMARY KEY (`ID_`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `_id_`
+--
+
+INSERT INTO `_id_` (`ID_`, `regid_`) VALUES
+(1004, '2016011004');
 
 --
 -- Constraints for dumped tables

@@ -24,6 +24,7 @@ class My_model extends CI_Model {
 
         return $flag_;
     }
+
     function last_registration(){
         $query = $this -> db -> get('_id_');
         if($query -> num_rows() != 0) {
@@ -34,6 +35,7 @@ class My_model extends CI_Model {
         }
     return $reg___;
     }
+
     function do_upload_reg_photo($file_reg_name){
         $config = array(
             'upload_path'   => './nitnav/reg_student_photo',
@@ -52,6 +54,7 @@ class My_model extends CI_Model {
         }
         return $path_;
     }
+    
 	function registerStudent(){
         $query = $this -> db -> get('_id_');
 
@@ -99,7 +102,8 @@ class My_model extends CI_Model {
             'COUNTRY_' => $this->input->post('txtCountry'),
             'MOBILE_' => $this->input->post('txtMobile'),
             'EMAIL_' => $this->input->post('txtEmail'),
-            'DOR_' => date('d/m/Y')
+            'DOR_' => date('d/m/Y'),
+            'USERNAME_' => $this -> session -> userdata('_user___')
         );
 
         $query = $this->db->insert('register_with_us', $data);
@@ -123,6 +127,34 @@ class My_model extends CI_Model {
         return $bool_ ;
 	}
 
+    function get_registration_details($regid__){
+        $this -> db -> select ('register_with_us.*, zone_.ZONE, zone_region.REG_NAME');
+        $this -> db -> from ('register_with_us');
+        $this -> db -> join ('zone_', 'register_with_us.ZONE_ = zone_.ID AND register_with_us.regid = ' . $regid__, 'inner');
+        $this -> db -> join ('zone_region', 'register_with_us.STATE_ = zone_region.REGION', 'inner');
+        $query = $this -> db -> get();
+        if($query -> num_rows() != 0){
+            $row_ = $query -> row();
+            $record_ = array('res_'=>TRUE, 'data_' => $query -> row());
+        } else {
+            $record_ = array('res_'=>FALSE, 'data_'=>'No Data Found');
+        }
+
+        return $record_;
+    }
+
+    function get_fees_status($regid__){
+        $this -> db -> where ('regID', $regid__);
+        $query = $this -> db -> get('fee');
+
+        if($query -> num_rows() != 0) {
+            $record_ = array('res_'=>TRUE, 'data_' => $query -> row());
+        } else {
+            $record_ = array('res_'=>FALSE, 'data_' => '0');;
+        }
+
+        return $record_;
+    }
     function get_states(){
         //$this -> db -> order_by('ZONE_');
         $this -> db -> order_by('REG_NAME');
@@ -148,5 +180,19 @@ class My_model extends CI_Model {
             $data = array('NAME_'=> strtoupper($city));
             $this -> db -> insert('city_', $data);
         }
+    }
+
+    function submit_fee($regid__){
+        $data = array(
+            'regID'     => $regid__,
+            'date'      => date('d/m/Y'),
+            'Amount'    => $this -> input -> post('txtAmount'),
+            'username'  => $this -> session -> userdata('_user___'),
+            'feetype'   => $this -> input -> post('optFeeCategory'),
+            'feemode'   => $this -> input -> post('optFeeMode'),
+            'bankname'  => $this -> input -> post('txtBankName'),
+            'ddno'      => $this -> input -> post('txtDD'),
+            'dddate'      => $this -> input -> post('txtDD_date'),
+        );
     }
 }
