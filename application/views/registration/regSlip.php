@@ -32,12 +32,12 @@
             <div class="col-xs-12">
                 <?php if ($record_['res_'] == TRUE) { ?>
                     <section class="panel">
-                        <header class="panel-heading"style="height: 150px">
+                        <header class="panel-heading" style="height: 130px">
                             <div>
-                                <h1><img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">&nbsp;&nbsp;Registration Form</h1>
+                                <h1 style="color:#000; font-weight:bold;"><img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">&nbsp;&nbsp;Registration Form</h1>
                             </div>
                         </header>
-                        <div class="panel-body">
+                        <div class="panel-body" style="font-size:17px;">
                             <div class="row">
                                 <div class="col-xs-8">
                                     <div class="row">
@@ -89,8 +89,8 @@
                                     <div class="col-xs-2">Address</div>
                                     <div class="col-xs-3">
                                         <?php echo $record_['data_']->ADDRESS_; ?> <br /> 
-    <?php echo $record_['data_']->CITY_; ?> - <?php echo $record_['data_']->PINCODE_; ?> <br />
-    <?php echo $record_['data_']->REG_NAME; ?><BR />
+                                        <?php echo $record_['data_']->CITY_; ?> - <?php echo $record_['data_']->PINCODE_; ?> <br />
+                                        <?php echo $record_['data_']->REG_NAME; ?><BR />
                                         (<?php echo $record_['data_']->COUNTRY_; ?>)
                                     </div>
                                 </div>
@@ -104,40 +104,48 @@
                                 </div>
                                 <div class='row'><div class='col-xs-12'><hr></div></div>
                             </div>
-                </div>
-            <?php } else { ?>
-                No Data Found
-<?php } ?>
-    </section>     
-</div><!--/.col-->
+                            <?php if ($fee_rec['res_'] == TRUE) { ?>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2">Fees Category</div>
+                                    <div class="col-xs-3"><?php echo $fee_rec['data_']->feetype; ?></div>
+                                    <div class="col-xs-2">Fees Paid</div>
+                                    <div class="col-xs-4">Rs <?php echo $fee_rec['data_']->Amount; ?></div>
+                                </div>
+                                <div class='row'><div class='col-xs-12'><hr></div></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2">Fees Mode</div>
+                                    <div class="col-xs-3"><?php echo $fee_rec['data_']->feemode; ?></div>
+                                    <div class="col-xs-4"></div>
+                                    <div class="col-xs-2"></div>
+                                </div>
+                                <div class='row'><div class='col-xs-12'><hr></div></div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <b>Declaration</b>
+                                        <p align="justify">I hereby certify that the information given in the registration form is complete and accurate. I understand and agree this misrepresentation or omission of facts will justify the denial of admission, the cancellation of admission or expulsion.</p>
+                                        <p>I have read and do hereby consent to the term and conditions enclosed with the registration form.</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        Signature
+                                    </div>
+                                </div>
 
-<?php if ($fee_rec['res_'] == TRUE) { ?>
-    <div class="col-xs-12">
-        <div class="row">
-            <div class="col-xs-1"></div>
-            <div class="col-xs-2">Fees Category</div>
-            <div class="col-xs-3"><?php echo $fee_rec['data_']->feetype; ?></div>
-        </div>
-        <div class='row'><div class='col-xs-12'><hr></div></div>
-        <div class="row">
-            <div class="col-xs-1"></div>
-            <div class="col-xs-2">Fees Paid</div>
-            <div class="col-xs-4">Rs <?php echo $fee_rec['data_']->Amount; ?></div>
-        </div>
-        <div class='row'><div class='col-xs-12'><hr></div></div>
-        <div class="row">
-            <div class="col-xs-1"></div>
-            <div class="col-xs-2">Fees Mode</div>
-            <div class="col-xs-3"><?php echo $fee_rec['data_']->feemode; ?></div>
-            <div class="col-xs-4"></div>
-            <div class="col-xs-2">Autorised Signatory</div>
-        </div>
-    </div>
-<?php } else { ?>
-    Bye
-<?php } ?>
-</div><!--/.row-->              
-</section>
+                            <?php } else { ?>
+                                Fees Not paid Yet
+                            <?php } ?>
+
+                        </div>
+                    <?php } else { ?>
+                        No Data Found
+                    <?php } ?>
+
+                </section>     
+            </div><!--/.col-->
+
+        </div><!--/.row-->              
+    </section>
 </section>
 <!--main content end-->
 </section>
