@@ -14,7 +14,8 @@
 
 <!--main content start-->
 <section id="main-content" style="color: #0000ff">
-    <section class="wrapper">            
+    <section class="wrapper">       
+    <?php echo $this -> session -> flashdata('fee_msg_'); ?>     
         <div class="row" id="printReg">
             <div class="col-xs-12">
                 <?php if($record_['res_'] == TRUE) { ?>
@@ -109,117 +110,79 @@
 	                                    </div>
 	                                </div>
 	                                <div class='row' id="sep_1" style="display: none"><div class='col-xs-12'><hr></div></div>
-	                                <div class="row" id="dd_"style="display: none; color: #009000">
+	                                <div class="row" id="dd_cheque_"style="display: none; color: #000090">
 	                                	<div class="col-xs-1"></div>
 	                                	<div class="col-xs-2"><b>Bank Detail</b></div>
 	                                	<div class="col-xs-9">
-	                                			<div style="float: left">	
-	                                				Bank<br />
-	                                			<?php
-			                                    	$data = array(
-				                                        'type' => 'text',
-				                                        'autocomplete' => 'off',
-				                                        'required' => 'required',
-				                                        'placeholder' => 'Bank Name.',
-				                                        'class'	=> 'form-control',
-				                                        'name' => 'txtDD_Bank',
-				                                        'id' => 'txtDD_Bank',
-				                                        'value' => 'x'
-				                                    );
-			                                    	?>
-			                                    	<?php echo form_input($data); ?>
+	                                			<div style="float: left; border: #ff0000 solid 0px">
+		                                			<div style="float: left" id="bank__">	
+		                                				Bank
+		                                			</div>
+		                                			<div style="clear: both"></div>
+		                                			<div style="float: left">	
+		                                			<?php
+				                                    	$data = array(
+					                                        'type' => 'text',
+					                                        'autocomplete' => 'off',
+					                                        'required' => 'required',
+					                                        'placeholder' => 'Bank Name.',
+					                                        'class'	=> 'form-control',
+					                                        'name' => 'txtBank',
+					                                        'id' => 'txtBank',
+					                                        'value' => 'x'
+					                                    );
+				                                    	?>
+				                                    	<?php echo form_input($data); ?>
+				                                    </div>
 			                                    </div>
-			                                    <div style="width: 5px"></div>
-	                                			<div style="float: left">	
-	                                				DD Date <br />
-		                                    	<?php
-			                                    	$data = array(
+			                                    <div style="width: 5px; float: left"></div>
+			                                    <div style="float: left; border: #ff0000 solid 0px">
+		                                			<div style="float: left" id="date__">	
+		                                				Cheque Date
+		                                			</div>
+		                                			<div style="clear: both"></div>
+		                                			<div style="float: left">	
+			                                    	<?php
+				                                    	$data = array(
+					                                        'type' => 'text',
+					                                        'autocomplete' => 'off',
+					                                        'required' => 'required',
+					                                        'placeholder' => 'Date.',
+					                                        'class'	=> 'form-control',
+					                                        'name' => 'txtDate',
+					                                        'id' => 'txtDate',
+					                                        'value' => 'x'
+					                                    );
+				                                    	?>
+			                                    	<?php echo form_input($data); ?>
+			                                    	</div>
+		                                    	</div>
+		                                    	<div style="width: 5px; float: left"></div>
+		                                    	<div style="float: left; border: #ff0000 solid 0px">
+		                                			<div style="float: left" id="no__">	
+		                                				Cheque No.
+		                                			</div>
+		                                			<div style="clear: both"></div>
+		                                			<div style="float: left">
+			                                    	<?php
+			                                    	$data_ = array(
 				                                        'type' => 'text',
 				                                        'autocomplete' => 'off',
 				                                        'required' => 'required',
-				                                        'placeholder' => 'DD Date.',
+				                                        'placeholder' => 'No..',
 				                                        'class'	=> 'form-control',
-				                                        'name' => 'txtDD_date',
-				                                        'id' => 'txtDD_date',
+				                                        'name' => 'txtDDChequeNo',
+				                                        'id' => 'txtDDChequeNo',
 				                                        'value' => 'x'
 				                                    );
 			                                    	?>
-		                                    	<?php echo form_input($data); ?>
-		                                    	</div>
-		                                    	<div style="width: 5px"></div>
-	                                			<div style="float: left">	
-	                                				DD No. <br />
-		                                    	<?php
-		                                    	$data_ = array(
-			                                        'type' => 'text',
-			                                        'autocomplete' => 'off',
-			                                        'required' => 'required',
-			                                        'placeholder' => 'DD No..',
-			                                        'class'	=> 'form-control',
-			                                        'name' => 'txtDD',
-			                                        'id' => 'txtDD',
-			                                        'value' => 'x'
-			                                    );
-		                                    	?>
-		                                    	<?php echo form_input($data_); ?>
+			                                    	<?php echo form_input($data_); ?>
+			                                    	</div>
+		                                		</div>
 		                                    </div>
 	                                    </div>
 	                                </div>
-	                                <div class="row" id="cheque_"style="display: none; color: #000090">
-	                                	<div class="col-xs-1"></div>
-	                                	<div class="col-xs-2"><b>Bank Detail</b></div>
-	                                	<div class="col-xs-9">
-	                                			<div style="float: left">	
-	                                				Bank<br />
-	                                			<?php
-			                                    	$data = array(
-				                                        'type' => 'text',
-				                                        'autocomplete' => 'off',
-				                                        'required' => 'required',
-				                                        'placeholder' => 'Bank Name.',
-				                                        'class'	=> 'form-control',
-				                                        'name' => 'txtCheque_Bank',
-				                                        'id' => 'txtCheque_Bank',
-				                                        'value' => 'x'
-				                                    );
-			                                    	?>
-			                                    	<?php echo form_input($data); ?>
-			                                    </div>
-			                                    <div style="width: 5px"></div>
-	                                			<div style="float: left">	
-	                                				Cheque Date <br />
-		                                    	<?php
-			                                    	$data = array(
-				                                        'type' => 'text',
-				                                        'autocomplete' => 'off',
-				                                        'required' => 'required',
-				                                        'placeholder' => 'Cheque Date.',
-				                                        'class'	=> 'form-control',
-				                                        'name' => 'txtCheque_date',
-				                                        'id' => 'txtCheque_date',
-				                                        'value' => 'x'
-				                                    );
-			                                    	?>
-		                                    	<?php echo form_input($data); ?>
-		                                    	</div>
-		                                    	<div style="width: 5px"></div>
-	                                			<div style="float: left">	
-	                                				Cheque No. <br />
-		                                    	<?php
-		                                    	$data_ = array(
-			                                        'type' => 'text',
-			                                        'autocomplete' => 'off',
-			                                        'required' => 'required',
-			                                        'placeholder' => 'Cheque No..',
-			                                        'class'	=> 'form-control',
-			                                        'name' => 'txtChequeNo',
-			                                        'id' => 'txtChequeNo',
-			                                        'value' => 'x'
-			                                    );
-		                                    	?>
-		                                    	<?php echo form_input($data_); ?>
-		                                    </div>
-	                                    </div>
+
 	                                </div>
 	                                <div class='row'><div class='col-xs-12'><hr></div></div>
 	                                <div class="row" style="color: #555555">
@@ -239,6 +202,7 @@
 	                                    	?>
 	                                    	<?php echo form_input($data); ?>
 	                                    </div>
+	                                    <div class="col-xs-5"></<div>
 	                                </div>
 	                                <div class='row'><div class='col-xs-12'><hr></div></div>
 	                                <div class="form-group">

@@ -26,6 +26,7 @@
             <?php } ?>
         </div>
     </div>            
+    <?php echo $this -> session -> flashdata('fee_msg_'); ?>  
         <div class="row" id="printReg">
             <div class="col-xs-12">
                 <?php if($record_['res_'] == TRUE) { ?>

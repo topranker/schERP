@@ -191,8 +191,10 @@ class My_model extends CI_Model {
             'feetype'   => $this -> input -> post('optFeeCategory'),
             'feemode'   => $this -> input -> post('optFeeMode'),
             'bankname'  => $this -> input -> post('txtBankName'),
-            'ddno'      => $this -> input -> post('txtDD'),
-            'dddate'      => $this -> input -> post('txtDD_date'),
+            'dd_ch_no'      => $this -> input -> post('txtDD'),
+            'dd_ch_date'      => $this -> input -> post('txtDD_date'),
         );
+
+        return $this -> db -> insert('fee', $data);
     }
 }

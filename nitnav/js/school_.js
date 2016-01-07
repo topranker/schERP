@@ -22,36 +22,36 @@ $(function(){
 	$('#optCash').click(function(){
 		$('#sep_1').hide();
 		$('#dd_').hide();
-		$('#cheque_').hide();
-		$('#txtDD_Bank').val('x');
-		$('#txtDD_date').val('x');
-		$('#txtDD').val('x');
-		$('#txtCheque_Bank').val('x');
-		$('#txtCheque_date').val('x');
-		$('#txtChequeNo').val('x');
+		$('#bank__').html('Name<br />');
+		$('#date__').html('Date<br />');
+		$('#no__').html('No.<br />');
+		$('#txtBank').val('x');
+		$('#txtDate').val('x');
+		$('#txtDDChequeNo').val('x');
+		$('#dd_cheque_').hide();
 	});
 
 	$('#optDD').click(function(){
 		$('#sep_1').show();
-		$('#dd_').show();
-		$('#cheque_').hide();
-		$('#txtDD_Bank').val('');
-		$('#txtDD_date').val('');
-		$('#txtDD').val('');
-		$('#txtCheque_Bank').val('x');
-		$('#txtCheque_date').val('x');
-		$('#txtChequeNo').val('x');
+		$('#dd_cheque_').show();
+		$('#dd_cheque_').css('color','#009000');
+		$('#bank__').html('Bank Name<br />');
+		$('#date__').html('DD Date<br />');
+		$('#no__').html('DD No.<br />');
+		$('#txtBank').val('');
+		$('#txtDate').val('');
+		$('#txtDDChequeNo').val('');
 	});
 
 	$('#optCheque').click(function(){
 		$('#sep_1').show();
-		$('#dd_').hide();
-		$('#cheque_').show();
-		$('#txtDD_Bank').val('x');
-		$('#txtDD_date').val('x');
-		$('#txtDD').val('x');
-		$('#txtCheque_Bank').val('');
-		$('#txtCheque_date').val('');
-		$('#txtChequeNo').val('');
+		$('#dd_cheque_').show();
+		$('#dd_cheque_').css('color','#000090');
+		$('#bank__').html('Bank Name<br />');
+		$('#date__').html('Cheque Date<br />');
+		$('#no__').html('Cheque No.<br />');
+		$('#txtBank').val('');
+		$('#txtDate').val('');
+		$('#txtDDChequeNo').val('');
 	});
 });
