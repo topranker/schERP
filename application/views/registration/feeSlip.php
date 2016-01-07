@@ -92,13 +92,24 @@
                                         <div class="col-xs-1"></div>
                                         <div class="col-xs-2">Fees Mode</div>
                                         <div class="col-xs-3"><?php echo $fee_rec['data_']->feemode; ?></div>
-                                        <div class="col-xs-4"></div>
-                                        <div class="col-xs-2">Autorised Signatory</div>
+                                        
+                                        <?php if($fee_rec['data_']->feemode != 'Cash'){?>
+                                        <div class="col-xs-2">Bank Name</div>
+                                        <div class="col-xs-4"><?php echo $fee_rec['data_']->bankname; ?></div>
                                     </div>
+                                    <div class='row'><div class='col-xs-12'><hr></div></div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-2">DD/Cheque number</div>
+                                        <div class="col-xs-3"><?php echo $fee_rec['data_']->dd_ch_no; ?></div>
+                                        <div class="col-xs-2">DD/Cheque date</div>
+                                        <div class="col-xs-4"><?php echo $fee_rec['data_']->dd_ch_date; ?></div>
+                                    </div>
+                                    <?php }?>
                                 </div>
-                                <div class="col-xs-12">
+                                <div class="col-xs-12" align="right">
                                     <p>&nbsp;</p>
-                                    <p>&nbsp;</p>
+                                    <p>Signature</p>
                                     <b>Declaration</b>
                                     <p>I have read and do hereby consent to the term and conditions enclosed with the registration form.</p>
                                 </div>
@@ -117,7 +128,7 @@
                     <section class="panel">
                         <header class="panel-heading">
                             <div>
-                                <h1><img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">&nbsp;&nbsp;Fee Receipt</h1>
+                                <h1 style="color:#000; font-weight:bold;"><img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">&nbsp;&nbsp;Fee Receipt</h1>
                             </div>
                         </header>
                         <div class="panel-body">
@@ -157,13 +168,24 @@
                                         <div class="col-xs-1"></div>
                                         <div class="col-xs-2">Fees Mode</div>
                                         <div class="col-xs-3"><?php echo $fee_rec['data_']->feemode; ?></div>
-                                        <div class="col-xs-4"></div>
-                                        <div class="col-xs-2">Autorised Signatory</div>
+                                        
+                                        <?php if($fee_rec['data_']->feemode != 'Cash'){?>
+                                        <div class="col-xs-2">Bank Name</div>
+                                        <div class="col-xs-4"><?php echo $fee_rec['data_']->bankname; ?></div>
                                     </div>
+                                    <div class='row'><div class='col-xs-12'><hr></div></div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-2">DD/Cheque number</div>
+                                        <div class="col-xs-3"><?php echo $fee_rec['data_']->dd_ch_no; ?></div>
+                                        <div class="col-xs-2">DD/Cheque date</div>
+                                        <div class="col-xs-4"><?php echo $fee_rec['data_']->dd_ch_date; ?></div>
+                                    </div>
+                                    <?php }?>
                                 </div>
-                                <div class="col-xs-12">
+                                <div class="col-xs-12" align="right">
                                     <p>&nbsp;</p>
-                                    <p>&nbsp;</p>
+                                    <p>Signature</p>
                                     <b>Declaration</b>
                                     <p>I have read and do hereby consent to the term and conditions enclosed with the registration form.</p>
                                 </div>
