@@ -32,7 +32,7 @@ class Put_ extends CI_Controller {
             $this -> session -> set_flashdata('fee_msg_', '<center><div style="width: 400px; padding: 4px; border-radius: 5px; background: #ffff00; color: #ff0000; font-weight: bold">Something goes wrong. Please try again...!!</div></center>');
             redirect('web/feedfee_/'.$regid__);
         }
-        redirect('web/getRegistrationSlip/$regid__');
+        redirect('web/feeSlip/$regid__');
     }
     function check_login(){
         $this -> load -> model('my_model' , 'mm');

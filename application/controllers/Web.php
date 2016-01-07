@@ -84,4 +84,20 @@ class Web extends CI_Controller {
         $this -> load -> view('registration/ff',$data);
         $this -> load -> view('templates/footer');
     }
+    
+    function getFeeSlip($reg_id__) {
+        $this -> load -> model('my_model', 'mm');
+        $this -> check_login();
+
+        $data['breadCrumb'] = 'Fee Slip';
+        $data['title'] = 'Student Fee Slip for Print';
+
+        $data['last_reg_'] = $this -> mm -> last_registration();
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
+
+        $this -> load -> view('templates/header', $data);
+        $this -> load -> view('registration/feeSlip',$data);
+        $this -> load -> view('templates/footer');
+	}
 }
