@@ -190,9 +190,9 @@ class My_model extends CI_Model {
             'username'  => $this -> session -> userdata('_user___'),
             'feetype'   => $this -> input -> post('optFeeCategory'),
             'feemode'   => $this -> input -> post('optFeeMode'),
-            'bankname'  => $this -> input -> post('txtBankName'),
-            'dd_ch_no'      => $this -> input -> post('txtDD'),
-            'dd_ch_date'      => $this -> input -> post('txtDD_date'),
+            'bankname'  => $this -> input -> post('txtBank'),
+            'dd_ch_no'      => $this -> input -> post('txtDDChequeNo'),
+            'dd_ch_date'      => $this -> input -> post('txtDate'),
         );
 
         return $this -> db -> insert('fee', $data);
