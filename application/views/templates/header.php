@@ -70,7 +70,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="<?PHP echo base_url().'nitnav/img/avatar1_small.jpg';?>">
                             </span>
-                            <span class="username"> Admin</span>
+                            <span class="username"> <?php echo $this -> session -> userdata('_user___'); ?></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">

@@ -193,6 +193,7 @@ class My_model extends CI_Model {
             'bankname'  => $this -> input -> post('txtBank'),
             'dd_ch_no'      => $this -> input -> post('txtDDChequeNo'),
             'dd_ch_date'      => $this -> input -> post('txtDate'),
+            'DOE_'  => date('d/m/Y')
         );
 
         return $this -> db -> insert('fee', $data);
