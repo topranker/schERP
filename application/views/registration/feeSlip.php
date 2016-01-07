@@ -20,6 +20,23 @@
             </div>
             <div class="col-xs-4" align="right">
                 <?php if ($fee_rec['res_'] == TRUE) { ?>
+                    <!--------------------------------------------------------------------------------------->
+                        <?php $username="migsrdr";
+                        $password ="123456";
+                        $number=$record_['MOBILE_'];
+                        $sender="MIGS";
+                        $message="! Successfully Registered ! Your registration number is : ". $record_['data_']->regid;
+                        if($_POST['submitted']=='true')
+                        { 
+                        $url="login.bulksmsgateway.in/sendmessage.php?user=".urlencode($username)."&password=".urlencode($password)."&mobile=".urlencode($number)."&sender=".urlencode($sender)."&message=".urlencode($message)."&type=".urlencode('3'); 
+                        $ch = curl_init($url);
+
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                        //echo $curl_scraped_page = curl_exec($ch);
+                        curl_close($ch); 
+                        }?>
+                    <!--------------------------------------------------------------------------------------->
                     <button class="btn btn-primary" onclick="window.print();">Print</button>
                     <a class="btn btn-primary" href="<?php echo site_url('web/getRegistrationSlip/'.$record_['data_']->regid); ?>">Next</a>
                 <?php } else { ?>

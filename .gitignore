@@ -4,3 +4,5 @@ nbproject/project.properties
 nbproject/project.xml
 application/config/database.php
 application/config/database.php
+application/config/database.php
+application/views/registration/dump_sms_gate.php
