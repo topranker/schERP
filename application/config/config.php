@@ -18,8 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
+//$config['base_url']= 'http://www.migs.motherindiaglobalschool.org';
 $config['base_url']= 'http://localhost/schERP/';
-
 /*
 
 |--------------------------------------------------------------------------
@@ -510,7 +510,7 @@ $config['proxy_ips'] = '';
 /*
 Customized Definitions --------------------->>>>>
 */
-define('_SCHOOL_', "Mother India Public School");
+define('_SCHOOL_', "Mother India Public School, Rudrapur");
 define('_SCHOOL_ABREV_', "MIGS");
 /*
 -------------------------------------------->>>>>

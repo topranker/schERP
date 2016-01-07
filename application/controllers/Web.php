@@ -9,7 +9,7 @@ class Web extends CI_Controller {
     }
     function index() {
         $this -> load -> model('my_model', 'mm');
-        //$this -> check_login();
+        $this -> check_login();
 
         $data['breadCrumb'] = 'DashBoard';
         $data['title'] = 'DashBoard';

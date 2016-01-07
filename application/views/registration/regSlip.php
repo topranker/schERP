@@ -6,6 +6,7 @@
     @media print {      
         body * { visibility: hidden; }
         #printReg * { visibility: visible;}
+        #nonprintreg * { visibility: hidden; }
     }
 </style>
 <!--sidebar start-->
@@ -15,26 +16,22 @@
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper">
-        <div class="row">
-            <div class="col-xs-8">
-            </div>
-            <div class="col-xs-4" align="right">
-                <?php if ($fee_rec['res_'] == TRUE) { ?>
-                    <button class="btn btn-primary" onclick="window.print();">Print</button>
-                    <a class="btn btn-primary" href="<?php echo site_url('web/stuRegistration'); ?>">Next</a>
-                <?php } else { ?>
-                    <a href="<?php echo site_url('web/feedfee_/' . $record_['data_']->regid); ?>"><button class="btn btn-danger" style="float: right"><b>Submit FEE</b></button></a>
-                <?php } ?>
-            </div>
-        </div>            
         <?php echo $this->session->flashdata('fee_msg_'); ?>  
         <div class="row" id="printReg">
             <div class="col-xs-12">
                 <?php if ($record_['res_'] == TRUE) { ?>
                     <section class="panel">
                         <header class="panel-heading" style="height: 130px">
-                            <div>
+                            <div class="col-xs-8">
                                 <h1 style="color:#000; font-weight:bold;"><img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">&nbsp;&nbsp;Registration Form</h1>
+                            </div>
+                            <div class="col-xs-4" align="right" id="nonprintreg">
+                                <?php if ($fee_rec['res_'] == TRUE) { ?>
+                                    <button class="btn btn-primary" onclick="window.print();">Print</button>
+                                    <a class="btn btn-primary" href="<?php echo site_url('web/stuRegistration'); ?>">Next</a>
+                                <?php } else { ?>
+                                    <a href="<?php echo site_url('web/feedfee_/' . $record_['data_']->regid); ?>"><button class="btn btn-danger" style="float: right"><b>Submit FEE</b></button></a>
+                                <?php } ?>
                             </div>
                         </header>
                         <div class="panel-body" style="font-size:17px;">

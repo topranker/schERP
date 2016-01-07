@@ -39,5 +39,5 @@
 
   <body>
       <header class="header dark-bg">
-        <a href="#" class="logo">Authentication Corner</a>
+        <a href="#" class="logo">Authentication Corner - <span style="font-size: 15px; color: #A0A0A0"><?php echo _SCHOOL_;?></span></a>
       </header>
