@@ -21,7 +21,7 @@
             <div class="col-xs-4" align="right">
                 <?php if ($fee_rec['res_'] == TRUE) { ?>
 
-                    <!--------------------------------------------------------------------------------------->
+                    <!------------------------------------------------------------------------------------- -->
                     <?php
                     $username = "migsrdr";
                     $password = "123456";
@@ -37,7 +37,7 @@
                     //echo $curl_scraped_page = curl_exec($ch);
                     curl_close($ch);
                     ?>
-                    <!--------------------------------------------------------------------------------------->
+                    <!------------------------------------------------------------------------------------- -->
                     <button class="btn btn-primary" onclick="window.print();">Print</button>
                     <a class="btn btn-primary" href="<?php echo site_url('web/getRegistrationSlip/' . $record_['data_']->regid); ?>">Next</a>
                 <?php } else { ?>

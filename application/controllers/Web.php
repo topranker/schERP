@@ -64,9 +64,14 @@ class Web extends CI_Controller {
         $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
         $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
 
-        $this -> load -> view('templates/header', $data);
-        $this -> load -> view('registration/regSlip',$data);
-        $this -> load -> view('templates/footer');
+
+        if($data['last_reg_'] != 0) {
+            $this -> load -> view('templates/header', $data);
+            $this -> load -> view('registration/regSlip',$data);
+            $this -> load -> view('templates/footer');
+        } else {
+            redirect('web/stuRegistration');
+        }
 	}
 
     function feedfee_($reg_id__){
@@ -80,9 +85,13 @@ class Web extends CI_Controller {
         $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
         $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
 
-        $this -> load -> view('templates/header', $data);
-        $this -> load -> view('registration/ff',$data);
-        $this -> load -> view('templates/footer');
+        if($data['last_reg_'] != 0) {
+            $this -> load -> view('templates/header', $data);
+            $this -> load -> view('registration/ff',$data);
+            $this -> load -> view('templates/footer');
+        } else {
+            redirect('web/stuRegistration');
+        }
     }
     
     function getFeeSlip($reg_id__) {
@@ -96,8 +105,12 @@ class Web extends CI_Controller {
         $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
         $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
 
-        $this -> load -> view('templates/header', $data);
-        $this -> load -> view('registration/feeSlip',$data);
-        $this -> load -> view('templates/footer');
+        if($data['fee_rec']['res_'] == TRUE) {
+            $this -> load -> view('templates/header', $data);
+            $this -> load -> view('registration/feeSlip',$data);
+            $this -> load -> view('templates/footer');
+        } else {
+            redirect('web/feedfee_/'.$reg_id__);
+        }
 	}
 }

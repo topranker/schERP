@@ -1,6 +1,6 @@
 <style type="text/css">
     @page {
-        size:A4; margin: 0;
+        size:A4; margin: 0px;
     }
 
     @media print {      
@@ -109,17 +109,36 @@
                                     <div class="col-xs-1"></div>
                                     <div class="col-xs-2">Fees Category</div>
                                     <div class="col-xs-3"><?php echo $fee_rec['data_']->feetype; ?></div>
-                                    <div class="col-xs-2">Fees Paid</div>
-                                    <div class="col-xs-4">Rs <?php echo $fee_rec['data_']->Amount; ?></div>
+                                    <div class="col-xs-2">Fees Mode</div>
+                                    <div class="col-xs-4"><?php echo $fee_rec['data_']->feemode; ?></div>
+                                </div>
+                                <?php if($fee_rec['data_']->feemode != 'Cash'){ ?>
+                                <div class='row'><div class='col-xs-12'><hr></div></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2">Bank</div>
+                                    <div class="col-xs-3"><?php echo $fee_rec['data_']->bankname; ?></div>
+                                    <div class="col-xs-2">DD/Cheque No.</div>
+                                    <div class="col-xs-4"><?php echo $fee_rec['data_']->dd_ch_no; ?></div>
                                 </div>
                                 <div class='row'><div class='col-xs-12'><hr></div></div>
                                 <div class="row">
                                     <div class="col-xs-1"></div>
-                                    <div class="col-xs-2">Fees Mode</div>
-                                    <div class="col-xs-3"><?php echo $fee_rec['data_']->feemode; ?></div>
+                                    <div class="col-xs-2">DD/Cheque Date</div>
+                                    <div class="col-xs-3"><?php echo $fee_rec['data_']->dd_ch_date; ?></div>
+                                    <div class="col-xs-2">Fees Paid</div>
+                                    <div class="col-xs-4">Rs <?php echo $fee_rec['data_']->Amount; ?></div>
+                                </div>
+                                <?php } else { ?>
+                                <div class='row'><div class='col-xs-12'><hr></div></div>
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2">Fees Paid</div>
+                                    <div class="col-xs-3">Rs <?php echo $fee_rec['data_']->Amount; ?></div>
                                     <div class="col-xs-4"></div>
                                     <div class="col-xs-2"></div>
                                 </div>
+                                <?php } ?>
                                 <div class='row'><div class='col-xs-12'><hr></div></div>
                                 <div class="row">
                                     <div class="col-xs-12">

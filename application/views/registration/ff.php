@@ -75,17 +75,17 @@
 	                                    <div class="col-xs-3">
 	                                    	<div class="radio">
 	                                            <label>
-	                                				<input type="radio" name="optFeeCategory" id="optRegistration" value="R" checked="checked" />&nbsp; Registration
+	                                				<input type="radio" name="optFeeCategory" id="optRegistration" value="Registration" checked="checked" />&nbsp; Registration
 	                                			</label>
 	                                		</div>
 	                                		<div class="radio">
 	                                            <label>
-	                                				<input type="radio" name="optFeeCategory" id="optAdmission" value="A" />&nbsp; Admission
+	                                				<input type="radio" name="optFeeCategory" id="optAdmission" value="Admission" />&nbsp; Admission
 	                                			</label>
 	                                		</div>
 	                                		<div class="radio">
 	                                            <label>
-	                                				<input type="radio" name="optFeeCategory" id="optWithdrawl" value="W" />&nbsp; Withdrawl
+	                                				<input type="radio" name="optFeeCategory" id="optWithdrawl" value="Withdrawl" />&nbsp; Withdrawl
 	                                			</label>
 	                                		</div>
 	                                    </div>

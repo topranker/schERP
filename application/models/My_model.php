@@ -114,7 +114,7 @@ class My_model extends CI_Model {
                 $data = array('ID_' => $id_, 'regid_' => $regid__);
                 $this -> db -> update ('_id_', $data);
             } else {
-                $data = array('ID_'=> $id_);
+                $data = array('ID_'=> $id_, 'regid_' => $regid__);
                 $this -> db -> insert('_id_', $data);
             }
             $bool_ = array('res_' => TRUE, 'reg_no' => $regid__);
