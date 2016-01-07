@@ -39,54 +39,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "application/views/registration/ff.php",
-			"settings":
-			{
-				"buffer_size": 13691,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/models/My_model.php",
-			"settings":
-			{
-				"buffer_size": 6947,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/controllers/Put_.php",
-			"settings":
-			{
-				"buffer_size": 1727,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/controllers/Web.php",
-			"settings":
-			{
-				"buffer_size": 2972,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/registration/regSlip.php",
-			"settings":
-			{
-				"buffer_size": 7272,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "nitnav/js/school_.js",
-			"settings":
-			{
-				"buffer_size": 1800,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -112,13 +64,13 @@
 	},
 	"file_history":
 	[
-		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
-		"/D/xampp/htdocs/schERP/nitnav/js/school_.js",
-		"/D/xampp/htdocs/schERP/application/models/My_model.php",
-		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/ff.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/index.php",
+		"/D/xampp/htdocs/schERP/nitnav/js/school_.js",
 		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
+		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
+		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
+		"/D/xampp/htdocs/schERP/application/models/My_model.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/index.php",
 		"/D/xampp/htdocs/schERP/nitnav/js/scripts.js",
 		"/D/xampp/htdocs/schERP/application/config/config.php",
 		"/D/xampp/htdocs/schERP/nitnav/css/style.css",
@@ -288,174 +240,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "application/views/registration/ff.php",
-					"settings":
-					{
-						"buffer_size": 13691,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12349,
-								12349
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2583.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "application/models/My_model.php",
-					"settings":
-					{
-						"buffer_size": 6947,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6947,
-								6947
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2513.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "application/controllers/Put_.php",
-					"settings":
-					{
-						"buffer_size": 1727,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1646,
-								1646
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 31.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "application/controllers/Web.php",
-					"settings":
-					{
-						"buffer_size": 2972,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2369,
-								2377
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 690.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "application/views/registration/regSlip.php",
-					"settings":
-					{
-						"buffer_size": 7272,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								954,
-								954
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "nitnav/js/school_.js",
-					"settings":
-					{
-						"buffer_size": 1800,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1219,
-								1219
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 114.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
