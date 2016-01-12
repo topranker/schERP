@@ -330,6 +330,8 @@
                                     );
                                     echo form_input($data);
                                     ?>
+                                    <div style="color: #ff0000; background: #ffff00" id="__ph_err_msg"></div>
+                                    <p class="help-block"><b>Note</b>: Do not use '0' or (+91) or any prefix. Just enter 10 digit mobile no. for sms.</p>
                                 </div>
                             </div>
                             <div class="form-group">

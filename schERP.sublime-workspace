@@ -64,18 +64,19 @@
 	},
 	"file_history":
 	[
-		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
+		"/D/xampp/htdocs/schERP/schERP.sublime-workspace",
+		"/D/xampp/htdocs/schERP/application/views/registration/index.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/feeSlip.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/ff.php",
 		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/feeSlip.php",
 		"/D/xampp/htdocs/schERP/application/models/My_model.php",
+		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
 		"/D/xampp/htdocs/schERP/application/views/login/header.php",
 		"/D/xampp/htdocs/schERP/application/config/config.php",
 		"/D/xampp/htdocs/schERP/application/views/login/index.php",
 		"/D/xampp/htdocs/schERP/nitnav/css/style.css",
-		"/D/xampp/htdocs/schERP/application/views/registration/ff.php",
 		"/D/xampp/htdocs/schERP/nitnav/js/school_.js",
-		"/D/xampp/htdocs/schERP/application/views/registration/index.php",
 		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
 		"/D/xampp/htdocs/schERP/nitnav/js/scripts.js",
 		"/D/xampp/htdocs/schERP/application/views/templates/footer.php",
@@ -309,6 +310,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 284.0,
+	"side_bar_width": 200.0,
 	"status_bar_visible": true
 }

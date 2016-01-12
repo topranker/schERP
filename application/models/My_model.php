@@ -145,12 +145,13 @@ class My_model extends CI_Model {
 
     function get_fees_status($regid__){
         $this -> db -> where ('regID', $regid__);
+        $this -> db -> where ('feetype', 'Registration');
         $query = $this -> db -> get('fee');
 
         if($query -> num_rows() != 0) {
             $record_ = array('res_'=>TRUE, 'data_' => $query -> row());
         } else {
-            $record_ = array('res_'=>FALSE, 'data_' => '0');;
+            $record_ = array('res_'=>FALSE, 'data_' => '0');
         }
 
         return $record_;

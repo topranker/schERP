@@ -39,6 +39,11 @@
                                 <div class="col-xs-8">
                                     <div class="row">
                                         <div class="col-xs-1"></div>
+                                        <div class="col-xs-4">Registration ID</div>
+                                        <div class="col-xs-7"><?php echo $record_['data_']->regid; ?></div>
+                                        <div class='row'><div class='col-xs-12'><hr></div></div>
+
+                                        <div class="col-xs-1"></div>
                                         <div class="col-xs-4">Student Name</div>
                                         <div class="col-xs-7"><?php echo $record_['data_']->FULLNAME; ?></div>
                                         <div class='row'><div class='col-xs-12'><hr></div></div>

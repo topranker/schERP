@@ -34,14 +34,15 @@
                                     $password = "123456";
                                     $number = $record_['data_']->MOBILE_;
                                     $sender = "oMIGSo";
-                                    $message = "! Successfully Registered ! Your registration number is : " . $record_['data_']->regid;
+                                    $message = "Thank you for registering with Mother India Global School, Rudrapur. Your registration number is : " . $record_['data_']->regid;
 
                                     $url = "login.bulksmsgateway.in/sendmessage.php?user=" . urlencode($username) . "&password=" . urlencode($password) . "&mobile=" . urlencode($number) . "&sender=" . urlencode($sender) . "&message=" . urlencode($message) . "&type=" . urlencode('3');
                                     $ch = curl_init($url);
 
                                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-                                    //echo $curl_scraped_page = curl_exec($ch);
+                                    $curl_scraped_page = curl_exec($ch);
+
                                     curl_close($ch);
                                     ?>
                                     <!------------------------------------------------------------------------------------- -->
@@ -55,6 +56,14 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-2">Registration ID</div>
+                                        <div class="col-xs-3"><?php echo $record_['data_']->regid; ?></div>
+                                        <div class="col-xs-2"></div>
+                                        <div class="col-xs-4"></div>
+                                    </div>
+                                    <div class='row'><div class='col-xs-12'><hr></div></div>
                                     <div class="row">
                                         <div class="col-xs-1"></div>
                                         <div class="col-xs-2">Student Name</div>
@@ -131,6 +140,14 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-2">Registration ID</div>
+                                        <div class="col-xs-3"><?php echo $record_['data_']->regid; ?></div>
+                                        <div class="col-xs-2"></div>
+                                        <div class="col-xs-4"></div>
+                                    </div>
+                                    <div class='row'><div class='col-xs-12'><hr></div></div>
                                     <div class="row">
                                         <div class="col-xs-1"></div>
                                         <div class="col-xs-2">Student Name</div>
