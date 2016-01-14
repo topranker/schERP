@@ -33,7 +33,7 @@
                                     $username = "migsrdr";
                                     $password = "123456";
                                     $number = $record_['data_']->MOBILE_;
-                                    $sender = "MIGS";
+                                    $sender = "oMIGSo";
                                     $message = "! Successfully Registered ! Your registration number is : " . $record_['data_']->regid;
 
                                     $url = "login.bulksmsgateway.in/sendmessage.php?user=" . urlencode($username) . "&password=" . urlencode($password) . "&mobile=" . urlencode($number) . "&sender=" . urlencode($sender) . "&message=" . urlencode($message) . "&type=" . urlencode('3');
