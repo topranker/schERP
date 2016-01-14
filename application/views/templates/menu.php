@@ -17,7 +17,8 @@
                     <li>
                       <a class="" href="<?PHP echo site_url('web/stuRegistration');?>">
                           <i class="fa fa-male"></i>
-                          <span>View Registration</span>
+                          <span>View 
+                            Registration</span>
                       </a>
                     </li>
               <!-- sidebar menu end-->

@@ -40,6 +40,7 @@ class My_model extends CI_Model {
         $config = array(
             'upload_path'   => './nitnav/reg_student_photo',
             'allowed_types' => 'jpg|png',
+            'overwrite'     => TRUE,
             'max_size'      => 70,
             'file_name'     => $file_reg_name
         );
@@ -183,6 +184,7 @@ class My_model extends CI_Model {
         }
     }
 
+    /*
     function submit_fee($regid__){
         $data = array(
             'regID'     => $regid__,
@@ -198,5 +200,46 @@ class My_model extends CI_Model {
         );
 
         return $this -> db -> insert('fee', $data);
+    }
+    */
+    function submit_fee($regid__){
+        $this -> db -> where('regid', $regid__);
+        $query = $this -> db -> get('register_with_us');
+        if($query->num_rows()){
+            $row = $query -> row();
+            $mob_no = $row -> MOBILE_;
+        } else {
+            $mob_no = '9760020667';
+        }
+        
+        $data = array(
+            'regID'     => $regid__,
+            'date'      => date('d/m/Y'),
+            'Amount'    => $this -> input -> post('txtAmount'),
+            'username'  => $this -> session -> userdata('_user___'),
+            'feetype'   => $this -> input -> post('optFeeCategory'),
+            'feemode'   => $this -> input -> post('optFeeMode'),
+            'bankname'  => $this -> input -> post('txtBank'),
+            'dd_ch_no'      => $this -> input -> post('txtDDChequeNo'),
+            'dd_ch_date'      => $this -> input -> post('txtDate'),
+            'DOE_'  => date('d/m/Y')
+        );
+        $bool_ = $this -> db -> insert('fee', $data);
+        if($bool_ == TRUE){
+            $username = "migsrdr";
+            $password = "123456";
+                    $number = $mob_no ;
+                    $sender = "oMIGSo";
+                    $message = "Thank you for registering with Mother India Global School, Rudrapur. Your registration number is : " . $regid__;
+            $url = "login.bulksmsgateway.in/sendmessage.php?user=" . urlencode($username) . "&password=" . urlencode($password) . "&mobile=" . urlencode($number) . "&sender=" . urlencode($sender) . "&message=" . urlencode($message) . "&type=" . urlencode('3');
+                    $ch = curl_init($url);
+
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                    $curl_scraped_page = curl_exec($ch);
+
+                    curl_close($ch);
+        }
+        return $bool_;
     }
 }

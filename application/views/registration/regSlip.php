@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-4" align="left">
-                                    <img alt="<?php echo $record_['data_']->FULLNAME; ?>" title="<?php echo $record_['data_']->FULLNAME; ?>" src="<?PHP echo base_url('nitnav/reg_student_photo/' . $record_['data_']->PHOTO_); ?>" align="left" style="min-width:150px;" class="img-rounded">
+                                    <img alt="<?php echo $record_['data_']->FULLNAME; ?>" title="<?php echo $record_['data_']->FULLNAME; ?>" src="<?PHP echo base_url('nitnav/reg_student_photo/' . $record_['data_']->PHOTO_); ?>" align="left" style="min-width: 150px; width:150px;" class="img-rounded">
                                 </div>
                             </div>
                             <div class="row">
