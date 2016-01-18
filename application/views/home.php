@@ -20,8 +20,8 @@
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="info-box green-bg">
                                     <i class="fa fa-users"></i>
-                                    <div class="count">1000</div>
-                                    <div class="title">Students</div>						
+                                    <div class="count"><?php echo $count_register; ?></div>
+                                    <div class="title">Students registered</div>						
                             </div><!--/.info-box-->			
                     </div><!--/.col-->
 

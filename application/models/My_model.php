@@ -134,6 +134,7 @@ class My_model extends CI_Model {
         $this -> db -> join ('zone_', 'register_with_us.ZONE_ = zone_.ID AND register_with_us.regid = ' . $regid__, 'inner');
         $this -> db -> join ('zone_region', 'register_with_us.STATE_ = zone_region.REGION', 'inner');
         $query = $this -> db -> get();
+        
         if($query -> num_rows() != 0){
             $row_ = $query -> row();
             $record_ = array('res_'=>TRUE, 'data_' => $query -> row());
@@ -184,24 +185,6 @@ class My_model extends CI_Model {
         }
     }
 
-    /*
-    function submit_fee($regid__){
-        $data = array(
-            'regID'     => $regid__,
-            'date'      => date('d/m/Y'),
-            'Amount'    => $this -> input -> post('txtAmount'),
-            'username'  => $this -> session -> userdata('_user___'),
-            'feetype'   => $this -> input -> post('optFeeCategory'),
-            'feemode'   => $this -> input -> post('optFeeMode'),
-            'bankname'  => $this -> input -> post('txtBank'),
-            'dd_ch_no'      => $this -> input -> post('txtDDChequeNo'),
-            'dd_ch_date'      => $this -> input -> post('txtDate'),
-            'DOE_'  => date('d/m/Y')
-        );
-
-        return $this -> db -> insert('fee', $data);
-    }
-    */
     function submit_fee($regid__){
         $this -> db -> where('regid', $regid__);
         $query = $this -> db -> get('register_with_us');
@@ -225,21 +208,26 @@ class My_model extends CI_Model {
             'DOE_'  => date('d/m/Y')
         );
         $bool_ = $this -> db -> insert('fee', $data);
-        if($bool_ == TRUE){
+        if($bool_ == TRUE && $this -> session -> userdata('_user___')){
             $username = "migsrdr";
             $password = "123456";
-                    $number = $mob_no ;
-                    $sender = "oMIGSo";
-                    $message = "Thank you for registering with Mother India Global School, Rudrapur. Your registration number is : " . $regid__;
-            $url = "login.bulksmsgateway.in/sendmessage.php?user=" . urlencode($username) . "&password=" . urlencode($password) . "&mobile=" . urlencode($number) . "&sender=" . urlencode($sender) . "&message=" . urlencode($message) . "&type=" . urlencode('3');
-                    $ch = curl_init($url);
-
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-                    $curl_scraped_page = curl_exec($ch);
-
-                    curl_close($ch);
+            $number = $mob_no ;
+            $sender = "oMIGSo";
+            
+            $message = "Thank you for registering with Mother India Global School, Rudrapur. Your registration number is : " . $regid__;
+            //$url = "login.bulksmsgateway.in/sendmessage.php?user=" . urlencode($username) . "&password=" . urlencode($password) . "&mobile=" . urlencode($number) . "&sender=" . urlencode($sender) . "&message=" . urlencode($message) . "&type=" . urlencode('3');
+            
+            //$ch = curl_init($url);
+            //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            //$curl_scraped_page = curl_exec($ch);
+            //curl_close($ch);
         }
         return $bool_;
+    }
+
+    function count_registrations(){
+        $query = $this -> db -> get('register_with_us');
+
+        return $query -> num_rows();
     }
 }

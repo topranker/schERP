@@ -40,4 +40,7 @@ class Put_ extends CI_Controller {
 
         redirect('web/');
     }
+    function update_registration_(){
+        echo "updates";
+    }
 }
