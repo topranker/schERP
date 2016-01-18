@@ -8,6 +8,9 @@
         #printReg * { visibility: visible;}
         #nonprintreg * { visibility: hidden; }
     }
+    body {
+        font-family: 'Times New Roman';
+    }
 </style>
 <!--sidebar start-->
 <?PHP $this->load->view('templates/menu'); ?>
@@ -21,7 +24,7 @@
             <div class="col-xs-12"style="border: #000000 solid 1px; padding: 0px">
                 <?php if ($record_['res_'] == TRUE) { ?>
                     <section class="panel">
-                        <header class="panel-heading" style="height: 130px">
+                        <header class="panel-heading" style="height: 130px; border-bottom: #000000 solid 1px">
                             <div class="col-xs-8">
                                 <div class="col-xs-2" style="padding: 10px 0px">
                                     <img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">
@@ -44,7 +47,7 @@
                         <div class="panel-body" style="border-width: 0px; padding: 15px 15px">
                             <div class="row">
                                 <div class="col-xs-12" style="padding: 5px 35px; text-decoration: underline; text-align: right">
-                                    Date: <?php echo $fee_rec['data_']->DOE_; ?>
+                                    Date: <?php echo $record_['data_']->DOR_; ?>
                                 </div>
                             </div>
 
@@ -55,7 +58,7 @@
                             </div>
 
                             <div style="clear: both"></div>
-                            <div style="float: left; height: 10px"></div>
+                            <div style="float: left; height: 5px"></div>
                             <div style="clear: both; border: #808080 solid 1px"></div>
                             <div style="float: left; height: 10px"></div>
                             <div style="clear: both"></div>
@@ -113,7 +116,7 @@
                             </div>
 
                             <div style="clear: both"></div>
-                            <div style="float: left; height: 10px"></div>
+                            <div style="float: left; height: 5px"></div>
                             <div style="clear: both; border: #808080 solid 1px"></div>
                             <div style="float: left; height: 10px"></div>
                             <div style="clear: both"></div>
@@ -132,14 +135,14 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-xs-1"></div>
-                                        <div class="col-xs-4">School Transport Required</div>
+                                        <div class="col-xs-4">Transport Required</div>
                                         <div class="col-xs-7"><?php echo $record_['data_']->TRANSPORT_REQUIRED; ?></div>
                                     </div>
                                 </div>
                             </div>
 
                             <div style="clear: both"></div>
-                            <div style="float: left; height: 20px"></div>
+                            <div style="float: left; height: 30px"></div>
                             <div style="clear: both"></div>
 
                             <div class="row">
@@ -152,7 +155,7 @@
                             </div>
 
                             <div style="clear: both"></div>
-                            <div style="float: left; height: 10px"></div>
+                            <div style="float: left; height: 5px"></div>
                             <div style="clear: both; border: #808080 solid 1px"></div>
                             <div style="float: left; height: 10px"></div>
                             <div style="clear: both"></div>
@@ -219,14 +222,14 @@
                             <div style="clear: both"></div>
                             <div style="float: left; height: 30px"></div>
                             <div style="clear: both; border: #808080 solid 1px"></div>
-                            <div style="float: left; height: 10px"></div>
+                            <div style="float: left; height: 40px"></div>
                             <div style="clear: both"></div>
 
                             <div class="row">
                                 <div class="col-xs-12">
                                     <p><b>Declaration</b></p>
                                     <p align="justify">I hereby certify that the information given in the registration form is complete and accurate. I understand and agree this misrepresentation or omission of facts will justify the denial of admission, the cancellation of admission or expulsion.</p>
-                                    <p>I have read and do hereby consent to the term and conditions enclosed with the registration form.</p>
+                                    <p>I have read and do hereby consent to the terms and conditions enclosed with the registration form.</p>
                                 </div>
                             </div>
                             <div class="row">

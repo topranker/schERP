@@ -40,7 +40,7 @@
                             'id' => 'frmRegistration_',
                         );
                         ?>
-                        <?php echo form_open_multipart('put_/register_', $attrib_); ?>
+                        <?php echo form_open_multipart('put_/update_registration_', $attrib_); ?>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label mendatory1">Photo<span class="mendatory1">*</span></label>
                                 <div class="col-sm-8">
@@ -48,7 +48,6 @@
                                     $data = array(
                                         'type' => 'file',
                                         'autocomplete' => 'off',
-                                        'required' => 'required',
                                         'class' => 'required form-control',
                                         'name' => 'txtregPhoto',
                                         'id' => 'txtregPhoto',

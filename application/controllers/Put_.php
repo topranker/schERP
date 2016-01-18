@@ -41,6 +41,7 @@ class Put_ extends CI_Controller {
         redirect('web/');
     }
     function update_registration_(){
-        echo "updates";
+        echo "Updating Record Module under construction...<br />";
+        echo '<a href="'. site_url('web') . '">click to Cancel</a>';
     }
 }
