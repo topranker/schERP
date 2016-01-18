@@ -48,7 +48,6 @@
                                     $data = array(
                                         'type' => 'file',
                                         'autocomplete' => 'off',
-                                        'required' => 'required',
                                         'class' => 'required form-control',
                                         'name' => 'txtregPhoto',
                                         'id' => 'txtregPhoto',

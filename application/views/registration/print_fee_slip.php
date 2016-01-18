@@ -72,7 +72,7 @@
                 <?php echo $this->session->flashdata('fee_msg_'); ?>  
                 <?php for ($loop1 = 1; $loop1 <= 2; $loop1++) { ?>
                     <div class="row" id="printReg">
-                        <div class="col-xs-12"style="border: #000000 solid 1px; padding: 0px">
+                        <div class="col-xs-12" style="border: #000000 solid 1px; padding: 0px">
                             <?php if ($record_['res_'] == TRUE) { ?>
                                 <section class="panel">
                                     <header class="panel-heading" style="height: 130px; border-bottom: #000000 solid 1px">

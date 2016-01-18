@@ -14,16 +14,23 @@
 <!--sidebar end-->
 
 <!--main content start-->
-<section id="main-content">
+<section id="main-content" style="font-size:16px; text-align: left; padding: 0px 20px">
     <section class="wrapper">
         <?php echo $this->session->flashdata('fee_msg_'); ?>  
         <div class="row" id="printReg">
-            <div class="col-xs-12">
+            <div class="col-xs-12"style="border: #000000 solid 1px; padding: 0px">
                 <?php if ($record_['res_'] == TRUE) { ?>
                     <section class="panel">
                         <header class="panel-heading" style="height: 130px">
                             <div class="col-xs-8">
-                                <h1 style="color:#000; font-weight:bold;"><img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">&nbsp;&nbsp;Registration Form</h1>
+                                <div class="col-xs-2" style="padding: 10px 0px">
+                                    <img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">
+                                </div>
+                                <div class="col-xs-8" style="padding: 20px 20px; color: #000000; font-weight: bold; text-align: center;">
+                                    <h1>Registration Form</h1>
+                                </div>
+                                <div class="col-xs-2" style="padding: 10px 0px">
+                                </div>
                             </div>
                             <div class="col-xs-4" align="right" id="nonprintreg">
                                 <?php if ($fee_rec['res_'] == TRUE) { ?>
@@ -34,33 +41,52 @@
                                 <?php } ?>
                             </div>
                         </header>
-                        <div class="panel-body" style="font-size:17px;">
+                        <div class="panel-body" style="border-width: 0px; padding: 15px 15px">
+                            <div class="row">
+                                <div class="col-xs-12" style="padding: 5px 35px; text-decoration: underline; text-align: right">
+                                    Date: <?php echo $fee_rec['data_']->DOE_; ?>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12" style="padding: 5px 35px; font-weight: bold">
+                                    Personal Details
+                                </div>
+                            </div>
+
+                            <div style="clear: both"></div>
+                            <div style="float: left; height: 10px"></div>
+                            <div style="clear: both; border: #808080 solid 1px"></div>
+                            <div style="float: left; height: 10px"></div>
+                            <div style="clear: both"></div>
+                            
                             <div class="row">
                                 <div class="col-xs-8">
-                                    <div class="row">
+                                    <div class="row" style="padding:2px">
                                         <div class="col-xs-1"></div>
-                                        <div class="col-xs-4">Registration ID</div>
-                                        <div class="col-xs-7"><?php echo $record_['data_']->regid; ?></div>
-                                        <div class='row'><div class='col-xs-12'><hr></div></div>
+                                        <div class="col-xs-4"><b>Registration ID</b></div>
+                                        <div class="col-xs-7"><b><?php echo $record_['data_']->regid; ?></b></div>
+                                        <div class='row'><div class='col-xs-12'></div></div>
 
                                         <div class="col-xs-1"></div>
                                         <div class="col-xs-4">Student Name</div>
                                         <div class="col-xs-7"><?php echo $record_['data_']->FULLNAME; ?></div>
-                                        <div class='row'><div class='col-xs-12'><hr></div></div>
+                                        <div class='row'><div class='col-xs-12'></div></div>
 
                                         <div class="col-xs-1"></div>
                                         <div class="col-xs-4">Father's Name</div>
                                         <div class="col-xs-7"><?php echo $record_['data_']->FATHER; ?></div>
-                                        <div class='row'><div class='col-xs-12'><hr></div></div>
+                                        <div class='row'><div class='col-xs-12'></div></div>
 
                                         <div class="col-xs-1"></div>
                                         <div class="col-xs-4">DOB</div>
                                         <div class="col-xs-7"><?php echo $record_['data_']->DOB_; ?></div>
-                                        <div class='row'><div class='col-xs-12'><hr></div></div>
+                                        <div class='row'><div class='col-xs-12'></div></div>
 
                                         <div class="col-xs-1"></div>
                                         <div class="col-xs-4">Gender</div>
-                                        <div class="col-xs-7"><?php
+                                        <div class="col-xs-7">
+                                            <?php
                                             if ($record_['data_']->GENDER == 'M') {
                                                 echo "MALE";
                                             } else {
@@ -70,99 +96,157 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-4" align="left">
-                                    <img alt="<?php echo $record_['data_']->FULLNAME; ?>" title="<?php echo $record_['data_']->FULLNAME; ?>" src="<?PHP echo base_url('nitnav/reg_student_photo/' . $record_['data_']->PHOTO_); ?>" align="left" style="min-width: 150px; width:150px;" class="img-rounded">
+                                <div class="col-xs-3" style="text-align: right; border: #009000 dotted 0px">
+                                    <img alt="<?php echo $record_['data_']->FULLNAME; ?>" title="<?php echo $record_['data_']->FULLNAME; ?>" src="<?PHP echo base_url('nitnav/reg_student_photo/' . $record_['data_']->PHOTO_); ?>" align="right" style="min-width: 120px; width:120px;" class="img-rounded">
+                                </div>
+                                <div class="col-xs-1"></div>
+                            </div>
+
+                            <div style="clear: both"></div>
+                            <div style="float: left; height: 20px"></div>
+                            <div style="clear: both"></div>
+
+                            <div class="row">
+                                <div class="col-xs-12" style="padding: 5px 35px; font-weight: bold">
+                                    Admission Details
+                                </div>
+                            </div>
+
+                            <div style="clear: both"></div>
+                            <div style="float: left; height: 10px"></div>
+                            <div style="clear: both; border: #808080 solid 1px"></div>
+                            <div style="float: left; height: 10px"></div>
+                            <div style="clear: both"></div>
+                            
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-4">Admission is sought as</div>
+                                        <div class="col-xs-7"><?php echo $record_['data_']->ADMISSION_FOR; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-4">Class for Admission</div>
+                                        <div class="col-xs-7">Class <?php echo $record_['data_']->CLASS_FOR_ADMISSION; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-4">School Transport Required</div>
+                                        <div class="col-xs-7"><?php echo $record_['data_']->TRANSPORT_REQUIRED; ?></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="clear: both"></div>
+                            <div style="float: left; height: 20px"></div>
+                            <div style="clear: both"></div>
+
+                            <div class="row">
+                                <div class="col-xs-6" style="padding: 5px 35px; font-weight: bold">
+                                    Address &amp; Contact Detail
+                                </div>
+                                <div class="col-xs-6" style="padding: 5px 35px; font-weight: bold">
+                                    Fee Detail
+                                </div>
+                            </div>
+
+                            <div style="clear: both"></div>
+                            <div style="float: left; height: 10px"></div>
+                            <div style="clear: both; border: #808080 solid 1px"></div>
+                            <div style="float: left; height: 10px"></div>
+                            <div style="clear: both"></div>
+                            
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-11">
+                                            <?php echo $record_['data_']->ADDRESS_; ?> <br /> 
+                                            <?php echo $record_['data_']->CITY_; ?> - <?php echo $record_['data_']->PINCODE_; ?> <br />
+                                            <?php echo $record_['data_']->REG_NAME; ?><BR />
+                                            (<?php echo $record_['data_']->COUNTRY_; ?>)<BR />
+                                            Mob No. - <?php echo $record_['data_']->MOBILE_; ?><BR />
+                                            E-Mail - <?php echo $record_['data_']->EMAIL_; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php if ($fee_rec['res_'] == TRUE) { ?>
+                                <div class="col-xs-6">
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-5">Fee Category</div>
+                                        <div class="col-xs-6"><?php echo $fee_rec['data_']->feetype; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-5">Fee Mode</div>
+                                        <div class="col-xs-6"><?php echo $fee_rec['data_']->feemode; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-5">Amount</div>
+                                        <div class="col-xs-6">Rs. <?php echo $fee_rec['data_']->Amount; ?>/-</div>
+                                    </div>
+                                    <?php if($fee_rec['data_']->feemode != 'Cash'){ ?>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-5">Bank</div>
+                                        <div class="col-xs-6"><?php echo $fee_rec['data_']->bankname; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-5"><?php echo $fee_rec['data_']->feemode; ?> No</div>
+                                        <div class="col-xs-6"><?php echo $fee_rec['data_']->dd_ch_no; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-5"><?php echo $fee_rec['data_']->feemode; ?> Date</div>
+                                        <div class="col-xs-6"><?php echo $fee_rec['data_']->dd_ch_date; ?></div>
+                                    </div>
+                                    <?php } ?>
+                                </div>
+                                <?php } else { ?>
+                                <div class="col-xs-6">
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-11">No Fees Submitted</div>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                            </div>
+                                
+                            <div style="clear: both"></div>
+                            <div style="float: left; height: 30px"></div>
+                            <div style="clear: both; border: #808080 solid 1px"></div>
+                            <div style="float: left; height: 10px"></div>
+                            <div style="clear: both"></div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p><b>Declaration</b></p>
+                                    <p align="justify">I hereby certify that the information given in the registration form is complete and accurate. I understand and agree this misrepresentation or omission of facts will justify the denial of admission, the cancellation of admission or expulsion.</p>
+                                    <p>I have read and do hereby consent to the term and conditions enclosed with the registration form.</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class='row'><div class='col-xs-12'><hr></div></div>
-                                <div class="row">
-                                    <div class="col-xs-1"></div>
-                                    <div class="col-xs-2">Admission is sought as</div>
-                                    <div class="col-xs-3"><?php echo $record_['data_']->ADMISSION_FOR; ?></div>
-                                    <div class="col-xs-2">Class for Admission</div>
-                                    <div class="col-xs-3"><?php echo $record_['data_']->CLASS_FOR_ADMISSION; ?></div>
-                                </div>
-                                <div class='row'><div class='col-xs-12'><hr></div></div>
-                                <div class="row">
-                                    <div class="col-xs-1"></div>
-                                    <div class="col-xs-2">School Transport Required</div>
-                                    <div class="col-xs-3"><?php echo $record_['data_']->TRANSPORT_REQUIRED; ?></div>
-                                    <div class="col-xs-2">Address</div>
-                                    <div class="col-xs-3">
-                                        <?php echo $record_['data_']->ADDRESS_; ?> <br /> 
-                                        <?php echo $record_['data_']->CITY_; ?> - <?php echo $record_['data_']->PINCODE_; ?> <br />
-                                        <?php echo $record_['data_']->REG_NAME; ?><BR />
-                                        (<?php echo $record_['data_']->COUNTRY_; ?>)
-                                    </div>
-                                </div>
-                                <div class='row'><div class='col-xs-12'><hr></div></div>
-                                <div class="row">
-                                    <div class="col-xs-1"></div>
-                                    <div class="col-xs-2">Contact Number</div>
-                                    <div class="col-xs-3"><?php echo $record_['data_']->MOBILE_; ?></div>
-                                    <div class="col-xs-2">Email</div>
-                                    <div class="col-xs-3"><?php echo $record_['data_']->EMAIL_; ?></div>
-                                </div>
-                                <div class='row'><div class='col-xs-12'><hr></div></div>
+                                <div class="col-xs-12" style="height: 80px"></div>
                             </div>
-                            <?php if ($fee_rec['res_'] == TRUE) { ?>
-                                <div class="row">
-                                    <div class="col-xs-1"></div>
-                                    <div class="col-xs-2">Fees Category</div>
-                                    <div class="col-xs-3"><?php echo $fee_rec['data_']->feetype; ?></div>
-                                    <div class="col-xs-2">Fees Mode</div>
-                                    <div class="col-xs-4"><?php echo $fee_rec['data_']->feemode; ?></div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    Student Signature
                                 </div>
-                                <?php if($fee_rec['data_']->feemode != 'Cash'){ ?>
-                                <div class='row'><div class='col-xs-12'><hr></div></div>
-                                <div class="row">
-                                    <div class="col-xs-1"></div>
-                                    <div class="col-xs-2">Bank</div>
-                                    <div class="col-xs-3"><?php echo $fee_rec['data_']->bankname; ?></div>
-                                    <div class="col-xs-2">DD/Cheque No.</div>
-                                    <div class="col-xs-4"><?php echo $fee_rec['data_']->dd_ch_no; ?></div>
+                                <div class="col-xs-6" style="text-align: right">
+                                    Authorized Signatory
                                 </div>
-                                <div class='row'><div class='col-xs-12'><hr></div></div>
-                                <div class="row">
-                                    <div class="col-xs-1"></div>
-                                    <div class="col-xs-2">DD/Cheque Date</div>
-                                    <div class="col-xs-3"><?php echo $fee_rec['data_']->dd_ch_date; ?></div>
-                                    <div class="col-xs-2">Fees Paid</div>
-                                    <div class="col-xs-4">Rs <?php echo $fee_rec['data_']->Amount; ?></div>
-                                </div>
-                                <?php } else { ?>
-                                <div class='row'><div class='col-xs-12'><hr></div></div>
-                                <div class="row">
-                                    <div class="col-xs-1"></div>
-                                    <div class="col-xs-2">Fees Paid</div>
-                                    <div class="col-xs-3">Rs <?php echo $fee_rec['data_']->Amount; ?></div>
-                                    <div class="col-xs-4"></div>
-                                    <div class="col-xs-2"></div>
-                                </div>
-                                <?php } ?>
-                                <div class='row'><div class='col-xs-12'><hr></div></div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <b>Declaration</b>
-                                        <p align="justify">I hereby certify that the information given in the registration form is complete and accurate. I understand and agree this misrepresentation or omission of facts will justify the denial of admission, the cancellation of admission or expulsion.</p>
-                                        <p>I have read and do hereby consent to the term and conditions enclosed with the registration form.</p>
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                        Signature
-                                    </div>
-                                </div>
-
-                            <?php } else { ?>
-                                Fees Not paid Yet
-                            <?php } ?>
+                            </div>
+                            
 
                         </div>
-                    <?php } else { ?>
-                        No Data Found
-                    <?php } ?>
-
-                </section>     
+                </section>    
+                <?php } else { ?>
+                    No data found
+                <?php } ?> 
             </div><!--/.col-->
 
         </div><!--/.row-->              
