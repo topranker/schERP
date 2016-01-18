@@ -205,7 +205,7 @@
 																								<p>&nbsp;</p>
 																								<p>Signature</p>
 																								<b>Declaration</b>
-																								<p>I have read and do hereby consent to the term and conditions enclosed with the registration form</p>
+																								<p>I have read and do hereby consent to the terms and conditions enclosed with the registration form</p>
 																							</div>
 																							<div class="col-xs-1"></div>
 																						</div>

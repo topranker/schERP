@@ -182,10 +182,19 @@ class Web extends CI_Controller {
         $data['title'] = 'Modification Screen';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['country_'] = $this -> mm -> get_country();
+        $data['states_'] = $this -> mm -> get_states();
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
 
-        $this -> load -> view('templates/header', $data);
-        $this -> load -> view('registration/edit_registered_student', $data);
-        $this -> load -> view('templates/footer');
+        if($data['record_']['res_']){
+            $this -> load -> view('templates/header', $data);
+            $this -> load -> view('registration/edit_registered_student', $data);
+            $this -> load -> view('templates/footer');
+        } else {
+            $this -> session -> set_flashdata('reg_id_err_', "X: In-Correct Registration No. !!");
+            redirect('web/editReg');
+        }
 
     }
 }

@@ -51,7 +51,7 @@ class My_model extends CI_Model {
             $path_ji = $this->upload->data();
             $path_ = $path_ji['file_name'];
         } else {
-            $path_ = 'x';
+            $path_ = 'no-image.jpg';
         }
         return $path_;
     }
@@ -103,6 +103,7 @@ class My_model extends CI_Model {
             'COUNTRY_' => $this->input->post('txtCountry'),
             'MOBILE_' => $this->input->post('txtMobile'),
             'EMAIL_' => $this->input->post('txtEmail'),
+            'KNOWN_SOURCE_'=>$this->input->post('cmbSourceKnowing'),
             'DOR_' => date('d/m/Y'),
             'USERNAME_' => $this -> session -> userdata('_user___')
         );
@@ -134,7 +135,7 @@ class My_model extends CI_Model {
         $this -> db -> join ('zone_', 'register_with_us.ZONE_ = zone_.ID AND register_with_us.regid = ' . $regid__, 'inner');
         $this -> db -> join ('zone_region', 'register_with_us.STATE_ = zone_region.REGION', 'inner');
         $query = $this -> db -> get();
-        
+
         if($query -> num_rows() != 0){
             $row_ = $query -> row();
             $record_ = array('res_'=>TRUE, 'data_' => $query -> row());
@@ -215,12 +216,12 @@ class My_model extends CI_Model {
             $sender = "oMIGSo";
             
             $message = "Thank you for registering with Mother India Global School, Rudrapur. Your registration number is : " . $regid__;
-            //$url = "login.bulksmsgateway.in/sendmessage.php?user=" . urlencode($username) . "&password=" . urlencode($password) . "&mobile=" . urlencode($number) . "&sender=" . urlencode($sender) . "&message=" . urlencode($message) . "&type=" . urlencode('3');
+            $url = "login.bulksmsgateway.in/sendmessage.php?user=" . urlencode($username) . "&password=" . urlencode($password) . "&mobile=" . urlencode($number) . "&sender=" . urlencode($sender) . "&message=" . urlencode($message) . "&type=" . urlencode('3');
             
-            //$ch = curl_init($url);
-            //curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            //$curl_scraped_page = curl_exec($ch);
-            //curl_close($ch);
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $curl_scraped_page = curl_exec($ch);
+            curl_close($ch);
         }
         return $bool_;
     }

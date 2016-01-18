@@ -27,7 +27,7 @@
                             </div>
                             <div class="col-xs-4" align="right" id="nonprintreg">
                                 <?php if ($fee_rec['res_'] == TRUE) { ?>
-                                    <button class="btn btn-primary" onclick="window.print();">Print</button>
+                                    <button class="btn btn-primary" onclick="<?php echo site_url('web/printFeeSlip/'.$record_['data_']->regid); ?>">Print</button>
                                     <a class="btn btn-primary" href="<?php echo site_url('web/stuRegistration'); ?>">Next</a>
                                 <?php } else { ?>
                                     <a href="<?php echo site_url('web/feedfee_/' . $record_['data_']->regid); ?>"><button class="btn btn-danger" style="float: right"><b>Submit FEE</b></button></a>

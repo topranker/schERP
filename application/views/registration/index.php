@@ -1,3 +1,12 @@
+<style type="text/css">
+    body{
+        color: #000000;
+    }
+    input:focus, textarea:focus, select:focus, file:focus {
+        color: #0000AA;
+        background: #e9fdfe;
+    }
+</style>
 <!--sidebar start-->
 <?PHP $this->load->view('templates/menu'); ?>
 <!--sidebar end-->

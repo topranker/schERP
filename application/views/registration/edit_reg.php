@@ -21,12 +21,13 @@
                 <section class="panel">
                     <header class="panel-heading">
                         <div style="float: left">Please enter registration id for any modification</div>                        
-                        <div style="float: right; color: #ff0000; padding: 5px;"><?php echo $this -> session -> flashdata('reg_msg_'); ?></div>
+                        <div style="float: right; color: #ff0000; padding: 5px;"><?php echo $this -> session -> flashdata('reg_id_ersr_'); ?></div>
                     </header>
                     <div class="panel-body">
                         <form class="navbar-form" action="<?php echo site_url('web/edit_registration');?>" method="post">
-                            <input class="form-control" placeholder="Registration ID" type="text" name="txtReg__" id="txtReg__" />
-                            <p></p>
+                            <div style="float: left; color: #ff0000; padding: 5px;"><input class="form-control" placeholder="Registration ID" type="text" name="txtReg__" id="txtReg__" /></div>
+                            <div style="float: left; color: #ff0000; padding: 5px;"><?php echo $this -> session -> flashdata('reg_id_err_'); ?></div>
+                            <div style="clear: both"></div>
                             <input class="btn btn-primary" type="submit" value="Edit" />
                         </form>
                     </div>

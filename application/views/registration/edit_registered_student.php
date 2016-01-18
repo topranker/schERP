@@ -1,4 +1,13 @@
 <!--sidebar start-->
+<style type="text/css">
+    body{
+        color: #009000;
+    }
+    input:focus, textarea:focus, select:focus, file:focus {
+        color: #00AA00;
+        background: #f1fff4;
+    }
+</style>
 <?PHP $this->load->view('templates/menu'); ?>
 <!--sidebar end-->
 
@@ -8,11 +17,10 @@
         <!--overview start-->
         <div class="row">
             <div class="col-lg-12">
-                <?php if ($record_['res_'] == TRUE) { ?>
                 <h3 class="page-header"><i class="fa fa-laptop"></i><?php echo $title; ?></h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="<?php echo site_url('web'); ?>">Home</a></li>
-                    <li><i class="fa fa-users"></i></li><li><?php echo $breadCrumb; ?></li>
+                    <li><i class="fa fa-users"></i></li><li><?php echo $breadCrumb; ?> - [ <span style="color:#ff0000; font-weight: bold"><?php echo $record_['data_']->regid;?></span> ]</li>
                 </ol>
             </div>
         </div>
@@ -22,7 +30,7 @@
                 <section class="panel">
                     <header class="panel-heading">
                         <div style="float: left">Registration Form</div>                        
-                        <div style="float: right; color: #ff0000; padding: 5px;"><?php echo $this -> session -> flashdata('reg_msg_'); ?></div>
+                        <div style="float: right; color: #ff0000; padding: 5px;"><?php echo $this -> session -> flashdata('reg_id_err_'); ?></div>
                     </header>
                     <div class="panel-body">
                         <?php
@@ -32,7 +40,7 @@
                             'id' => 'frmRegistration_',
                         );
                         ?>
-                        <?php echo form_open_multipart('put_/update_registration_', $attrib_); ?>
+                        <?php echo form_open_multipart('put_/register_', $attrib_); ?>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label mendatory1">Photo<span class="mendatory1">*</span></label>
                                 <div class="col-sm-8">
@@ -51,6 +59,9 @@
                                     <div style="color: #ff0000; background: #ffff00" id="__reg_err_msg"></div>
                                     <p class="help-block">Note: Select image of maximum size of [ <b>70 kb</b> ]</p>
                                 </div>
+                                <div class="col-sm-2" align="left">
+                                    <img alt="<?php echo $record_['data_']->FULLNAME; ?>" title="<?php echo $record_['data_']->FULLNAME; ?>" src="<?PHP echo base_url('nitnav/reg_student_photo/' . $record_['data_']->PHOTO_); ?>" align="left" style="min-width: 150px; width:150px;" class="img-rounded">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Full Name<span class="mendatory1">*</span></label>
@@ -63,7 +74,7 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtFullName',
                                         'id' => 'txtFullName',
-                                        'value' => '<?php echo $record_['data_']->FULLNAME; ?>'
+                                        'value' => $record_['data_']->FULLNAME
                                     );
                                     echo form_input($data);
                                     ?>
@@ -80,7 +91,7 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtFthrName',
                                         'id' => 'txtFthrName',
-                                        'value' => '<?php echo $record_['data_']->FATHER; ?>'
+                                        'value' => $record_['data_']->FATHER
                                     );
                                     echo form_input($data);
                                     ?>
@@ -97,24 +108,33 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtStudDOB',
                                         'id' => 'txtStudDOB',
-                                        'value' => ''
+                                        'value' => $record_['data_']->DOB_
                                     );
                                     echo form_input($data);
                                     ?>
                                 </div>
                             </div>
+                            <?php
+                                if($record_['data_']->GENDER == 'M'){
+                                    $gen_M = ' checked = "checked"';
+                                    $gen_F = '';
+                                } else {
+                                    $gen_M = '';
+                                    $gen_F = ' checked = "checked"';
+                                }
+                            ?>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Gender<span class="mendatory1">*</span></label>
                                 <div class="col-sm-8">
                                     <div class="radio col-sm-2">
                                         <label>
-                                            <input type="radio" name="optStuGender" id="optStuMale" value="M">
+                                            <input type="radio" name="optStuGender" id="optStuMale" value="M"<?php echo $gen_M;?>>
                                             Male
                                         </label>
                                     </div>
                                     <div class="radio col-sm-2">
                                         <label>
-                                            <input type="radio" name="optStuGender" id="optStuFemale" value="F">
+                                            <input type="radio" name="optStuGender" id="optStuFemale" value="F"<?php echo $gen_F;?>>
                                             Female
                                         </label>
                                     </div>
@@ -131,12 +151,11 @@
                                         'required' => 'required'
                                     );
                                     $options = array(
-                                        '' => 'Select',
                                         'Day Boarder' => 'Day Boarder',
                                         'Team Boarder' => 'Team Boarder',
                                         'Week Boarder' => 'Week Boarder'
                                     );
-                                    echo form_dropdown($data, $options, '');
+                                    echo form_dropdown($data, $options, $record_['data_']->ADMISSION_FOR);
                                     ?>
                                 </div>
                             </div>
@@ -155,7 +174,7 @@
                                     for ($class_ = 1; $class_ <= 12; $class_++) {
                                         $options[$class_] = 'Class ' . $class_;
                                     }
-                                    echo form_dropdown($data, $options, '');
+                                    echo form_dropdown($data, $options, $record_['data_']->CLASS_FOR_ADMISSION);
                                     ?>
                                 </div>
                             </div>
@@ -174,7 +193,7 @@
                                     for ($class_ = date('Y'); $class_ <= date('Y')+5; $class_++) {
                                         $options[$class_] = $class_;
                                     }
-                                    echo form_dropdown($data, $options, '');
+                                    echo form_dropdown($data, $options, $record_['data_']->APPLIED_YEAR);
                                     ?>
                                 </div>
                             </div>
@@ -193,7 +212,7 @@
                                         'YES' => 'YES',
                                         'NO' => 'NO'
                                     );
-                                    echo form_dropdown($data, $options, '');
+                                    echo form_dropdown($data, $options, $record_['data_']->TRANSPORT_REQUIRED);
                                     ?>
                                 </div>
                             </div>
@@ -208,7 +227,7 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtLastSchoolName',
                                         'id' => 'txtLastSchoolName',
-                                        'value' => ''
+                                        'value' => $record_['data_']->LAST_SCHOOL_NAME
                                     );
                                     echo form_input($data);
                                     ?>
@@ -225,7 +244,7 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtLastSchoolGrade',
                                         'id' => 'txtLastSchoolGrade',
-                                        'value' => ''
+                                        'value' => $record_['data_']->LAST_SCHOOL_GRADE
                                     );
                                     echo form_input($data);
                                     ?>
@@ -242,7 +261,7 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtAddress',
                                         'id' => 'txtAddress',
-                                        'value' => ''
+                                        'value' => $record_['data_']->ADDRESS_
                                     );
                                     echo form_textarea($data);
                                     ?>
@@ -259,7 +278,7 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtCity',
                                         'id' => 'txtCity',
-                                        'value' => ''
+                                        'value' => $record_['data_']->CITY_
                                     );
                                     echo form_input($data);
                                     ?>
@@ -274,7 +293,7 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtPinCode',
                                         'id' => 'txtPinCode',
-                                        'value' => ''
+                                        'value' => $record_['data_']->PINCODE_
                                     );
                                     echo form_input($data);
                                     ?>
@@ -295,7 +314,7 @@
                                     foreach ($states_ as $item_) {
                                         $options[$item_->REGION] = $item_->REG_NAME;
                                     }
-                                    echo form_dropdown($data, $options, '');
+                                    echo form_dropdown($data, $options, $record_['data_']->STATE_);
                                     ?>
                                 </div>
                                 <label class="col-sm-2 control-label">Country<span class="mendatory1">*</span></label>
@@ -311,7 +330,7 @@
                                     foreach ($country_ as $item_) {
                                         $options[$item_->NAME_] = $item_->NAME_;
                                     }
-                                    echo form_dropdown($data, $options, 'India');
+                                    echo form_dropdown($data, $options, $record_['data_']->COUNTRY_);
                                     ?>
                                 </div>
                             </div>
@@ -326,7 +345,7 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtMobile',
                                         'id' => 'txtMobile',
-                                        'value' => '',
+                                        'value' => $record_['data_']->MOBILE_,
                                         'maxlength' => '10'
                                     );
                                     echo form_input($data);
@@ -346,7 +365,7 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtEmail',
                                         'id' => 'txtEmail',
-                                        'value' => ''
+                                        'value' => $record_['data_']->EMAIL_
                                     );
                                     echo form_input($data);
                                     ?>
@@ -374,24 +393,21 @@
                                         'Through Cable' => 'Through Cable',
                                         'Through Media' => 'Through Media'
                                     );
-                                    echo form_dropdown($data, $options, '');
+                                    echo form_dropdown($data, $options, $record_['data_']->KNOWN_SOURCE_);
                                     ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-4">
-                                    <button type="submit" class="btn btn-primary col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">Register Student</button>
+                                    <button type="submit" class="btn btn-primary col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">Update Student</button>
                                 </div>
                                 <div class="col-sm-4">                                    
-                                    <button type="reset" class="btn btn-danger col-sm-12">Cancel</button>
+                                    <a href="<?php echo site_url('web');?>"><button type="button" class="btn btn-danger col-sm-12">Cancel</button></a>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <?php } else { ?>
-                        No Data Found
-                    <?php } ?>
                 </section>        
             </div><!--/.col-->
         </div><!--/.row-->              

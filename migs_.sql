@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2016 at 07:28 PM
--- Server version: 5.6.11
--- PHP Version: 5.5.3
+-- Generation Time: Jan 18, 2016 at 11:26 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 7.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,13 +14,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `migs_`
 --
-CREATE DATABASE IF NOT EXISTS `migs_` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `migs_`;
 
 -- --------------------------------------------------------
 
@@ -28,16 +26,14 @@ USE `migs_`;
 -- Table structure for table `bday_data`
 --
 
-CREATE TABLE IF NOT EXISTS `bday_data` (
+CREATE TABLE `bday_data` (
   `BID` int(11) NOT NULL DEFAULT '0',
   `NAME_` varchar(100) NOT NULL,
   `DOB` varchar(25) NOT NULL,
   `PHOTO_` varchar(100) NOT NULL,
   `DOA` varchar(25) NOT NULL,
   `STATUS` int(11) NOT NULL,
-  `USERNAME_` varchar(40) NOT NULL,
-  PRIMARY KEY (`BID`),
-  KEY `USERNAME_` (`USERNAME_`)
+  `USERNAME_` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -54,7 +50,7 @@ INSERT INTO `bday_data` (`BID`, `NAME_`, `DOB`, `PHOTO_`, `DOA`, `STATUS`, `USER
 -- Table structure for table `city_`
 --
 
-CREATE TABLE IF NOT EXISTS `city_` (
+CREATE TABLE `city_` (
   `NAME_` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -63,7 +59,8 @@ CREATE TABLE IF NOT EXISTS `city_` (
 --
 
 INSERT INTO `city_` (`NAME_`) VALUES
-('HALDWANI');
+('HALDWANI'),
+('BAZPUR');
 
 -- --------------------------------------------------------
 
@@ -71,7 +68,7 @@ INSERT INTO `city_` (`NAME_`) VALUES
 -- Table structure for table `country_`
 --
 
-CREATE TABLE IF NOT EXISTS `country_` (
+CREATE TABLE `country_` (
   `ABREV_` varchar(5) NOT NULL,
   `NAME_` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -352,8 +349,8 @@ INSERT INTO `country_` (`ABREV_`, `NAME_`) VALUES
 -- Table structure for table `fee`
 --
 
-CREATE TABLE IF NOT EXISTS `fee` (
-  `feeID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `fee` (
+  `feeID` int(11) NOT NULL,
   `regID` varchar(25) NOT NULL,
   `date` varchar(20) NOT NULL,
   `Amount` int(11) NOT NULL,
@@ -363,14 +360,20 @@ CREATE TABLE IF NOT EXISTS `fee` (
   `bankname` varchar(50) NOT NULL,
   `dd_ch_no` varchar(20) NOT NULL,
   `dd_ch_date` varchar(20) NOT NULL,
-  PRIMARY KEY (`feeID`),
-  KEY `regID` (`regID`,`date`),
-  KEY `userID` (`username`),
-  KEY `username` (`username`),
-  KEY `username_2` (`username`),
-  KEY `regID_2` (`regID`),
-  KEY `feetype` (`feetype`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `DOE_` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `fee`
+--
+
+INSERT INTO `fee` (`feeID`, `regID`, `date`, `Amount`, `username`, `feetype`, `feemode`, `bankname`, `dd_ch_no`, `dd_ch_date`, `DOE_`) VALUES
+(1, '2016011001', '09/01/2016', 1000, 'operator1', 'Registration', 'Cash', 'x', 'x', 'x', '09/01/2016'),
+(2, '2016011002', '13/01/2016', 1000, 'operator1', 'Registration', 'Cash', 'x', 'x', 'x', '13/01/2016'),
+(18, '2016011004', '16/01/2016', 1000, 'operator1', 'Registration', 'Cash', 'x', 'x', 'x', '16/01/2016'),
+(21, '2016011003', '17/01/2016', 1000, 'nitin', 'Registration', 'CHEQUE', 'HDFC', '258456', '06/01/2016', '17/01/2016'),
+(22, '2016011006', '18/01/2016', 1000, 'nitin', 'Registration', 'CHEQUE', 'SBI', '258930', '12/01/2016', '18/01/2016'),
+(23, '2016011007', '18/01/2016', 1000, 'nitin', 'Registration', 'DD', 'HDFC', '587469', '18/01/2016', '18/01/2016');
 
 -- --------------------------------------------------------
 
@@ -378,12 +381,10 @@ CREATE TABLE IF NOT EXISTS `fee` (
 -- Table structure for table `login`
 --
 
-CREATE TABLE IF NOT EXISTS `login` (
+CREATE TABLE `login` (
   `USERNAME_` varchar(40) NOT NULL,
   `PASSWORD_` varchar(25) NOT NULL,
-  `USER_STATUS` varchar(5) NOT NULL,
-  PRIMARY KEY (`USERNAME_`),
-  KEY `USER_STATUS` (`USER_STATUS`)
+  `USER_STATUS` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -394,7 +395,8 @@ INSERT INTO `login` (`USERNAME_`, `PASSWORD_`, `USER_STATUS`) VALUES
 ('deepak', '123', 'nw'),
 ('gopal', '123', 'adm'),
 ('naveen', '123', 'adm'),
-('nitin', '123', 'adm');
+('nitin', '123', 'adm'),
+('operator1', 'oper$#1234', 'deo');
 
 -- --------------------------------------------------------
 
@@ -402,13 +404,12 @@ INSERT INTO `login` (`USERNAME_`, `PASSWORD_`, `USER_STATUS`) VALUES
 -- Table structure for table `menu`
 --
 
-CREATE TABLE IF NOT EXISTS `menu` (
-  `ID_` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `menu` (
+  `ID_` int(11) NOT NULL,
   `MENU` varchar(30) NOT NULL,
   `USER_STATUS` varchar(5) NOT NULL,
-  `PRIORITY_` int(11) NOT NULL,
-  PRIMARY KEY (`ID_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `PRIORITY_` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -416,7 +417,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 -- Table structure for table `newsevents`
 --
 
-CREATE TABLE IF NOT EXISTS `newsevents` (
+CREATE TABLE `newsevents` (
   `ID` int(11) NOT NULL,
   `SUBJECT` varchar(200) NOT NULL,
   `NEWS` text NOT NULL,
@@ -425,9 +426,7 @@ CREATE TABLE IF NOT EXISTS `newsevents` (
   `DATE_` varchar(25) NOT NULL,
   `TIME_` varchar(25) NOT NULL,
   `STATUS` int(11) NOT NULL DEFAULT '1',
-  `USERNAME` varchar(150) NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `STATUS` (`STATUS`)
+  `USERNAME` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -435,7 +434,8 @@ CREATE TABLE IF NOT EXISTS `newsevents` (
 --
 
 INSERT INTO `newsevents` (`ID`, `SUBJECT`, `NEWS`, `PATH_ATTACH`, `FONTJI`, `DATE_`, `TIME_`, `STATUS`, `USERNAME`) VALUES
-(1, 'Happy New Year 2016', 'Wishing you all a very happy new year 2016. May this brings happiness and prosperity all-over.', '1.jpg', 'Arial', '28/12/2015', '08:11:43pm', 0, 'nitin');
+(1, 'Happy New Year 2016', 'Wishing you all a very happy new year 2016. May this brings happiness and prosperity all-over.', '1.jpg', 'Arial', '28/12/2015', '08:11:43pm', 0, 'nitin'),
+(1004, 'Happy New Year 2016', 'Happy New Year 2016 to all. May god grace every human being on this earth', 'x', 'Arial', '16/01/2016', '08:29:57pm', 1, 'nitin');
 
 -- --------------------------------------------------------
 
@@ -443,8 +443,8 @@ INSERT INTO `newsevents` (`ID`, `SUBJECT`, `NEWS`, `PATH_ATTACH`, `FONTJI`, `DAT
 -- Table structure for table `online_enquiry`
 --
 
-CREATE TABLE IF NOT EXISTS `online_enquiry` (
-  `ENQ_ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `online_enquiry` (
+  `ENQ_ID` int(11) NOT NULL,
   `NAME_` varchar(150) NOT NULL,
   `DOB_` varchar(25) NOT NULL,
   `EMAIL_` varchar(150) NOT NULL,
@@ -459,16 +459,16 @@ CREATE TABLE IF NOT EXISTS `online_enquiry` (
   `COUNTRY_` varchar(50) NOT NULL,
   `MOBILE_PH` varchar(30) NOT NULL,
   `ENQ_IN_DETAIL` text NOT NULL,
-  `SOURCE_KNOWING_US` varchar(50) NOT NULL,
-  PRIMARY KEY (`ENQ_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `SOURCE_KNOWING_US` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `online_enquiry`
 --
 
 INSERT INTO `online_enquiry` (`ENQ_ID`, `NAME_`, `DOB_`, `EMAIL_`, `GENDER_`, `ADMISSION_SESSION`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `FATHER_GUARDIAN`, `ADDRESS_`, `CITY_`, `STATE_`, `COUNTRY_`, `MOBILE_PH`, `ENQ_IN_DETAIL`, `SOURCE_KNOWING_US`) VALUES
-(1, 'Nitin Deepak', '2015-12-21', 'nitin.d12@amrapali.ac.in', 'Male', '2017', 0, 4, 'V K Mathur', 'Mukul vihar\r\nTalli bamori', 'Haldwani', 'Uttarakhand', 'India', '09760020667', 'ok', 'Through Campus Visit');
+(1, 'Nitin Deepak', '2015-12-21', 'nitin.d12@amrapali.ac.in', 'Male', '2017', 0, 4, 'V K Mathur', 'Mukul vihar\r\nTalli bamori', 'Haldwani', 'Uttarakhand', 'India', '09760020667', 'ok', 'Through Campus Visit'),
+(2, 'Madhav Bhuddi', '2009-12-08', 'pawan.allianz@gmail.com', 'Male', '2016', 0, 1, 'Amit Bhuddi', 'Kartarpur,Gadarpur', 'Gadarpur', 'Uttarakhand', 'India', '09639041222', 'I want to know them fee structure and something more about your school. Thank you ', 'Through School Presentation');
 
 -- --------------------------------------------------------
 
@@ -476,8 +476,8 @@ INSERT INTO `online_enquiry` (`ENQ_ID`, `NAME_`, `DOB_`, `EMAIL_`, `GENDER_`, `A
 -- Table structure for table `online_registration`
 --
 
-CREATE TABLE IF NOT EXISTS `online_registration` (
-  `regid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `online_registration` (
+  `regid` int(11) NOT NULL,
   `FULLNAME` varchar(150) NOT NULL,
   `GENDER` varchar(10) NOT NULL,
   `FATHER` varchar(150) NOT NULL,
@@ -495,9 +495,8 @@ CREATE TABLE IF NOT EXISTS `online_registration` (
   `STATE_` varchar(50) NOT NULL,
   `COUNTRY_` varchar(50) NOT NULL,
   `MOBILE_` varchar(15) NOT NULL,
-  `EMAIL_` varchar(100) NOT NULL,
-  PRIMARY KEY (`regid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `EMAIL_` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `online_registration`
@@ -512,7 +511,7 @@ INSERT INTO `online_registration` (`regid`, `FULLNAME`, `GENDER`, `FATHER`, `NAT
 -- Table structure for table `register_with_us`
 --
 
-CREATE TABLE IF NOT EXISTS `register_with_us` (
+CREATE TABLE `register_with_us` (
   `regid` varchar(25) NOT NULL,
   `FULLNAME` varchar(150) NOT NULL,
   `FATHER` varchar(150) NOT NULL,
@@ -535,20 +534,23 @@ CREATE TABLE IF NOT EXISTS `register_with_us` (
   `COUNTRY_` varchar(50) NOT NULL,
   `MOBILE_` varchar(15) NOT NULL,
   `EMAIL_` varchar(100) NOT NULL,
+  `KNOWN_SOURCE_` varchar(200) NOT NULL,
   `PASSWORD_` varchar(25) NOT NULL DEFAULT '123456',
   `DOR_` varchar(25) NOT NULL,
-  `USERNAME_` varchar(40) NOT NULL,
-  PRIMARY KEY (`regid`),
-  KEY `USERNAME_` (`USERNAME_`)
+  `USERNAME_` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `register_with_us`
 --
 
-INSERT INTO `register_with_us` (`regid`, `FULLNAME`, `FATHER`, `DOB_`, `PHOTO_`, `GENDER`, `NATIONALITY`, `STUDENT_INTEREST`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `APPLIED_YEAR`, `TRANSPORT_REQUIRED`, `LAST_SCHOOL_NAME`, `LAST_SCHOOL_GRADE`, `ADDRESS_`, `CITY_`, `PINCODE_`, `ZONE_`, `STATE_`, `COUNTRY_`, `MOBILE_`, `EMAIL_`, `PASSWORD_`, `DOR_`, `USERNAME_`) VALUES
-('2016011001', 'Nitin Deepak', 'VKM', '2016-01-28', '2016011001.jpg', 'M', '-x-', '-x-', 'Team Boarder', '2', 2017, 'YES', 'Campus School', 'A', 'Mukul vihar\r\nTalli bamori', 'Haldwani', '263139', '1', 'UL', 'India', '0976002066', 'nitin.d12@amrapali.ac.in', '123456', '06/01/2016', ''),
-('2016011002', 'Nitin Deepak', 'VKM', '2016-12-31', '2016011002.jpg', 'M', '-x-', '-x-', 'Day Boarder', '1', 2016, 'YES', 'Campus School', 'A', 'Mukul vihar\r\nTalli bamori', 'Haldwani', '263139', '1', 'UL', 'India', '0976002066', 'nitin.d12@amrapali.ac.in', '123456', '06/01/2016', '');
+INSERT INTO `register_with_us` (`regid`, `FULLNAME`, `FATHER`, `DOB_`, `PHOTO_`, `GENDER`, `NATIONALITY`, `STUDENT_INTEREST`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `APPLIED_YEAR`, `TRANSPORT_REQUIRED`, `LAST_SCHOOL_NAME`, `LAST_SCHOOL_GRADE`, `ADDRESS_`, `CITY_`, `PINCODE_`, `ZONE_`, `STATE_`, `COUNTRY_`, `MOBILE_`, `EMAIL_`, `KNOWN_SOURCE_`, `PASSWORD_`, `DOR_`, `USERNAME_`) VALUES
+('2016011001', 'Tani Vij', 'Anmol Vij', '2012-09-23', 'x', 'F', '-x-', '-x-', 'Day Boarder', '1', 0, 'YES', 'Mother India Public School , Bazpur', 'Nur', 'Rampaleela Farm, NH-74, Doraha, Bazpur, U.S.Nagar, Uttarakhand ', 'Bazpur', '262401', '1', 'UL', 'India', 'x', 'vij_anmol@yahoo.com', '', '123456', '09/01/2016', 'operator1'),
+('2016011002', 'Dheeraj sharma', 'Cp sharma', '2016-11-13', 'x', 'M', '-x-', '-x-', 'Day Boarder', '5', 2016, 'YES', 'Gagahahs', 'Gsgsvsvsv', 'Zbzbsbbssbb', 'Bazpur', '262401', '1', 'UL', 'India', 'x', 'gauravvijofficial@gmail.com', '', '123456', '13/01/2016', 'operator1'),
+('2016011003', 'gaurav', 'ak vij', '2016-11-13', '2016011003.jpg', 'F', '-x-', '-x-', 'Day Boarder', '5', 2016, 'YES', 'hgfvuyhvguy', 'nur', 'bazpur', 'bazpur', '262401', '1', 'UL', 'India', 'x', 'gauravvijofficial@gmail.com', '', '123456', '14/01/2016', 'operator1'),
+('2016011004', 'Nandani Vij', 'Gaurav Vij', '2010-04-04', '2016011004.jpg', 'F', '-x-', '-x-', 'Day Boarder', '1', 2016, 'YES', 'Mother India Public School', 'UKG', 'Rampaleela Farm, NH.74 Doraha Bazpur', 'Bazpur', '262401', '1', 'UL', 'India', 'x', 'gauravvijofficial@gmail.com', '', '123456', '16/01/2016', 'operator1'),
+('2016011006', 'Nitin Deepak', 'VKM', '1978-11-13', '2016011006.jpg', 'M', '-x-', '-x-', 'Team Boarder', '6', 2016, 'YES', 'Campus School', 'Class 5', 'Devki shri kunj,\r\nHaldwani', 'Haldwani', '263139', '1', 'UL', 'India', '9760020667', 'nitin.d12@gmail.com', 'Through Internet', '123456', '18/01/2016', 'nitin'),
+('2016011007', 'Nitin Deepak', 'VKM', '2016-12-31', '2016011007.png', 'M', '-x-', '-x-', 'Day Boarder', '1', 2016, 'YES', 'Campus School', 'A', 'Devki shri kunj,\r\nHaldwani', 'Haldwani', '263139', '1', 'UL', 'India', '9760020667', 'nitin.d12@gmail.com', 'Through Internet', '123456', '18/01/2016', 'nitin');
 
 -- --------------------------------------------------------
 
@@ -556,7 +558,7 @@ INSERT INTO `register_with_us` (`regid`, `FULLNAME`, `FATHER`, `DOB_`, `PHOTO_`,
 -- Table structure for table `state_`
 --
 
-CREATE TABLE IF NOT EXISTS `state_` (
+CREATE TABLE `state_` (
   `NAME_` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -578,10 +580,9 @@ INSERT INTO `state_` (`NAME_`) VALUES
 -- Table structure for table `user_status`
 --
 
-CREATE TABLE IF NOT EXISTS `user_status` (
+CREATE TABLE `user_status` (
   `ST_ID` varchar(5) NOT NULL,
-  `STATUS` varchar(25) NOT NULL,
-  PRIMARY KEY (`ST_ID`)
+  `STATUS` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -601,10 +602,9 @@ INSERT INTO `user_status` (`ST_ID`, `STATUS`) VALUES
 -- Table structure for table `zone_`
 --
 
-CREATE TABLE IF NOT EXISTS `zone_` (
+CREATE TABLE `zone_` (
   `ID` int(11) NOT NULL,
-  `ZONE` varchar(10) NOT NULL,
-  PRIMARY KEY (`ID`)
+  `ZONE` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -625,13 +625,12 @@ INSERT INTO `zone_` (`ID`, `ZONE`) VALUES
 -- Table structure for table `zone_region`
 --
 
-CREATE TABLE IF NOT EXISTS `zone_region` (
-  `ID_` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `zone_region` (
+  `ID_` int(11) NOT NULL,
   `ZONE_` int(11) NOT NULL,
   `REGION` varchar(10) NOT NULL,
-  `REG_NAME` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID_`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
+  `REG_NAME` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `zone_region`
@@ -679,10 +678,9 @@ INSERT INTO `zone_region` (`ID_`, `ZONE_`, `REGION`, `REG_NAME`) VALUES
 -- Table structure for table `_id_`
 --
 
-CREATE TABLE IF NOT EXISTS `_id_` (
+CREATE TABLE `_id_` (
   `ID_` int(11) NOT NULL,
-  `regid_` varchar(25) NOT NULL,
-  PRIMARY KEY (`ID_`)
+  `regid_` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -690,8 +688,123 @@ CREATE TABLE IF NOT EXISTS `_id_` (
 --
 
 INSERT INTO `_id_` (`ID_`, `regid_`) VALUES
-(1004, '2016011004');
+(1007, '2016011007');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bday_data`
+--
+ALTER TABLE `bday_data`
+  ADD PRIMARY KEY (`BID`),
+  ADD KEY `USERNAME_` (`USERNAME_`);
+
+--
+-- Indexes for table `fee`
+--
+ALTER TABLE `fee`
+  ADD PRIMARY KEY (`feeID`),
+  ADD KEY `regID` (`regID`,`date`),
+  ADD KEY `userID` (`username`),
+  ADD KEY `username` (`username`),
+  ADD KEY `username_2` (`username`),
+  ADD KEY `regID_2` (`regID`),
+  ADD KEY `feetype` (`feetype`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`USERNAME_`),
+  ADD KEY `USER_STATUS` (`USER_STATUS`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`ID_`);
+
+--
+-- Indexes for table `newsevents`
+--
+ALTER TABLE `newsevents`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `STATUS` (`STATUS`);
+
+--
+-- Indexes for table `online_enquiry`
+--
+ALTER TABLE `online_enquiry`
+  ADD PRIMARY KEY (`ENQ_ID`);
+
+--
+-- Indexes for table `online_registration`
+--
+ALTER TABLE `online_registration`
+  ADD PRIMARY KEY (`regid`);
+
+--
+-- Indexes for table `register_with_us`
+--
+ALTER TABLE `register_with_us`
+  ADD PRIMARY KEY (`regid`),
+  ADD KEY `USERNAME_` (`USERNAME_`);
+
+--
+-- Indexes for table `user_status`
+--
+ALTER TABLE `user_status`
+  ADD PRIMARY KEY (`ST_ID`);
+
+--
+-- Indexes for table `zone_`
+--
+ALTER TABLE `zone_`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `zone_region`
+--
+ALTER TABLE `zone_region`
+  ADD PRIMARY KEY (`ID_`);
+
+--
+-- Indexes for table `_id_`
+--
+ALTER TABLE `_id_`
+  ADD PRIMARY KEY (`ID_`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `fee`
+--
+ALTER TABLE `fee`
+  MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `ID_` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `online_enquiry`
+--
+ALTER TABLE `online_enquiry`
+  MODIFY `ENQ_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `online_registration`
+--
+ALTER TABLE `online_registration`
+  MODIFY `regid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `zone_region`
+--
+ALTER TABLE `zone_region`
+  MODIFY `ID_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- Constraints for dumped tables
 --
