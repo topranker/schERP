@@ -8,18 +8,17 @@
                       <span>Dashboard</span>
                   </a>
                 </li>
-                <li>
-                  <a class="" href="<?PHP echo site_url('web/stuRegistration');?>">
-                      <i class="fa fa-male"></i>
-                      <span>Registration</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="" href="<?PHP echo site_url('web/editReg');?>">
-                      <i class="fa fa-male"></i>
-                      <span>Edit Registration</span>
-                  </a>
-                </li>
+                <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="fa fa-users"></i>
+                          <span>Registration</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="<?PHP echo site_url('web/stuRegistration');?>"><i class="fa fa-child"></i> New Registration</a></li>                          
+                          <li><a class="" href="<?PHP echo site_url('web/editReg');?>"><i class="fa fa-pencil-square-o"></i> Edit Registration</a></li>
+                      </ul>
+                    </li> 
               </ul>
               <!-- sidebar menu end-->
           </div>
