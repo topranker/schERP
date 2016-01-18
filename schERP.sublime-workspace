@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"edit",
+				"edit_reg"
+			],
+			[
+				"gen",
+				"gen_M"
+			],
+			[
+				"regi",
+				"regid__"
+			],
+			[
 				"reg",
 				"reg_id__"
 			]
@@ -12,34 +24,34 @@
 	"buffers":
 	[
 		{
-			"file": "application/views/registration/feeSlip.php",
-			"settings":
-			{
-				"buffer_size": 7188,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/registration/print_fee_slip.php",
-			"settings":
-			{
-				"buffer_size": 13405,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "application/controllers/Web.php",
 			"settings":
 			{
-				"buffer_size": 6602,
+				"buffer_size": 7078,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "application/views/templates/header.php",
+			"file": "application/views/registration/edit_reg.php",
 			"settings":
 			{
-				"buffer_size": 4979,
+				"buffer_size": 2072,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/registration/edit_registered_student.php",
+			"settings":
+			{
+				"buffer_size": 24867,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/config/database.php",
+			"settings":
+			{
+				"buffer_size": 4530,
 				"line_ending": "Windows"
 			}
 		},
@@ -47,15 +59,31 @@
 			"file": "application/models/My_model.php",
 			"settings":
 			{
-				"buffer_size": 8379,
+				"buffer_size": 8441,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "application/views/registration/ff.php",
+			"file": "application/views/registration/index.php",
 			"settings":
 			{
-				"buffer_size": 14144,
+				"buffer_size": 23426,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/registration/regSlip.php",
+			"settings":
+			{
+				"buffer_size": 11077,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/registration/feeSlip.php",
+			"settings":
+			{
+				"buffer_size": 7172,
 				"line_ending": "Windows"
 			}
 		}
@@ -84,19 +112,22 @@
 	},
 	"file_history":
 	[
-		"/D/xampp/htdocs/schERP/application/models/My_model.php",
-		"/D/xampp/htdocs/schERP/nitnav/css/style.css",
 		"/D/xampp/htdocs/schERP/application/views/registration/index.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/ff.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/print_fee_slip.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
+		"/D/xampp/htdocs/schERP/system/core/Exceptions.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/feeSlip.php",
 		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
+		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
+		"/D/xampp/htdocs/schERP/application/models/My_model.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/ff.php",
+		"/D/xampp/htdocs/schERP/nitnav/css/style.css",
 		"/D/xampp/htdocs/schERP/application/views/home.php",
 		"/D/xampp/htdocs/schERP/application/views/templates/menu.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/edit_registered_student.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/view_registered_student.php",
-		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
 		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/edit_reg.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
 		"/D/xampp/htdocs/schERP/application/config/database.php",
 		"/D/xampp/htdocs/schERP/application/config/config.php",
 		"/D/xampp/htdocs/migs/_app_/config/database.php",
@@ -105,7 +136,7 @@
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -119,6 +150,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"do_upload_reg_photo",
+			"if"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -136,23 +169,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "application/views/registration/feeSlip.php",
+					"file": "application/controllers/Web.php",
 					"settings":
 					{
-						"buffer_size": 7188,
+						"buffer_size": 7078,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7053,
-								7053
+								3881,
+								3888
 							]
 						],
 						"settings":
@@ -162,81 +195,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1474.0,
+						"translation.y": 1247.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "application/views/registration/print_fee_slip.php",
+					"file": "application/views/registration/edit_reg.php",
 					"settings":
 					{
-						"buffer_size": 13405,
+						"buffer_size": 2072,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3142,
-								3142
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 653.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "application/controllers/Web.php",
-					"settings":
-					{
-						"buffer_size": 6602,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4046,
-								4058
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1642.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "application/views/templates/header.php",
-					"settings":
-					{
-						"buffer_size": 4979,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3173,
-								3173
+								1723,
+								1723
 							]
 						],
 						"settings":
@@ -247,6 +224,61 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/views/registration/edit_registered_student.php",
+					"settings":
+					{
+						"buffer_size": 24867,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								212,
+								21
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/config/database.php",
+					"settings":
+					{
+						"buffer_size": 4530,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4199,
+								4199
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 915.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -256,15 +288,15 @@
 					"file": "application/models/My_model.php",
 					"settings":
 					{
-						"buffer_size": 8379,
+						"buffer_size": 8441,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4533,
-								4549
+								8246,
+								8246
 							]
 						],
 						"settings":
@@ -274,33 +306,91 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1667.0,
+						"translation.y": 2937.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "application/views/registration/ff.php",
+					"file": "application/views/registration/index.php",
 					"settings":
 					{
-						"buffer_size": 14144,
+						"buffer_size": 23426,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								56,
+								56
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/views/registration/regSlip.php",
+					"settings":
+					{
+						"buffer_size": 11077,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1359,
+								1359
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 3.0,
+						"translation.y": 35.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/views/registration/feeSlip.php",
+					"settings":
+					{
+						"buffer_size": 7172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1354,
+								1354
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 89.0,
+						"translation.y": 164.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
