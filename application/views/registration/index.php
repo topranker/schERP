@@ -159,10 +159,14 @@
                                     );
                                     $options = array();
                                     $options[''] = 'Select Class';
+                                    $options['None'] = 'None';
+                                    $options['Nursery'] = 'Class ' . 'Nursery';
+                                    $options['L-KG'] = 'Class ' . 'L-KG';
+                                    $options['U-KG'] = 'Class ' . 'U-KG';
                                     for ($class_ = 1; $class_ <= 12; $class_++) {
                                         $options[$class_] = 'Class ' . $class_;
                                     }
-                                    echo form_dropdown($data, $options, '');
+                                    echo form_dropdown($data, $options, 'None');
                                     ?>
                                 </div>
                             </div>
@@ -222,19 +226,25 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Last School Grade<span class="mendatory1">*</span></label>
+                                <label class="col-sm-2 control-label">Last School Standard<span class="mendatory1">*</span></label>
                                 <div class="col-sm-8">
                                     <?php
                                     $data = array(
-                                        'type' => 'text',
-                                        'autocomplete' => 'off',
                                         'required' => 'required',
                                         'class' => 'required form-control',
                                         'name' => 'txtLastSchoolGrade',
                                         'id' => 'txtLastSchoolGrade',
-                                        'value' => ''
                                     );
-                                    echo form_input($data);
+                                    $options = array();
+                                    $options[''] = 'Select Class';
+                                    $options['None'] = 'None';
+                                    $options['Nursery'] = 'Class ' . 'Nursery';
+                                    $options['L-KG'] = 'Class ' . 'L-KG';
+                                    $options['U-KG'] = 'Class ' . 'U-KG';
+                                    for ($class_ = 1; $class_ <= 12; $class_++) {
+                                        $options[$class_] = 'Class ' . $class_;
+                                    }
+                                    echo form_dropdown($data, $options, 'None');
                                     ?>
                                 </div>
                             </div>

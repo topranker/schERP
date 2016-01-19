@@ -78,7 +78,7 @@
                                     <header class="panel-heading" style="height: 130px; border-bottom: #000000 solid 1px">
                                         <div class="col-xs-12">
                                             <div class="col-xs-3" style="color:#000000; padding: 10px 0px">
-                                                <img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">
+                                                <img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px; width: 105px" align="center">
                                             </div>
                                             <div class="col-xs-6" style="text-align: center; border: #009000 solid 0px; color: #000000; padding: 20px 0px">
                                                 <span style="font-size: 50px">Fee Receipt</span>
@@ -201,9 +201,23 @@
                                                 </div>
                                                 <div class='row'><div class='col-xs-12'><hr></div></div>
                                                 <div class="row">
-                                                    <div class="col-xs-11" style="text-align: right">
-                                                        <p>&nbsp;</p>
-                                                        <p>Signature</p>
+                                                    <div class="col-xs-12" style="height: 40px"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-1"></div>
+                                                    <div class="col-xs-5">
+                                                        Authorized Signature
+                                                    </div>
+                                                    <div class="col-xs-5" style="text-align: right">
+                                                        Student Signatory
+                                                    </div>
+                                                    <div class="col-xs-1"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12" style="height: 5px"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-11" style="text-align: right; font-size: 11px; font-family: Arial">
                                                         <b>Declaration</b>
                                                         <p>I have read and do hereby consent to the terms and conditions enclosed with the registration form</p>
                                                     </div>

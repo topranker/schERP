@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-3" style="text-align: right; border: #009000 dotted 0px">
-                                    <img alt="<?php echo $record_['data_']->FULLNAME; ?>" title="<?php echo $record_['data_']->FULLNAME; ?>" src="<?PHP echo base_url('nitnav/reg_student_photo/' . $record_['data_']->PHOTO_); ?>" align="right" style="min-width: 120px; width:120px;" class="img-rounded">
+                                    <img alt="<?php echo $record_['data_']->FULLNAME; ?>" title="<?php echo $record_['data_']->FULLNAME; ?>" src="<?PHP echo base_url('nitnav/reg_student_photo/' . $record_['data_']->PHOTO_); ?>" align="right" style="min-width: 120px; width:120px; height: 130px; border: #000000 solid 1px" class="img-rounded">
                                 </div>
                                 <div class="col-xs-1"></div>
                             </div>
@@ -141,6 +141,43 @@
                                 </div>
                             </div>
 
+                            <div style="clear: both"></div>
+                            <div style="float: left; height: 20px"></div>
+                            <div style="clear: both"></div>
+
+                            <div class="row">
+                                <div class="col-xs-12" style="padding: 5px 35px; font-weight: bold">
+                                    Other details
+
+                                </div>
+                            </div>
+
+                            <div style="clear: both"></div>
+                            <div style="float: left; height: 5px"></div>
+                            <div style="clear: both; border: #808080 solid 1px"></div>
+                            <div style="float: left; height: 10px"></div>
+                            <div style="clear: both"></div>
+                            
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-4">Previous School</div>
+                                        <div class="col-xs-7"><?php echo $record_['data_']->LAST_SCHOOL_NAME; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-4">Previous Standard</div>
+                                        <div class="col-xs-7"><?php echo $record_['data_']->LAST_SCHOOL_GRADE; ?></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-4">Source to know MIGS</div>
+                                        <div class="col-xs-7"><?php echo $record_['data_']->KNOWN_SOURCE_; ?></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div style="clear: both"></div>
                             <div style="float: left; height: 30px"></div>
                             <div style="clear: both"></div>

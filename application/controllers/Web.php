@@ -14,7 +14,11 @@ class Web extends CI_Controller {
         $data['breadCrumb'] = 'DashBoard';
         $data['title'] = 'DashBoard';
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['count_register'] = $this -> mm -> count_registrations();
+        $data['count_register'] = $this -> mm -> count_registrations(date('Y'));
+        $data['count_reg_fee'] = $this -> mm -> count_fees('Registration', date('Y'));
+        $data['city_cnt'] = $this -> mm -> seek_registered_cities(date('Y'));
+        $data['state_cnt'] = $this -> mm -> seek_registered_states(date('Y'));
+        $data['count_online_enquiry'] = $this -> mm -> seek_online_enquiries(date('Y'));
         
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('home', $data);
@@ -172,8 +176,10 @@ class Web extends CI_Controller {
         $this -> load -> view('templates/footer');
     }
 
-    function edit_registration(){
-        $reg_id__ = $this -> input -> post('txtReg__');
+    function edit_registration($reg_id__ = ''){
+        if($reg_id__ == ''){
+            $reg_id__ = $this -> input -> post('txtReg__');
+        }
 
         $this -> load -> model('my_model', 'mm');
         $this -> check_login();
@@ -195,6 +201,7 @@ class Web extends CI_Controller {
             $this -> session -> set_flashdata('reg_id_err_', "X: In-Correct Registration No. !!");
             redirect('web/editReg');
         }
-
     }
+
+    
 }

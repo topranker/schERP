@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"fee",
+				"feetype_"
+			],
+			[
+				"fa-",
+				"fa-laptop"
+			],
+			[
 				"edit",
 				"edit_reg"
 			],
@@ -48,14 +56,15 @@
 	},
 	"file_history":
 	[
-		"/D/xampp/htdocs/schERP/application/views/registration/edit_registered_student.php",
+		"/D/xampp/htdocs/schERP/application/views/home.php",
+		"/D/xampp/htdocs/schERP/application/models/My_model.php",
 		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
+		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/view_registered_student.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
-		"/D/xampp/htdocs/schERP/application/models/My_model.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/print_fee_slip.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/edit_registered_student.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/index.php",
-		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/print_fee_slip.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/edit_reg.php",
 		"/D/xampp/htdocs/schERP/application/config/database.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/feeSlip.php",
@@ -63,7 +72,6 @@
 		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/ff.php",
 		"/D/xampp/htdocs/schERP/nitnav/css/style.css",
-		"/D/xampp/htdocs/schERP/application/views/home.php",
 		"/D/xampp/htdocs/schERP/application/views/templates/menu.php",
 		"/D/xampp/htdocs/schERP/application/config/config.php",
 		"/D/xampp/htdocs/migs/_app_/config/database.php",
@@ -156,16 +164,20 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/D/xampp/htdocs/migs/migs.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 162.0,
+	"side_bar_width": 283.0,
 	"status_bar_visible": true
 }

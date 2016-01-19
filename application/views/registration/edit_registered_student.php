@@ -30,7 +30,7 @@
                 <section class="panel">
                     <header class="panel-heading">
                         <div style="float: left">Registration Form</div>                        
-                        <div style="float: right; color: #ff0000; padding: 5px;"><?php echo $this -> session -> flashdata('reg_id_err_'); ?></div>
+                        <div style="float: right; color: #ff0000;"><?php echo $this -> session -> flashdata('update_reg_msg_'); ?></div>
                     </header>
                     <div class="panel-body">
                         <?php
@@ -40,7 +40,7 @@
                             'id' => 'frmRegistration_',
                         );
                         ?>
-                        <?php echo form_open_multipart('put_/update_registration_', $attrib_); ?>
+                        <?php echo form_open_multipart('put_/update_registration_/'.$record_['data_']->regid, $attrib_); ?>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label mendatory1">Photo<span class="mendatory1">*</span></label>
                                 <div class="col-sm-8">
@@ -59,7 +59,7 @@
                                     <p class="help-block">Note: Select image of maximum size of [ <b>70 kb</b> ]</p>
                                 </div>
                                 <div class="col-sm-2" align="left">
-                                    <img alt="<?php echo $record_['data_']->FULLNAME; ?>" title="<?php echo $record_['data_']->FULLNAME; ?>" src="<?PHP echo base_url('nitnav/reg_student_photo/' . $record_['data_']->PHOTO_); ?>" align="left" style="min-width: 150px; width:150px;" class="img-rounded">
+                                    <img alt="<?php echo $record_['data_']->FULLNAME; ?>" title="<?php echo $record_['data_']->FULLNAME; ?>" src="<?PHP echo base_url('nitnav/reg_student_photo/' . $record_['data_']->PHOTO_); ?>" align="left" style="min-width: 120px; width:120px; height: 130px; border: #000000 solid 1px" class="img-rounded">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -170,6 +170,10 @@
                                     );
                                     $options = array();
                                     $options[''] = 'Select Class';
+                                    $options['None'] = 'None';
+                                    $options['Nursery'] = 'Class ' . 'Nursery';
+                                    $options['L-KG'] = 'Class ' . 'L-KG';
+                                    $options['U-KG'] = 'Class ' . 'U-KG';
                                     for ($class_ = 1; $class_ <= 12; $class_++) {
                                         $options[$class_] = 'Class ' . $class_;
                                     }
@@ -233,7 +237,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Last School Grade<span class="mendatory1">*</span></label>
+                                <label class="col-sm-2 control-label">Last School Standard<span class="mendatory1">*</span></label>
                                 <div class="col-sm-8">
                                     <?php
                                     $data = array(
@@ -243,9 +247,17 @@
                                         'class' => 'required form-control',
                                         'name' => 'txtLastSchoolGrade',
                                         'id' => 'txtLastSchoolGrade',
-                                        'value' => $record_['data_']->LAST_SCHOOL_GRADE
                                     );
-                                    echo form_input($data);
+                                    $options = array();
+                                    $options[''] = 'Select Class';
+                                    $options['None'] = 'None';
+                                    $options['Nursery'] = 'Class ' . 'Nursery';
+                                    $options['L-KG'] = 'Class ' . 'L-KG';
+                                    $options['U-KG'] = 'Class ' . 'U-KG';
+                                    for ($class_ = 1; $class_ <= 12; $class_++) {
+                                        $options[$class_] = 'Class ' . $class_;
+                                    }
+                                    echo form_dropdown($data, $options, $record_['data_']->LAST_SCHOOL_GRADE);
                                     ?>
                                 </div>
                             </div>

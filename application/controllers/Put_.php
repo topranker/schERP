@@ -40,8 +40,16 @@ class Put_ extends CI_Controller {
 
         redirect('web/');
     }
-    function update_registration_(){
-        echo "Updating Record Module under construction...<br />";
-        echo '<a href="'. site_url('web') . '">click to Cancel</a>';
+    function update_registration_($regid__){
+        $this -> load -> model ('my_model', 'mm');
+
+        $res_ = $this -> mm -> update_registration($regid__);
+
+        if($res_['res_'] == TRUE){
+            $this -> session -> set_flashdata('update_reg_msg_', 'Successfully Updated for the Registration No. is [<b style="color: #0000ff; font-size: 15px"> '. $regid__ . ' </b>]');
+        } else {
+            $this -> session -> set_flashdata('update_reg_msg_', '<b>X</b>: Something goes wrong. Please try again !!! ');
+        }
+        redirect('web/edit_registration/'.$regid__);
     }
 }
