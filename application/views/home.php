@@ -53,7 +53,7 @@
                             <div class="info-box red-bg">
                                     <i class="fa fa-users"></i>
                                     <div class="count"><?php echo $count_online_enquiry; ?></div>
-                                    <div class="title">Online Enquiry</div>           
+                                    <div class="title">Online Registration</div>           
                             </div><!--/.info-box-->     
                     </div><!--/.col-->
 

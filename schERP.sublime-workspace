@@ -31,6 +31,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "application/views/registration/index.php",
+			"settings":
+			{
+				"buffer_size": 24053,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/registration/edit_registered_student.php",
+			"settings":
+			{
+				"buffer_size": 25677,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/home.php",
+			"settings":
+			{
+				"buffer_size": 3532,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -113,8 +137,93 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "application/views/registration/index.php",
+					"settings":
+					{
+						"buffer_size": 24053,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13900,
+								13900
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3242.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/views/registration/edit_registered_student.php",
+					"settings":
+					{
+						"buffer_size": 25677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15259,
+								15259
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2156.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/views/home.php",
+					"settings":
+					{
+						"buffer_size": 3532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3531,
+								3531
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 568.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

@@ -170,7 +170,6 @@
                                     );
                                     $options = array();
                                     $options[''] = 'Select Class';
-                                    $options['None'] = 'None';
                                     $options['Nursery'] = 'Class ' . 'Nursery';
                                     $options['L-KG'] = 'Class ' . 'L-KG';
                                     $options['U-KG'] = 'Class ' . 'U-KG';
@@ -254,7 +253,7 @@
                                     $options['Nursery'] = 'Class ' . 'Nursery';
                                     $options['L-KG'] = 'Class ' . 'L-KG';
                                     $options['U-KG'] = 'Class ' . 'U-KG';
-                                    for ($class_ = 1; $class_ <= 12; $class_++) {
+                                    for ($class_ = 1; $class_ <= 11; $class_++) {
                                         $options[$class_] = 'Class ' . $class_;
                                     }
                                     echo form_dropdown($data, $options, $record_['data_']->LAST_SCHOOL_GRADE);
