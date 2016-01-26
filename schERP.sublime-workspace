@@ -31,30 +31,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "application/views/registration/index.php",
-			"settings":
-			{
-				"buffer_size": 24053,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/registration/edit_registered_student.php",
-			"settings":
-			{
-				"buffer_size": 25677,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/home.php",
-			"settings":
-			{
-				"buffer_size": 3532,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -80,24 +56,25 @@
 	},
 	"file_history":
 	[
-		"/D/xampp/htdocs/schERP/application/views/home.php",
 		"/D/xampp/htdocs/schERP/application/models/My_model.php",
-		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
 		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/view_registered_student.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/edit_registered_student.php",
+		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
+		"/D/xampp/htdocs/schERP/application/index.html",
 		"/D/xampp/htdocs/schERP/application/views/registration/index.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/edit_registered_student.php",
+		"/D/xampp/htdocs/schERP/application/views/home.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/feeSlip.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/print_fee_slip.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/view_registered_student.php",
+		"/D/xampp/htdocs/schERP/application/config/config.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/edit_reg.php",
 		"/D/xampp/htdocs/schERP/application/config/database.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/feeSlip.php",
 		"/D/xampp/htdocs/schERP/system/core/Exceptions.php",
 		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/ff.php",
 		"/D/xampp/htdocs/schERP/nitnav/css/style.css",
 		"/D/xampp/htdocs/schERP/application/views/templates/menu.php",
-		"/D/xampp/htdocs/schERP/application/config/config.php",
 		"/D/xampp/htdocs/migs/_app_/config/database.php",
 		"/C/Users/nitin/Desktop/amrapal4_amrapal.sql",
 		"/C/Users/nitin/Desktop/motherin_migs.sql"
@@ -137,93 +114,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "application/views/registration/index.php",
-					"settings":
-					{
-						"buffer_size": 24053,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13900,
-								13900
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3242.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "application/views/registration/edit_registered_student.php",
-					"settings":
-					{
-						"buffer_size": 25677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15259,
-								15259
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2156.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "application/views/home.php",
-					"settings":
-					{
-						"buffer_size": 3532,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3531,
-								3531
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 568.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

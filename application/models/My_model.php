@@ -17,6 +17,7 @@ class My_model extends CI_Model {
             $row_ = $query -> row();
             $this -> session -> set_userdata('_user___', $row_ -> USERNAME_);
             $this -> session -> set_userdata('_user_status___', $row_ -> USER_STATUS);
+            $this -> session -> set_userdata('_current_year___', date('Y'));
             $flag_ = TRUE;
         } else {
             $flag_ = FALSE;
@@ -103,8 +104,8 @@ class My_model extends CI_Model {
             'COUNTRY_' => $this->input->post('txtCountry'),
             'MOBILE_' => $this->input->post('txtMobile'),
             'EMAIL_' => $this->input->post('txtEmail'),
+            'DOR_' => date('Y-m-d H:i:s'),
             'KNOWN_SOURCE_'=>$this->input->post('cmbSourceKnowing'),
-            'DOR_' => date('d/m/Y'),
             'USERNAME_' => $this -> session -> userdata('_user___')
         );
 
@@ -163,8 +164,8 @@ class My_model extends CI_Model {
                 'COUNTRY_' => $this->input->post('txtCountry'),
                 'MOBILE_' => $this->input->post('txtMobile'),
                 'EMAIL_' => $this->input->post('txtEmail'),
+                'DOR_' => date('Y-m-d H:i:s'),
                 'KNOWN_SOURCE_'=>$this->input->post('cmbSourceKnowing'),
-                'DOR_' => date('d/m/Y'),
                 'USERNAME_' => $this -> session -> userdata('_user___')
             );
         } else {
@@ -189,8 +190,8 @@ class My_model extends CI_Model {
                 'COUNTRY_' => $this->input->post('txtCountry'),
                 'MOBILE_' => $this->input->post('txtMobile'),
                 'EMAIL_' => $this->input->post('txtEmail'),
+                'DOR_' => date('Y-m-d H:i:s'),
                 'KNOWN_SOURCE_'=>$this->input->post('cmbSourceKnowing'),
-                'DOR_' => date('d/m/Y'),
                 'USERNAME_' => $this -> session -> userdata('_user___')
             );
         }
@@ -207,13 +208,14 @@ class My_model extends CI_Model {
 
         return $bool_;
     }
-    function get_registration_details($regid__){
+    function get_registration_details($regid__, $year__){
         $this -> db -> select ('register_with_us.*, zone_.ZONE, zone_region.REG_NAME');
         $this -> db -> from ('register_with_us');
-        $this -> db -> join ('zone_', 'register_with_us.ZONE_ = zone_.ID AND register_with_us.regid = ' . $regid__, 'inner');
+        $this -> db -> join ('zone_', 'register_with_us.ZONE_ = zone_.ID AND register_with_us.regid = ' . $regid__ , 'inner');
         $this -> db -> join ('zone_region', 'register_with_us.STATE_ = zone_region.REGION', 'inner');
+        $this->db->where('YEAR(DOR_)', $year__);
         $query = $this -> db -> get();
-
+        
         if($query -> num_rows() != 0){
             $row_ = $query -> row();
             $record_ = array('res_'=>TRUE, 'data_' => $query -> row());
@@ -224,9 +226,10 @@ class My_model extends CI_Model {
         return $record_;
     }
 
-    function get_fees_status($regid__){
+    function get_fees_status($regid__,$year__){
         $this -> db -> where ('regID', $regid__);
         $this -> db -> where ('feetype', 'Registration');
+        $this->db->where('YEAR(DOE_)', $year__);
         $query = $this -> db -> get('fee');
 
         if($query -> num_rows() != 0) {
@@ -284,7 +287,7 @@ class My_model extends CI_Model {
             'bankname'  => $this -> input -> post('txtBank'),
             'dd_ch_no'      => $this -> input -> post('txtDDChequeNo'),
             'dd_ch_date'      => $this -> input -> post('txtDate'),
-            'DOE_'  => date('d/m/Y')
+            'DOE_'  => date('Y-m-d H:i:s')
         );
         $bool_ = $this -> db -> insert('fee', $data);
         if($bool_ == TRUE && $this -> session -> userdata('_user___')){
@@ -305,6 +308,7 @@ class My_model extends CI_Model {
     }
 
     function count_registrations($year_){
+        $this->db->where('YEAR(DOR_)', $year_);
         $query = $this -> db -> get('register_with_us');
 
         return $query -> num_rows();
@@ -316,7 +320,7 @@ class My_model extends CI_Model {
         if($query->num_rows() != 0){
             $this->db->select('SUM(Amount) as amt');
             if($feetype_ != 'all') $this -> db -> where ('feetype', $feetype_);
-            //$this -> db -> where ("YEAR(DATE_FORMAT(STR_TO_DATE('DOE_', '%d/%m/%Y'), '%Y-%m-%d'))", $year_);
+            $this -> db -> where ("YEAR(DOE_)", $year_);
             $query = $this -> db -> get('fee');
             if($query -> num_rows() != 0){
                 $row = $query -> row();
@@ -333,6 +337,7 @@ class My_model extends CI_Model {
         $query = $this -> db -> get('city_');
         if($query -> num_rows() != 0){
             $this -> db -> select('count(distinct(CITY_)) as cnt_city');
+            $this -> db -> where('YEAR(DOR_)', $year_);
             $query = $this->db->get('register_with_us');
             if($query -> num_rows() != 0){
                 $rows = $query -> row();
@@ -350,6 +355,7 @@ class My_model extends CI_Model {
         $query = $this -> db -> get('state_');
         if($query -> num_rows() != 0){
             $this -> db -> select('count(distinct(STATE_)) as cnt_state');
+            $this -> db -> where('YEAR(DOR_)', $year_);
             $query = $this->db->get('register_with_us');
             if($query -> num_rows() != 0){
                 $rows = $query -> row();
@@ -364,7 +370,7 @@ class My_model extends CI_Model {
     }
 
     function seek_online_enquiries($year_){
-        //$this -> db -> select(count(regid) as $cnt);
+        $this -> db -> where('YEAR(DOR_)', $year_);
         $query = $this -> db -> get('online_registration');
 
         return $query -> num_rows();

@@ -52,7 +52,7 @@
                         <div class="panel-body" style="border-width: 0px; padding: 15px 15px">
                             <div class="row">
                                 <div class="col-xs-12" style="padding: 5px 35px; text-decoration: underline; text-align: right">
-                                    Date: <?php echo $record_['data_']->DOR_; ?>
+                                    Date: <?php echo date('d-m-Y',strtotime($record_['data_']->DOR_)); ?>
                                 </div>
                             </div>
 

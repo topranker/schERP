@@ -14,11 +14,11 @@ class Web extends CI_Controller {
         $data['breadCrumb'] = 'DashBoard';
         $data['title'] = 'DashBoard';
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['count_register'] = $this -> mm -> count_registrations(date('Y'));
-        $data['count_reg_fee'] = $this -> mm -> count_fees('Registration', date('Y'));
-        $data['city_cnt'] = $this -> mm -> seek_registered_cities(date('Y'));
-        $data['state_cnt'] = $this -> mm -> seek_registered_states(date('Y'));
-        $data['count_online_enquiry'] = $this -> mm -> seek_online_enquiries(date('Y'));
+        $data['count_register'] = $this -> mm -> count_registrations($this -> session -> userdata('_current_year___'));
+        $data['count_reg_fee'] = $this -> mm -> count_fees('Registration', $this -> session -> userdata('_current_year___'));
+        $data['city_cnt'] = $this -> mm -> seek_registered_cities($this -> session -> userdata('_current_year___'));
+        $data['state_cnt'] = $this -> mm -> seek_registered_states($this -> session -> userdata('_current_year___'));
+        $data['count_online_enquiry'] = $this -> mm -> seek_online_enquiries($this -> session -> userdata('_current_year___'));
         
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('home', $data);
@@ -66,7 +66,7 @@ class Web extends CI_Controller {
         $data['title'] = 'Student Registration Slip for Print';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
         $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
 
 
@@ -87,7 +87,7 @@ class Web extends CI_Controller {
         $data['title'] = 'Student Registration Fee Form';  
 
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
         $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
 
         if($data['last_reg_'] != 0) {
@@ -107,7 +107,7 @@ class Web extends CI_Controller {
         $data['title'] = 'Student Fee Slip for Print';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
         $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
 
         if($data['fee_rec']['res_'] == TRUE) {
@@ -127,7 +127,7 @@ class Web extends CI_Controller {
         $data['title'] = 'Student Fee Slip for Print';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
         $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
 
         if($data['fee_rec']['res_'] == TRUE) {
@@ -149,7 +149,7 @@ class Web extends CI_Controller {
         $data['title'] = 'Student Registration Slip for Print';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
         $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
 
 
@@ -188,10 +188,10 @@ class Web extends CI_Controller {
         $data['title'] = 'Modification Screen';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['record_'] = $this -> mm -> get_registration_details($reg_id__);
+        $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
         $data['country_'] = $this -> mm -> get_country();
         $data['states_'] = $this -> mm -> get_states();
-        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__, $this -> session -> userdata('_current_year___'));
 
         if($data['record_']['res_']){
             $this -> load -> view('templates/header', $data);

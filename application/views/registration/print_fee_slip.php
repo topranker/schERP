@@ -85,7 +85,7 @@
                                                 <br />
                                                 (Mother India Global School, Rudrapur)
                                             </div>
-                                            <div class="col-xs-3" style="text-align: right; padding: 50px 0px 0px 0px; color: #000000; font-family: Arial;"><u>Date: <?php echo $fee_rec['data_']->DOE_; ?></u></div>
+                                            <div class="col-xs-3" style="text-align: right; padding: 50px 0px 0px 0px; color: #000000; font-family: Arial;"><u>Date: <?php echo date('d-m-Y',strtotime($fee_rec['data_']->DOE_)); ?></u></div>
                                         </div>
                                     </header>
                                     <div class="panel-body" style="border-width: 0px; padding: 15px 0px">
