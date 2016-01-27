@@ -56,13 +56,13 @@
 	},
 	"file_history":
 	[
-		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
 		"/D/xampp/htdocs/schERP/application/models/My_model.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/view_registered_student.php",
+		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/totalRegistration.php",
 		"/D/xampp/htdocs/schERP/application/views/templates/header.php",
 		"/D/xampp/htdocs/schERP/application/views/home.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/view_registered_student.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/edit_registered_student.php",
 		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
 		"/D/xampp/htdocs/schERP/application/index.html",

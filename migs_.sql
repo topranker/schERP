@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2016 at 05:20 PM
+-- Generation Time: Jan 27, 2016 at 07:36 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.1
 
@@ -27,11 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bday_data` (
-  `BID` int(11) NOT NULL DEFAULT '0',
+  `BID` int(11) NOT NULL,
   `NAME_` varchar(100) NOT NULL,
   `DOB` varchar(25) NOT NULL,
   `PHOTO_` varchar(100) NOT NULL,
-  `DOA` varchar(25) NOT NULL,
+  `DOA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `STATUS` int(11) NOT NULL,
   `USERNAME_` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -41,8 +41,10 @@ CREATE TABLE `bday_data` (
 --
 
 INSERT INTO `bday_data` (`BID`, `NAME_`, `DOB`, `PHOTO_`, `DOA`, `STATUS`, `USERNAME_`) VALUES
-(1, 'Nitin', '21/12/2015', '1', 'ok', 1, ''),
-(2, 'Gagan', '21/12/2015', '2', 'ok', 1, '');
+(1, 'Gunjan Mathur', '2016-01-27', '1.jpg', '2016-01-27 16:52:18', 1, 'nitin'),
+(2, 'Nitin Deepak', '1978-11-13', '2.jpg', '2016-01-27 16:52:18', 1, 'nitin'),
+(3, 'Mukesh Joshi', '2016-01-27', '3.jpg', '2016-01-27 17:19:43', 1, 'nitin'),
+(4, 'Harsh Pant', '1976-12-01', '4.JPG', '2016-01-27 17:56:44', 1, 'nitin');
 
 -- --------------------------------------------------------
 
@@ -443,6 +445,16 @@ INSERT INTO `newsevents` (`ID`, `SUBJECT`, `NEWS`, `PATH_ATTACH`, `FONTJI`, `DAT
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `news_id_`
+--
+
+CREATE TABLE `news_id_` (
+  `ID_` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `online_enquiry`
 --
 
@@ -744,6 +756,12 @@ ALTER TABLE `newsevents`
   ADD KEY `STATUS` (`STATUS`);
 
 --
+-- Indexes for table `news_id_`
+--
+ALTER TABLE `news_id_`
+  ADD PRIMARY KEY (`ID_`);
+
+--
 -- Indexes for table `online_enquiry`
 --
 ALTER TABLE `online_enquiry`
@@ -790,6 +808,11 @@ ALTER TABLE `_id_`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `bday_data`
+--
+ALTER TABLE `bday_data`
+  MODIFY `BID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `fee`
 --
