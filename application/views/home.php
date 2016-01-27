@@ -19,9 +19,11 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="info-box green-bg">
+                                <a href="<?PHP echo site_url('web/totalRegDetail');?>">
                                     <i class="fa fa-users"></i>
                                     <div class="count"><?php echo $count_register; ?></div>
                                     <div class="title">Student(s) registered</div>						
+                                </a>
                             </div><!--/.info-box-->			
                     </div><!--/.col-->
                     <?php if($this -> session -> userdata('_user_status___') == 'adm') { ?>

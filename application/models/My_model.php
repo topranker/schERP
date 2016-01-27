@@ -375,4 +375,10 @@ class My_model extends CI_Model {
 
         return $query -> num_rows();
     }
+    
+    function get_total_registration_detail(){
+        $query = $this -> db -> get('register_with_us');
+       
+        return $query -> result();
+    }
 }
