@@ -31,6 +31,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "application/views/templates/header.php",
+			"settings":
+			{
+				"buffer_size": 4979,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -56,17 +64,17 @@
 	},
 	"file_history":
 	[
-		"/D/xampp/htdocs/schERP/application/models/My_model.php",
+		"/D/xampp/htdocs/schERP/application/views/home.php",
 		"/D/xampp/htdocs/schERP/application/controllers/Web.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/view_registered_student.php",
+		"/D/xampp/htdocs/schERP/application/views/registration/edit_registered_student.php",
+		"/D/xampp/htdocs/schERP/application/models/My_model.php",
 		"/D/xampp/htdocs/schERP/application/controllers/Put_.php",
 		"/D/xampp/htdocs/schERP/application/index.html",
 		"/D/xampp/htdocs/schERP/application/views/registration/index.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/edit_registered_student.php",
-		"/D/xampp/htdocs/schERP/application/views/home.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/feeSlip.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/print_fee_slip.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/regSlip.php",
-		"/D/xampp/htdocs/schERP/application/views/registration/view_registered_student.php",
 		"/D/xampp/htdocs/schERP/application/config/config.php",
 		"/D/xampp/htdocs/schERP/application/views/registration/edit_reg.php",
 		"/D/xampp/htdocs/schERP/application/config/database.php",
@@ -114,8 +122,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "application/views/templates/header.php",
+					"settings":
+					{
+						"buffer_size": 4979,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3251,
+								3251
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 456.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
