@@ -150,7 +150,7 @@ class Web extends CI_Controller {
 
         $data['last_reg_'] = $this -> mm -> last_registration();
         $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
-        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__, $this -> session -> userdata('_current_year___'));
 
 
         if($data['last_reg_'] != 0) {

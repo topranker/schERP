@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2016 at 11:26 AM
+-- Generation Time: Jan 26, 2016 at 05:20 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.1
 
@@ -360,7 +360,7 @@ CREATE TABLE `fee` (
   `bankname` varchar(50) NOT NULL,
   `dd_ch_no` varchar(20) NOT NULL,
   `dd_ch_date` varchar(20) NOT NULL,
-  `DOE_` varchar(25) NOT NULL
+  `DOE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -368,12 +368,15 @@ CREATE TABLE `fee` (
 --
 
 INSERT INTO `fee` (`feeID`, `regID`, `date`, `Amount`, `username`, `feetype`, `feemode`, `bankname`, `dd_ch_no`, `dd_ch_date`, `DOE_`) VALUES
-(1, '2016011001', '09/01/2016', 1000, 'operator1', 'Registration', 'Cash', 'x', 'x', 'x', '09/01/2016'),
-(2, '2016011002', '13/01/2016', 1000, 'operator1', 'Registration', 'Cash', 'x', 'x', 'x', '13/01/2016'),
-(18, '2016011004', '16/01/2016', 1000, 'operator1', 'Registration', 'Cash', 'x', 'x', 'x', '16/01/2016'),
-(21, '2016011003', '17/01/2016', 1000, 'nitin', 'Registration', 'CHEQUE', 'HDFC', '258456', '06/01/2016', '17/01/2016'),
-(22, '2016011006', '18/01/2016', 1000, 'nitin', 'Registration', 'CHEQUE', 'SBI', '258930', '12/01/2016', '18/01/2016'),
-(23, '2016011007', '18/01/2016', 1000, 'nitin', 'Registration', 'DD', 'HDFC', '587469', '18/01/2016', '18/01/2016');
+(1, '2016011001', '09/01/2016', 1000, 'operator1', 'Registration', 'Cash', 'x', 'x', 'x', '2016-01-22 15:46:16'),
+(2, '2016011002', '13/01/2016', 1000, 'operator1', 'Registration', 'Cash', 'x', 'x', 'x', '2016-01-22 15:46:16'),
+(18, '2016011004', '16/01/2016', 1000, 'operator1', 'Registration', 'Cash', 'x', 'x', 'x', '2016-01-22 15:46:16'),
+(21, '2016011003', '17/01/2016', 1000, 'nitin', 'Registration', 'CHEQUE', 'HDFC', '258456', '06/01/2016', '2016-01-22 15:46:16'),
+(22, '2016011006', '18/01/2016', 1000, 'nitin', 'Registration', 'CHEQUE', 'SBI', '258930', '12/01/2016', '2016-01-22 15:46:16'),
+(23, '2016011007', '18/01/2016', 1000, 'nitin', 'Registration', 'DD', 'HDFC', '587469', '18/01/2016', '2016-01-22 15:46:16'),
+(24, '2016011008', '18/01/2016', 1000, 'nitin', 'Registration', 'Cash', 'x', 'x', 'x', '2016-01-22 15:46:16'),
+(25, '2016011009', '18/01/2016', 1000, 'nitin', 'Registration', 'Cash', 'x', 'x', 'x', '2016-01-22 15:46:16'),
+(26, '2016011010', '18/01/2016', 1000, 'nitin', 'Registration', 'CHEQUE', 'State Bank of India', '258963', '10/01/2016', '2016-01-22 15:46:16');
 
 -- --------------------------------------------------------
 
@@ -459,16 +462,17 @@ CREATE TABLE `online_enquiry` (
   `COUNTRY_` varchar(50) NOT NULL,
   `MOBILE_PH` varchar(30) NOT NULL,
   `ENQ_IN_DETAIL` text NOT NULL,
-  `SOURCE_KNOWING_US` varchar(50) NOT NULL
+  `SOURCE_KNOWING_US` varchar(50) NOT NULL,
+  `DOR_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `online_enquiry`
 --
 
-INSERT INTO `online_enquiry` (`ENQ_ID`, `NAME_`, `DOB_`, `EMAIL_`, `GENDER_`, `ADMISSION_SESSION`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `FATHER_GUARDIAN`, `ADDRESS_`, `CITY_`, `STATE_`, `COUNTRY_`, `MOBILE_PH`, `ENQ_IN_DETAIL`, `SOURCE_KNOWING_US`) VALUES
-(1, 'Nitin Deepak', '2015-12-21', 'nitin.d12@amrapali.ac.in', 'Male', '2017', 0, 4, 'V K Mathur', 'Mukul vihar\r\nTalli bamori', 'Haldwani', 'Uttarakhand', 'India', '09760020667', 'ok', 'Through Campus Visit'),
-(2, 'Madhav Bhuddi', '2009-12-08', 'pawan.allianz@gmail.com', 'Male', '2016', 0, 1, 'Amit Bhuddi', 'Kartarpur,Gadarpur', 'Gadarpur', 'Uttarakhand', 'India', '09639041222', 'I want to know them fee structure and something more about your school. Thank you ', 'Through School Presentation');
+INSERT INTO `online_enquiry` (`ENQ_ID`, `NAME_`, `DOB_`, `EMAIL_`, `GENDER_`, `ADMISSION_SESSION`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `FATHER_GUARDIAN`, `ADDRESS_`, `CITY_`, `STATE_`, `COUNTRY_`, `MOBILE_PH`, `ENQ_IN_DETAIL`, `SOURCE_KNOWING_US`, `DOR_`) VALUES
+(1, 'Nitin Deepak', '2015-12-21', 'nitin.d12@amrapali.ac.in', 'Male', '2017', 0, 4, 'V K Mathur', 'Mukul vihar\r\nTalli bamori', 'Haldwani', 'Uttarakhand', 'India', '09760020667', 'ok', 'Through Campus Visit', '2016-01-26 16:07:33'),
+(2, 'Madhav Bhuddi', '2009-12-08', 'pawan.allianz@gmail.com', 'Male', '2016', 0, 1, 'Amit Bhuddi', 'Kartarpur,Gadarpur', 'Gadarpur', 'Uttarakhand', 'India', '09639041222', 'I want to know them fee structure and something more about your school. Thank you ', 'Through School Presentation', '2016-01-26 16:07:33');
 
 -- --------------------------------------------------------
 
@@ -495,15 +499,17 @@ CREATE TABLE `online_registration` (
   `STATE_` varchar(50) NOT NULL,
   `COUNTRY_` varchar(50) NOT NULL,
   `MOBILE_` varchar(15) NOT NULL,
-  `EMAIL_` varchar(100) NOT NULL
+  `EMAIL_` varchar(100) NOT NULL,
+  `DOR_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `online_registration`
 --
 
-INSERT INTO `online_registration` (`regid`, `FULLNAME`, `GENDER`, `FATHER`, `NATIONALITY`, `STUDENT_INTEREST`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `APPLIED_YEAR`, `TRANSPORT_REQUIRED`, `LAST_SCHOOL_NAME`, `LAST_SCHOOL_GRADE`, `ADDRESS_`, `CITY_`, `PINCODE_`, `STATE_`, `COUNTRY_`, `MOBILE_`, `EMAIL_`) VALUES
-(1, 'Mukul Joshi', 'Male', 'Mr Joshi', 'India', 'Algo', 'Day Boarder', '10', 2018, 'YES', 'Campus School', 'A', 'Haldwani', 'Haldwani', '263139', 'Uttarakhand', 'India', '97856466', 'mukul@gmail.com');
+INSERT INTO `online_registration` (`regid`, `FULLNAME`, `GENDER`, `FATHER`, `NATIONALITY`, `STUDENT_INTEREST`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `APPLIED_YEAR`, `TRANSPORT_REQUIRED`, `LAST_SCHOOL_NAME`, `LAST_SCHOOL_GRADE`, `ADDRESS_`, `CITY_`, `PINCODE_`, `STATE_`, `COUNTRY_`, `MOBILE_`, `EMAIL_`, `DOR_`) VALUES
+(1, 'Mukul Joshi', 'Male', 'Mr Joshi', 'India', 'Algo', 'Day Boarder', '10', 2018, 'YES', 'Campus School', 'A', 'Haldwani', 'Haldwani', '263139', 'Uttarakhand', 'India', '97856466', 'mukul@gmail.com', '0000-00-00 00:00:00'),
+(2, 'Nitin Deepak', 'Male', 'VKM', 'INDIAN', 'Cricket', 'Day Boarder', '6', 2017, 'YES', 'Campus School', 'A', 'Devki shri kunj,\r\nHaldwani', 'Haldwani', '263139', 'Uttarakhand', 'India', '0976002066', 'nitin.d12@gmail.com', '2017-01-26 15:30:00');
 
 -- --------------------------------------------------------
 
@@ -536,7 +542,7 @@ CREATE TABLE `register_with_us` (
   `EMAIL_` varchar(100) NOT NULL,
   `KNOWN_SOURCE_` varchar(200) NOT NULL,
   `PASSWORD_` varchar(25) NOT NULL DEFAULT '123456',
-  `DOR_` varchar(25) NOT NULL,
+  `DOR_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `USERNAME_` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -545,12 +551,16 @@ CREATE TABLE `register_with_us` (
 --
 
 INSERT INTO `register_with_us` (`regid`, `FULLNAME`, `FATHER`, `DOB_`, `PHOTO_`, `GENDER`, `NATIONALITY`, `STUDENT_INTEREST`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `APPLIED_YEAR`, `TRANSPORT_REQUIRED`, `LAST_SCHOOL_NAME`, `LAST_SCHOOL_GRADE`, `ADDRESS_`, `CITY_`, `PINCODE_`, `ZONE_`, `STATE_`, `COUNTRY_`, `MOBILE_`, `EMAIL_`, `KNOWN_SOURCE_`, `PASSWORD_`, `DOR_`, `USERNAME_`) VALUES
-('2016011001', 'Tani Vij', 'Anmol Vij', '2012-09-23', 'x', 'F', '-x-', '-x-', 'Day Boarder', '1', 0, 'YES', 'Mother India Public School , Bazpur', 'Nur', 'Rampaleela Farm, NH-74, Doraha, Bazpur, U.S.Nagar, Uttarakhand ', 'Bazpur', '262401', '1', 'UL', 'India', 'x', 'vij_anmol@yahoo.com', '', '123456', '09/01/2016', 'operator1'),
-('2016011002', 'Dheeraj sharma', 'Cp sharma', '2016-11-13', 'x', 'M', '-x-', '-x-', 'Day Boarder', '5', 2016, 'YES', 'Gagahahs', 'Gsgsvsvsv', 'Zbzbsbbssbb', 'Bazpur', '262401', '1', 'UL', 'India', 'x', 'gauravvijofficial@gmail.com', '', '123456', '13/01/2016', 'operator1'),
-('2016011003', 'gaurav', 'ak vij', '2016-11-13', '2016011003.jpg', 'F', '-x-', '-x-', 'Day Boarder', '5', 2016, 'YES', 'hgfvuyhvguy', 'nur', 'bazpur', 'bazpur', '262401', '1', 'UL', 'India', 'x', 'gauravvijofficial@gmail.com', '', '123456', '14/01/2016', 'operator1'),
-('2016011004', 'Nandani Vij', 'Gaurav Vij', '2010-04-04', '2016011004.jpg', 'F', '-x-', '-x-', 'Day Boarder', '1', 2016, 'YES', 'Mother India Public School', 'UKG', 'Rampaleela Farm, NH.74 Doraha Bazpur', 'Bazpur', '262401', '1', 'UL', 'India', 'x', 'gauravvijofficial@gmail.com', '', '123456', '16/01/2016', 'operator1'),
-('2016011006', 'Nitin Deepak', 'VKM', '1978-11-13', '2016011006.jpg', 'M', '-x-', '-x-', 'Team Boarder', '6', 2016, 'YES', 'Campus School', 'Class 5', 'Devki shri kunj,\r\nHaldwani', 'Haldwani', '263139', '1', 'UL', 'India', '9760020667', 'nitin.d12@gmail.com', 'Through Internet', '123456', '18/01/2016', 'nitin'),
-('2016011007', 'Nitin Deepak', 'VKM', '2016-12-31', '2016011007.png', 'M', '-x-', '-x-', 'Day Boarder', '1', 2016, 'YES', 'Campus School', 'A', 'Devki shri kunj,\r\nHaldwani', 'Haldwani', '263139', '1', 'UL', 'India', '9760020667', 'nitin.d12@gmail.com', 'Through Internet', '123456', '18/01/2016', 'nitin');
+('2016011001', 'Tani Vij', 'Anmol Vij', '2012-09-23', 'no-image.jpg', 'F', '-x-', '-x-', 'Day Boarder', '1', 0, 'YES', 'Mother India Public School , Bazpur', 'Nur', 'Rampaleela Farm, NH-74, Doraha, Bazpur, U.S.Nagar, Uttarakhand ', 'Bazpur', '262401', '1', 'UL', 'India', 'x', 'vij_anmol@yahoo.com', '', '123456', '2016-01-22 15:46:16', 'operator1'),
+('2016011002', 'Dheeraj sharma', 'Cp sharma', '2016-11-13', 'no-image.jpg', 'M', '-x-', '-x-', 'Day Boarder', '5', 2016, 'YES', 'Gagahahs', 'Gsgsvsvsv', 'Zbzbsbbssbb', 'Bazpur', '262401', '1', 'UL', 'India', 'x', 'gauravvijofficial@gmail.com', '', '123456', '2016-01-22 15:46:16', 'operator1'),
+('2016011003', 'gaurav', 'ak vij', '2016-11-13', '2016011003.jpg', 'F', '-x-', '-x-', 'Day Boarder', '5', 2016, 'YES', 'hgfvuyhvguy', 'nur', 'bazpur', 'bazpur', '262401', '1', 'UL', 'India', 'x', 'gauravvijofficial@gmail.com', '', '123456', '2016-01-22 15:46:16', 'operator1'),
+('2016011004', 'Nandani Vij', 'Gaurav Vij', '2010-04-04', '2016011004.jpg', 'F', '-x-', '-x-', 'Day Boarder', '1', 2016, 'YES', 'Mother India Public School', '4', 'Rampaleela Farm, NH.74 Doraha Bazpur', 'Bazpur', '262401', '1', 'UL', 'India', '9874563214', 'gauravvijofficial@gmail.com', 'Through Internet', '123456', '2016-01-22 15:46:16', 'nitin'),
+('2016011006', 'Nitin Deepak', 'Virendra Kumar Mathur', '1978-11-30', '2016011006.jpg', 'M', '-x-', '-x-', 'Week Boarder', '1', 2016, 'YES', 'Campus School, Pantnagar', 'U-KG', 'Devki shri kunj,\r\nHaldwani', 'Haldwani', '263139', '1', 'UL', 'India', '9760020667', 'nitin.d12@gmail.com', 'Through Internet', '123456', '2016-01-22 15:46:16', 'nitin'),
+('2016011007', 'Nitin Deepak', 'VKM', '2016-12-31', '2016011007.png', 'M', '-x-', '-x-', 'Day Boarder', '1', 2016, 'YES', 'Campus School', 'A', 'Devki shri kunj,\r\nHaldwani', 'Haldwani', '263139', '1', 'UL', 'India', '9760020667', 'nitin.d12@gmail.com', 'Through Internet', '123456', '2016-01-22 15:46:16', 'nitin'),
+('2016011008', 'Nitin Deepak', 'VKM', '2016-12-31', '2016011008.jpg', 'M', '-x-', '-x-', 'Day Boarder', '3', 2016, 'NO', 'Campus School', 'Class 2', 'Devki shri kunj,\r\nHaldwani', 'Haldwani', '263139', '1', 'DL', 'India', '0976002066', 'nitin.d12@gmail.com', 'Through Internet', '123456', '2016-01-22 15:46:16', 'nitin'),
+('2016011009', 'Gunjan Mathur', 'Late G Pathak', '1990-12-31', '2016011009.jpg', 'F', '-x-', '-x-', 'Day Boarder', 'U-KG', 2016, 'YES', 'Beershiba', '1', 'Badripura', 'haldwani', '263139', '1', 'UL', 'India', '9690173666', 'vivek@gmail.com', 'Through Internet', '123456', '2016-01-22 15:46:16', 'nitin'),
+('2016011010', 'Gunjan Mathur', 'G Pathak', '1987-05-19', '2016011010.jpg', 'F', '-x-', '-x-', 'Team Boarder', '3', 2016, 'YES', 'Beersheeba', 'Class 2', 'Devki Shreekunj, \r\nMukul Vihar,\r\nTalli Bamori,', 'Haldwani', '263139', '1', 'UL', 'India', '9634944223', 'gunjan.m19@gmail.com', 'Through Internet', '123456', '2016-01-22 15:46:16', 'nitin'),
+('2016011011', 'Nitin Deepak', 'VKM', '2016-12-31', 'no-image.jpg', 'M', '-x-', '-x-', 'Day Boarder', '9', 2016, 'YES', 'Beersheeba', 'None', 'Devki shri kunj,\r\nHaldwani', 'Haldwani', '263139', '1', 'UL', 'India', '0976002066', 'nitin.d12@gmail.com', 'Through Internet', '123456', '2016-01-22 15:46:16', 'operator1');
 
 -- --------------------------------------------------------
 
@@ -688,7 +698,7 @@ CREATE TABLE `_id_` (
 --
 
 INSERT INTO `_id_` (`ID_`, `regid_`) VALUES
-(1007, '2016011007');
+(1011, '2016011011');
 
 --
 -- Indexes for dumped tables
@@ -784,7 +794,7 @@ ALTER TABLE `_id_`
 -- AUTO_INCREMENT for table `fee`
 --
 ALTER TABLE `fee`
-  MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `menu`
 --
@@ -799,7 +809,7 @@ ALTER TABLE `online_enquiry`
 -- AUTO_INCREMENT for table `online_registration`
 --
 ALTER TABLE `online_registration`
-  MODIFY `regid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `regid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `zone_region`
 --

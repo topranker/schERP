@@ -17,25 +17,30 @@
 <!--sidebar end-->
 
 <!--main content start-->
-<section id="main-content" style="font-size:16px; text-align: left; padding: 0px 20px">
+<section id="main-content" style="font-size:16px; text-align: left; padding: 0px 40px">
     <section class="wrapper">
         <?php echo $this->session->flashdata('fee_msg_'); ?>  
+
         <div class="row" id="printReg">
             <div class="col-xs-12"style="border: #000000 solid 1px; padding: 0px">
                 <?php if ($record_['res_'] == TRUE) { ?>
                     <section class="panel">
-                        <header class="panel-heading" style="height: 130px; border-bottom: #000000 solid 1px">
-                            <div class="col-xs-8">
+                        <header class="panel-heading" style="height: 150px; border-bottom: #000000 solid 1px">
+                            <div class="col-xs-11">
                                 <div class="col-xs-2" style="padding: 10px 0px">
                                     <img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">
                                 </div>
-                                <div class="col-xs-8" style="padding: 20px 20px; color: #000000; font-weight: bold; text-align: center;">
-                                    <h1>Registration Form</h1>
+                                <div class="col-xs-9" style="border: #ff0000 dotted 0px; padding: 40px 20px; color: #000000; font-family: 'Times New Roman'; font-size: 45px; font-weight: bold; text-align: center;">
+                                    <center>
+                                        Registration Form<br/ >
+                                        <span style="font-size: 20px">(Mother India Global School, Rudrapur)</span>
+                                    </center>
+
                                 </div>
-                                <div class="col-xs-2" style="padding: 10px 0px">
+                                <div class="col-xs-1" style="padding: 10px 0px">
                                 </div>
                             </div>
-                            <div class="col-xs-4" align="right" id="nonprintreg">
+                            <div class="col-xs-1" align="right" id="nonprintreg">
                                 <?php if ($fee_rec['res_'] == TRUE) { ?>
                                     <button class="btn btn-primary" onclick="window.print();">Print</button>
                                     <a class="btn btn-primary" href="<?php echo site_url('web/stuRegistration'); ?>">Next</a>
@@ -177,7 +182,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div style="clear: both"></div>
                             <div style="float: left; height: 30px"></div>
                             <div style="clear: both"></div>
