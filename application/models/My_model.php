@@ -376,7 +376,8 @@ class My_model extends CI_Model {
         return $query -> num_rows();
     }
     
-    function get_total_registration_detail(){
+    function get_total_registration_detail($year__){
+        $this->db->where('YEAR(DOR_)', $year__);
         $query = $this -> db -> get('register_with_us');
        
         return $query -> result();

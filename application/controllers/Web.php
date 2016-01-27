@@ -139,8 +139,10 @@ class Web extends CI_Controller {
         }
     }
 
-    function viewRegistrationSlip() {
-        $reg_id__ = $this -> input -> post ('txtReg__');
+    function viewRegistrationSlip($reg_id__ = '') {
+        if($reg_id__ == ''){
+            $reg_id__ = $this -> input -> post ('txtReg__');
+        }
 
         $this -> load -> model('my_model', 'mm');
         $this -> check_login();
@@ -210,8 +212,7 @@ class Web extends CI_Controller {
         $data['breadCrumb'] = 'Total Registration';
         $data['title'] = 'Total Registration';
         $data['last_reg_'] = $this -> mm -> last_registration();
-        $data['total_reg_'] = $this -> mm -> get_total_registration_detail();
-        
+        $data['total_reg_'] = $this -> mm -> get_total_registration_detail($this -> session -> userdata('_current_year___'));
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('registration/totalRegistration', $data);
         $this -> load -> view('templates/footer');

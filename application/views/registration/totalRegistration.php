@@ -32,12 +32,10 @@
                     </thead>
                     <tbody>
                         <?php foreach ($total_reg_ as $item) { ?>
-                            <tr>
-                                <th scope="row">
-                        <form class="navbar-form" action="<?php echo site_url('web/viewRegistrationSlip'); ?>" method="post">
-                            <input type="submit" name="txtReg__" id="txtReg__" value='<?php echo $item->regid; ?>' style='border:none;background: none;color: #0066cc'/>
-                        </form>
-                        </th>
+                        <tr>
+                            <th scope="row">
+                                <a href="<?php echo site_url('web/viewRegistrationSlip/'.$item->regid); ?>"><?php echo $item->regid; ?></a>
+                            </th>
                         <td><?php echo $item->FULLNAME; ?></td>
                         <td><?php echo $item->FATHER; ?></td>
                         <td><?php echo $item->CLASS_FOR_ADMISSION; ?></td>
