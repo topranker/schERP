@@ -218,5 +218,18 @@ class Web extends CI_Controller {
         $this -> load -> view('templates/footer');
 	}
 
+        function totalRegFee() {
+        $this -> load -> model('my_model', 'mm');
+        $this -> check_login();
+
+        $data['breadCrumb'] = 'Total Registration FEES';
+        $data['title'] = 'Total Registration FEES';
+        $data['last_reg_'] = $this -> mm -> last_registration();
+        $data['total_reg_fee'] = $this -> mm -> get_total_registration_fee($this -> session -> userdata('_current_year___'));
+        
+        $this -> load -> view('templates/header', $data);
+        $this -> load -> view('registration/totalRegFee', $data);
+        $this -> load -> view('templates/footer');
+	}
     
 }

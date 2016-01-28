@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="info-box green-bg">
-                                <a href="<?PHP echo site_url('web/totalRegDetail');?>">
+                                <a href="<?PHP echo site_url('web/totalRegDetail');?>" style="color:#fff;">
                                     <i class="fa fa-users"></i>
                                     <div class="count"><?php echo $count_register; ?></div>
                                     <div class="title">Student(s) registered</div>						
@@ -29,9 +29,11 @@
                     <?php if($this -> session -> userdata('_user_status___') == 'adm') { ?>
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="info-box yellow-bg">
+                                <a href="<?PHP echo site_url('web/totalRegFee');?>" style="color:#fff;">
                                     <i class="fa fa-laptop"></i>
                                     <div class="count" style="font-size: 18px">Rs. <?php echo $count_reg_fee; ?>/-</div>
-                                    <div class="title">Registration Fees.</div>						
+                                    <div class="title">Registration Fees.</div>				
+                                </a>
                             </div><!--/.info-box-->			
                     </div><!--/.col-->	
                     <?php } ?>
