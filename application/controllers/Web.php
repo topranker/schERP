@@ -8,7 +8,7 @@ class Web extends CI_Controller {
         parent::__construct();
     }
     function index() {
-        $this -> load -> model('my_model', 'mm');
+
         $this -> check_login();
 
         $data['breadCrumb'] = 'DashBoard';
@@ -20,6 +20,9 @@ class Web extends CI_Controller {
         $data['state_cnt'] = $this -> mm -> seek_registered_states($this -> session -> userdata('_current_year___'));
         $data['count_online_enquiry'] = $this -> mm -> seek_online_enquiries($this -> session -> userdata('_current_year___'));
         
+        $data['menu_'] = $this -> mnum -> get_menu();
+        $data['submenu_'] = $this -> mnum -> get_submenu();
+
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('home', $data);
         $this -> load -> view('templates/footer');
@@ -29,7 +32,6 @@ class Web extends CI_Controller {
         if(! $this -> session -> userdata('_user___')) $this -> logout();
     }
     function stuRegistration() {
-        $this -> load -> model('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Register Student';
@@ -38,6 +40,10 @@ class Web extends CI_Controller {
         $data['last_reg_'] = $this -> mm -> last_registration();
         $data['country_'] = $this -> mm -> get_country();
         $data['states_'] = $this -> mm -> get_states();
+
+        $data['menu_'] = $this -> mnum -> get_menu();
+        $data['submenu_'] = $this -> mnum -> get_submenu();
+
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('registration/index',$data);
         $this -> load -> view('templates/footer');
@@ -59,7 +65,6 @@ class Web extends CI_Controller {
     }
     
     function getRegistrationSlip($reg_id__) {
-        $this -> load -> model('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Registration Slip';
@@ -67,8 +72,10 @@ class Web extends CI_Controller {
 
         $data['last_reg_'] = $this -> mm -> last_registration();
         $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
-        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__, $this -> session -> userdata('_current_year___'));
 
+        $data['menu_'] = $this -> mnum -> get_menu();
+        $data['submenu_'] = $this -> mnum -> get_submenu();
 
         if($data['last_reg_'] != 0) {
             $this -> load -> view('templates/header', $data);
@@ -80,7 +87,6 @@ class Web extends CI_Controller {
 	}
 
     function feedfee_($reg_id__){
-        $this -> load -> model ('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Registration Fee';
@@ -88,9 +94,15 @@ class Web extends CI_Controller {
 
         $data['last_reg_'] = $this -> mm -> last_registration();
         $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
-        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__, $this -> session -> userdata('_current_year___'));
+
+
 
         if($data['last_reg_'] != 0) {
+
+            $data['menu_'] = $this -> mnum -> get_menu();
+            $data['submenu_'] = $this -> mnum -> get_submenu();
+
             $this -> load -> view('templates/header', $data);
             $this -> load -> view('registration/ff',$data);
             $this -> load -> view('templates/footer');
@@ -100,7 +112,6 @@ class Web extends CI_Controller {
     }
     
     function getFeeSlip($reg_id__) {
-        $this -> load -> model('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Fee Slip';
@@ -108,9 +119,13 @@ class Web extends CI_Controller {
 
         $data['last_reg_'] = $this -> mm -> last_registration();
         $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
-        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__, $this -> session -> userdata('_current_year___'));
 
         if($data['fee_rec']['res_'] == TRUE) {
+
+            $data['menu_'] = $this -> mnum -> get_menu();
+            $data['submenu_'] = $this -> mnum -> get_submenu();
+
             $this -> load -> view('templates/header', $data);
             $this -> load -> view('registration/feeSlip',$data);
             $this -> load -> view('templates/footer');
@@ -120,7 +135,6 @@ class Web extends CI_Controller {
 	}
 
     function printFeeSlip($reg_id__) {
-        $this -> load -> model('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Fee Slip';
@@ -128,7 +142,7 @@ class Web extends CI_Controller {
 
         $data['last_reg_'] = $this -> mm -> last_registration();
         $data['record_'] = $this -> mm -> get_registration_details($reg_id__, $this -> session -> userdata('_current_year___'));
-        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__);
+        $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__, $this -> session -> userdata('_current_year___'));
 
         if($data['fee_rec']['res_'] == TRUE) {
             //$this -> load -> view('templates/header', $data);
@@ -144,7 +158,6 @@ class Web extends CI_Controller {
             $reg_id__ = $this -> input -> post ('txtReg__');
         }
 
-        $this -> load -> model('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Registration Slip';
@@ -156,6 +169,9 @@ class Web extends CI_Controller {
 
 
         if($data['last_reg_'] != 0) {
+            $data['menu_'] = $this -> mnum -> get_menu();
+            $data['submenu_'] = $this -> mnum -> get_submenu();
+
             $this -> load -> view('templates/header', $data);
             $this -> load -> view('registration/view_registered_student',$data);
             $this -> load -> view('templates/footer');
@@ -165,7 +181,6 @@ class Web extends CI_Controller {
     }
 
     function editReg(){
-        $this -> load -> model('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Edit Registration';
@@ -183,7 +198,6 @@ class Web extends CI_Controller {
             $reg_id__ = $this -> input -> post('txtReg__');
         }
 
-        $this -> load -> model('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Edit Registration';
@@ -196,6 +210,9 @@ class Web extends CI_Controller {
         $data['fee_rec'] = $this -> mm -> get_fees_status($reg_id__, $this -> session -> userdata('_current_year___'));
 
         if($data['record_']['res_']){
+            $data['menu_'] = $this -> mnum -> get_menu();
+            $data['submenu_'] = $this -> mnum -> get_submenu();
+
             $this -> load -> view('templates/header', $data);
             $this -> load -> view('registration/edit_registered_student', $data);
             $this -> load -> view('templates/footer');
@@ -206,20 +223,22 @@ class Web extends CI_Controller {
     }
     
     function totalRegDetail() {
-        $this -> load -> model('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Total Registration';
         $data['title'] = 'Total Registration';
         $data['last_reg_'] = $this -> mm -> last_registration();
         $data['total_reg_'] = $this -> mm -> get_total_registration_detail($this -> session -> userdata('_current_year___'));
+
+        $data['menu_'] = $this -> mnum -> get_menu();
+        $data['submenu_'] = $this -> mnum -> get_submenu();
+
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('registration/totalRegistration', $data);
         $this -> load -> view('templates/footer');
 	}
 
         function totalRegFee() {
-        $this -> load -> model('my_model', 'mm');
         $this -> check_login();
 
         $data['breadCrumb'] = 'Total Registration FEES';
@@ -227,6 +246,9 @@ class Web extends CI_Controller {
         $data['last_reg_'] = $this -> mm -> last_registration();
         $data['total_reg_fee'] = $this -> mm -> get_total_registration_fee($this -> session -> userdata('_current_year___'));
         
+        $data['menu_'] = $this -> mnum -> get_menu();
+        $data['submenu_'] = $this -> mnum -> get_submenu();
+
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('registration/totalRegFee', $data);
         $this -> load -> view('templates/footer');

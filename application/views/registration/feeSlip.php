@@ -36,7 +36,7 @@
                                 <div class="col-xs-12"style="border: #000000 solid 1px; padding: 0px">
                                     <?php if ($record_['res_'] == TRUE) { ?>
                                         <section class="panel">
-                                            <header class="panel-heading" style="height: 130px; border-bottom: #000000 solid 1px">
+                                            <header class="panel-heading" style="height: 150px; border-bottom: #000000 solid 1px">
                                                 <div class="col-xs-12">
                                                     <div class="col-xs-3" style="color:#000000; padding: 10px 0px">
                                                         <img alt="<?php echo _SCHOOL_; ?>" title="<?php echo _SCHOOL_; ?>" src="<?PHP echo base_url() . 'nitnav/img/migs-logo.png'; ?>" style="margin:0px;" align="center">
