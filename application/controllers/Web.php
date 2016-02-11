@@ -256,5 +256,21 @@ class Web extends CI_Controller {
         $this -> load -> view('registration/totalRegFee', $data);
         $this -> load -> view('templates/footer');
 	}
+        
+        function addFeeHead(){
+        $this -> check_login();
+
+        $data['breadCrumb'] = 'Add Fees Head';
+        $data['title'] = 'ADD FEES HEAD';
+
+        $data['last_reg_'] = $this -> mm -> last_registration();
+
+        $data['menu_'] = $this -> mnum -> get_menu();
+        $data['submenu_'] = $this -> mnum -> get_submenu();
+
+        $this -> load -> view('templates/header', $data);
+        $this -> load -> view('fees/feeHead', $data);
+        $this -> load -> view('templates/footer');
+    }
     
 }
