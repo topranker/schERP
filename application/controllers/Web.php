@@ -19,10 +19,10 @@ class Web extends CI_Controller {
         $data['city_cnt'] = $this -> mm -> seek_registered_cities($this -> session -> userdata('_current_year___'));
         $data['state_cnt'] = $this -> mm -> seek_registered_states($this -> session -> userdata('_current_year___'));
         $data['count_online_enquiry'] = $this -> mm -> seek_online_enquiries($this -> session -> userdata('_current_year___'));
-        
+
         $data['menu_'] = $this -> mnum -> get_menu();
         $data['submenu_'] = $this -> mnum -> get_submenu();
-
+        
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('home', $data);
         $this -> load -> view('templates/footer');
@@ -187,6 +187,9 @@ class Web extends CI_Controller {
         $data['title'] = 'Modification Screen';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
+
+        $data['menu_'] = $this -> mnum -> get_menu();
+        $data['submenu_'] = $this -> mnum -> get_submenu();
 
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('registration/edit_reg', $data);

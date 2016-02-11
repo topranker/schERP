@@ -7,10 +7,9 @@
                 <li class="sub-menu">
                   <a href="<?php if($item -> PATH_ == 'x') { echo "javascript:;"; } else { echo site_url($item -> PATH_); } ?>" class="">
                       <i class="<?php echo $item -> PRE_ICON ;?>"></i>
-                      <span><?php echo $item -> MENU ; ?></span>
+                      <span><?php echo $item -> MENU; ?></span>
                       <?php if($item -> PATH_ == 'x') { ?><span class="menu-arrow arrow_carrot-right"></span><?php } ?>
                   </a>
-                  <?php //if(in_array($item -> ID_, $submenu_, TRUE)) { ?>
                   <ul class="sub">
                       <?php foreach($submenu_ as $subitem) { ?>
                         <?php if($subitem -> ID_ == $item -> ID_) { ?>
@@ -18,7 +17,6 @@
                         <?php } ?>
                       <?php } ?>
                   </ul>
-                  <?php //} ?>
                 </li>
                 <?php } ?>
               </ul>
