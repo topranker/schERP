@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2016 at 04:39 AM
+-- Generation Time: Feb 12, 2016 at 11:15 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.1
 
@@ -23,10 +23,98 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `add_flexi_fee_to_students`
+-- Table structure for table `class_1_classes`
 --
 
-CREATE TABLE `add_flexi_fee_to_students` (
+CREATE TABLE `class_1_classes` (
+  `CLASSID` int(15) NOT NULL,
+  `CLASS` varchar(100) NOT NULL,
+  `SECTION` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_2_in_session`
+--
+
+CREATE TABLE `class_2_in_session` (
+  `CLSSESSID` int(15) NOT NULL,
+  `CLASSID` int(15) NOT NULL,
+  `SESSID` int(15) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_1_type`
+--
+
+CREATE TABLE `fee_1_type` (
+  `FEETYPEID` int(15) NOT NULL,
+  `TYPE_` varchar(100) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_2`
+--
+
+CREATE TABLE `fee_2` (
+  `feeID` int(11) NOT NULL,
+  `regID` varchar(25) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `Amount` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `feetype` varchar(20) NOT NULL,
+  `feemode` varchar(20) NOT NULL,
+  `bankname` varchar(50) NOT NULL,
+  `dd_ch_no` varchar(20) NOT NULL,
+  `dd_ch_date` varchar(20) NOT NULL,
+  `DOE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_3_static_heads`
+--
+
+CREATE TABLE `fee_3_static_heads` (
+  `ST_HD_ID` int(15) NOT NULL,
+  `FEE_HEAD` varchar(100) NOT NULL,
+  `SESSID` int(15) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_4_flexible_heads`
+--
+
+CREATE TABLE `fee_4_flexible_heads` (
+  `FLX_HD_ID` int(15) NOT NULL,
+  `FEE_HEAD` varchar(100) NOT NULL,
+  `AMOUNT` varchar(100) NOT NULL,
+  `SESSID` int(15) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_5_add_flexi_head_to_students`
+--
+
+CREATE TABLE `fee_5_add_flexi_head_to_students` (
   `ADFLXFEESTUDID` int(15) NOT NULL,
   `REGID` varchar(100) NOT NULL,
   `CLSSESSID` int(15) NOT NULL,
@@ -40,40 +128,41 @@ CREATE TABLE `add_flexi_fee_to_students` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city_`
+-- Table structure for table `fee_6_invoice`
 --
 
-CREATE TABLE `city_` (
-  `NAME_` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `city_`
---
-
-INSERT INTO `city_` (`NAME_`) VALUES
-('HALDWANI');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `classes`
---
-
-CREATE TABLE `classes` (
-  `CLASSID` int(15) NOT NULL,
-  `CLASS` varchar(100) NOT NULL,
-  `SECTION` varchar(100) NOT NULL,
+CREATE TABLE `fee_6_invoice` (
+  `INVID` int(15) NOT NULL,
+  `CFEESESSID` int(15) NOT NULL,
+  `ADFLXFEESTUDID` int(15) NOT NULL,
+  `ANYDISCOUNT` varchar(100) NOT NULL,
+  `DISCOUNT` varchar(100) NOT NULL,
+  `DISCOUNT_AMOUNT` varchar(100) NOT NULL,
   `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `class_fee`
+-- Table structure for table `fee_7_receipts`
 --
 
-CREATE TABLE `class_fee` (
+CREATE TABLE `fee_7_receipts` (
+  `RECPTID` int(15) NOT NULL,
+  `FEEID` int(15) NOT NULL,
+  `FLEXI_FEE_STATUS` varchar(100) NOT NULL,
+  `ADFLXFEESTUDID` int(15) NOT NULL,
+  `INVID` int(15) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_8_class_fee`
+--
+
+CREATE TABLE `fee_8_class_fee` (
   `CFEEID` int(15) NOT NULL,
   `CLSSESSID` int(15) NOT NULL,
   `TOTFEE` varchar(100) NOT NULL,
@@ -84,25 +173,10 @@ CREATE TABLE `class_fee` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `class_fee_in_a_session`
+-- Table structure for table `fee_9_class_fee_split`
 --
 
-CREATE TABLE `class_fee_in_a_session` (
-  `CFEESESSID` int(15) NOT NULL,
-  `CFEEID` int(15) NOT NULL,
-  `CLSSESSID` int(15) NOT NULL,
-  `SESSID` int(15) NOT NULL,
-  `USERNAME` varchar(100) NOT NULL,
-  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `class_fee_split`
---
-
-CREATE TABLE `class_fee_split` (
+CREATE TABLE `fee_9_class_fee_split` (
   `CFEESPLITID` int(15) NOT NULL,
   `CFEEID` int(15) NOT NULL,
   `ST_HD_ID` int(15) NOT NULL,
@@ -115,32 +189,57 @@ CREATE TABLE `class_fee_split` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `class_in_session`
+-- Table structure for table `fee_10_class_fee_in_a_session`
 --
 
-CREATE TABLE `class_in_session` (
+CREATE TABLE `fee_10_class_fee_in_a_session` (
+  `CFEESESSID` int(15) NOT NULL,
+  `CFEEID` int(15) NOT NULL,
   `CLSSESSID` int(15) NOT NULL,
-  `CLASSID` int(15) NOT NULL,
   `SESSID` int(15) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
   `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `country_`
+-- Table structure for table `login`
 --
 
-CREATE TABLE `country_` (
+CREATE TABLE `login` (
+  `USERNAME_` varchar(40) NOT NULL,
+  `PASSWORD_` varchar(25) NOT NULL,
+  `USER_STATUS` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`USERNAME_`, `PASSWORD_`, `USER_STATUS`) VALUES
+('deepak', '123', 'nw'),
+('gopal', '123', 'adm'),
+('naveen', '123', 'adm'),
+('nitin', '123', 'adm'),
+('operator1', 'oper$#1234', 'deo');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_0_country_`
+--
+
+CREATE TABLE `master_0_country_` (
   `ABREV_` varchar(5) NOT NULL,
   `NAME_` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `country_`
+-- Dumping data for table `master_0_country_`
 --
 
-INSERT INTO `country_` (`ABREV_`, `NAME_`) VALUES
+INSERT INTO `master_0_country_` (`ABREV_`, `NAME_`) VALUES
 ('AD', 'Andorra'),
 ('AE', 'United Arab Emirates'),
 ('AF', 'Afghanistan'),
@@ -409,111 +508,160 @@ INSERT INTO `country_` (`ABREV_`, `NAME_`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fee`
+-- Table structure for table `master_1_zone_`
 --
 
-CREATE TABLE `fee` (
-  `feeID` int(11) NOT NULL,
-  `regID` varchar(25) NOT NULL,
-  `date` varchar(20) NOT NULL,
-  `Amount` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `feetype` varchar(20) NOT NULL,
-  `feemode` varchar(20) NOT NULL,
-  `bankname` varchar(50) NOT NULL,
-  `dd_ch_no` varchar(20) NOT NULL,
-  `dd_ch_date` varchar(20) NOT NULL,
-  `DOE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `master_1_zone_` (
+  `ID` int(11) NOT NULL,
+  `ZONE` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `master_1_zone_`
+--
+
+INSERT INTO `master_1_zone_` (`ID`, `ZONE`) VALUES
+(1, 'NORTH'),
+(2, 'SOUTH'),
+(3, 'EAST'),
+(4, 'WEST'),
+(5, 'NORTH EAST'),
+(6, 'CENTRAL');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `feetype`
+-- Table structure for table `master_2_zone_region`
 --
 
-CREATE TABLE `feetype` (
-  `FEETYPEID` int(15) NOT NULL,
-  `TYPE_` varchar(100) NOT NULL,
-  `USERNAME` varchar(100) NOT NULL,
-  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `master_2_zone_region` (
+  `ID_` int(11) NOT NULL,
+  `ZONE_` int(11) NOT NULL,
+  `REGION` varchar(10) NOT NULL,
+  `REG_NAME` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `master_2_zone_region`
+--
+
+INSERT INTO `master_2_zone_region` (`ID_`, `ZONE_`, `REGION`, `REG_NAME`) VALUES
+(1, 1, 'PB', 'Punjab'),
+(2, 1, 'JK', 'Jammu & Kashmi'),
+(3, 1, 'HR', 'Harayana'),
+(4, 1, 'HP', 'Himanchal Pradesh'),
+(5, 1, 'UP', 'Uttar Pradesh'),
+(6, 1, 'UL', 'Uttarakhand'),
+(7, 1, 'RJ', 'Rajasthan'),
+(8, 1, 'CH', 'Chandigarh'),
+(9, 1, 'DL', 'Delhi'),
+(10, 2, 'AP', 'Andhra Pradesh'),
+(11, 2, 'KA', 'Karnataka'),
+(12, 2, 'KL', 'Kerala'),
+(13, 2, 'TN', 'Tamil Nadu'),
+(14, 2, 'TG', 'Telangana'),
+(15, 3, 'WB', 'West Bengal'),
+(16, 3, 'OS', 'Odisa'),
+(17, 3, 'BR', 'Bihar'),
+(18, 3, 'JH', 'Jharkhand'),
+(19, 3, 'AN', 'Andaman and Nicobaar Islands'),
+(20, 4, 'GJ', 'Gujrat'),
+(21, 4, 'MH', 'Maharshtra'),
+(22, 4, 'GO', 'Goa'),
+(23, 4, 'DD', 'Daman and Diu'),
+(24, 4, 'DN', 'Dadra and Nagar Havali'),
+(25, 6, 'MP', 'Madhya Pradesh'),
+(26, 6, 'CG', 'Chhatisgarh'),
+(27, 5, 'AS', 'Assam'),
+(28, 5, 'SK', 'Sikkim'),
+(29, 5, 'NG', 'Nagaland'),
+(30, 5, 'MG', 'Meghalaya'),
+(31, 5, 'MN', 'Manipur'),
+(32, 5, 'MZ', 'Mizoram'),
+(33, 5, 'TR', 'Tripura'),
+(34, 5, 'AZ', 'Arunachal Pradesh');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fee_flexible_heads`
+-- Table structure for table `master_3_state_`
 --
 
-CREATE TABLE `fee_flexible_heads` (
-  `FLX_HD_ID` int(15) NOT NULL,
-  `FEE_HEAD` varchar(100) NOT NULL,
-  `AMOUNT` varchar(100) NOT NULL,
+CREATE TABLE `master_3_state_` (
+  `NAME_` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `master_3_state_`
+--
+
+INSERT INTO `master_3_state_` (`NAME_`) VALUES
+('UTTARAKHAND'),
+('UTTAR PRADESH'),
+('DELHI'),
+('HARAYANA'),
+('KARNATAKA'),
+('MAHARASHTRA');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_4_city_`
+--
+
+CREATE TABLE `master_4_city_` (
+  `NAME_` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `master_4_city_`
+--
+
+INSERT INTO `master_4_city_` (`NAME_`) VALUES
+('HALDWANI');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_5_user_status`
+--
+
+CREATE TABLE `master_5_user_status` (
+  `ST_ID` varchar(5) NOT NULL,
+  `STATUS` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `master_5_user_status`
+--
+
+INSERT INTO `master_5_user_status` (`ST_ID`, `STATUS`) VALUES
+('adm', 'Admin'),
+('deo', 'Data Entry Operator'),
+('fc', 'Faculty'),
+('meo', 'Marks Entry Operator'),
+('nw', 'news');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_6_session`
+--
+
+CREATE TABLE `master_6_session` (
   `SESSID` int(15) NOT NULL,
-  `USERNAME` varchar(100) NOT NULL,
+  `SESSSTART` varchar(100) NOT NULL,
+  `SESSEND` varchar(100) NOT NULL,
   `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fee_static_heads`
+-- Table structure for table `menu_1`
 --
 
-CREATE TABLE `fee_static_heads` (
-  `ST_HD_ID` int(15) NOT NULL,
-  `FEE_HEAD` varchar(100) NOT NULL,
-  `SESSID` int(15) NOT NULL,
-  `USERNAME` varchar(100) NOT NULL,
-  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `invoice`
---
-
-CREATE TABLE `invoice` (
-  `INVID` int(15) NOT NULL,
-  `CFEESESSID` int(15) NOT NULL,
-  `ADFLXFEESTUDID` int(15) NOT NULL,
-  `ANYDISCOUNT` varchar(100) NOT NULL,
-  `DISCOUNT` varchar(100) NOT NULL,
-  `DISCOUNT_AMOUNT` varchar(100) NOT NULL,
-  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `USERNAME_` varchar(40) NOT NULL,
-  `PASSWORD_` varchar(25) NOT NULL,
-  `USER_STATUS` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`USERNAME_`, `PASSWORD_`, `USER_STATUS`) VALUES
-('deepak', '123', 'nw'),
-('gopal', '123', 'adm'),
-('naveen', '123', 'adm'),
-('nitin', '123', 'adm'),
-('operator1', 'oper$#1234', 'deo');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `menu`
---
-
-CREATE TABLE `menu` (
+CREATE TABLE `menu_1` (
   `ID_` int(11) NOT NULL,
   `PRE_ICON` varchar(150) NOT NULL,
   `MENU` varchar(30) NOT NULL,
@@ -522,13 +670,37 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `menu`
+-- Dumping data for table `menu_1`
 --
 
-INSERT INTO `menu` (`ID_`, `PRE_ICON`, `MENU`, `PATH_`, `PRIORITY_`) VALUES
+INSERT INTO `menu_1` (`ID_`, `PRE_ICON`, `MENU`, `PATH_`, `PRIORITY_`) VALUES
 (1, 'icon_house_alt', 'Dashboard', 'web', 1),
 (2, 'fa fa-users', 'Registration', 'x', 2),
 (3, 'fa fa-money', 'Fees', 'x', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu_2_submenu`
+--
+
+CREATE TABLE `menu_2_submenu` (
+  `SUBMENUID` int(11) NOT NULL,
+  `PRE_ICON` varchar(150) NOT NULL,
+  `SUBMENU` varchar(150) NOT NULL,
+  `PATH_` varchar(300) NOT NULL,
+  `PRIORITY` int(11) NOT NULL,
+  `ID_` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `menu_2_submenu`
+--
+
+INSERT INTO `menu_2_submenu` (`SUBMENUID`, `PRE_ICON`, `SUBMENU`, `PATH_`, `PRIORITY`, `ID_`) VALUES
+(1, 'fa fa-child', 'New', 'web/stuRegistration', 1, 2),
+(2, 'fa fa-pencil-square-o', 'Edit', 'web/editReg', 2, 2),
+(3, 'fa fa-money', 'Add Fee head', 'web/addFeeHead', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -557,21 +729,6 @@ CREATE TABLE `online_registration` (
   `MOBILE_` varchar(15) NOT NULL,
   `EMAIL_` varchar(100) NOT NULL,
   `DOR_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `receipts`
---
-
-CREATE TABLE `receipts` (
-  `RECPTID` int(15) NOT NULL,
-  `FEEID` int(15) NOT NULL,
-  `FLEXI_FEE_STATUS` varchar(100) NOT NULL,
-  `ADFLXFEESTUDID` int(15) NOT NULL,
-  `INVID` int(15) NOT NULL,
-  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -612,163 +769,6 @@ CREATE TABLE `register_with_us` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `session`
---
-
-CREATE TABLE `session` (
-  `SESSID` int(15) NOT NULL,
-  `SESSSTART` varchar(100) NOT NULL,
-  `SESSEND` varchar(100) NOT NULL,
-  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `state_`
---
-
-CREATE TABLE `state_` (
-  `NAME_` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `state_`
---
-
-INSERT INTO `state_` (`NAME_`) VALUES
-('UTTARAKHAND'),
-('UTTAR PRADESH'),
-('DELHI'),
-('HARAYANA'),
-('KARNATAKA'),
-('MAHARASHTRA');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `submenu`
---
-
-CREATE TABLE `submenu` (
-  `SUBMENUID` int(11) NOT NULL,
-  `PRE_ICON` varchar(150) NOT NULL,
-  `SUBMENU` varchar(150) NOT NULL,
-  `PATH_` varchar(300) NOT NULL,
-  `PRIORITY` int(11) NOT NULL,
-  `ID_` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `submenu`
---
-
-INSERT INTO `submenu` (`SUBMENUID`, `PRE_ICON`, `SUBMENU`, `PATH_`, `PRIORITY`, `ID_`) VALUES
-(1, 'fa fa-child', 'New', 'web/stuRegistration', 1, 2),
-(2, 'fa fa-pencil-square-o', 'Edit', 'web/editReg', 2, 2),
-(3, 'fa fa-money', 'Add Fee head', 'web/addFeeHead', 3, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_status`
---
-
-CREATE TABLE `user_status` (
-  `ST_ID` varchar(5) NOT NULL,
-  `STATUS` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user_status`
---
-
-INSERT INTO `user_status` (`ST_ID`, `STATUS`) VALUES
-('adm', 'Admin'),
-('deo', 'Data Entry Operator'),
-('fc', 'Faculty'),
-('meo', 'Marks Entry Operator'),
-('nw', 'news');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `zone_`
---
-
-CREATE TABLE `zone_` (
-  `ID` int(11) NOT NULL,
-  `ZONE` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `zone_`
---
-
-INSERT INTO `zone_` (`ID`, `ZONE`) VALUES
-(1, 'NORTH'),
-(2, 'SOUTH'),
-(3, 'EAST'),
-(4, 'WEST'),
-(5, 'NORTH EAST'),
-(6, 'CENTRAL');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `zone_region`
---
-
-CREATE TABLE `zone_region` (
-  `ID_` int(11) NOT NULL,
-  `ZONE_` int(11) NOT NULL,
-  `REGION` varchar(10) NOT NULL,
-  `REG_NAME` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `zone_region`
---
-
-INSERT INTO `zone_region` (`ID_`, `ZONE_`, `REGION`, `REG_NAME`) VALUES
-(1, 1, 'PB', 'Punjab'),
-(2, 1, 'JK', 'Jammu & Kashmi'),
-(3, 1, 'HR', 'Harayana'),
-(4, 1, 'HP', 'Himanchal Pradesh'),
-(5, 1, 'UP', 'Uttar Pradesh'),
-(6, 1, 'UL', 'Uttarakhand'),
-(7, 1, 'RJ', 'Rajasthan'),
-(8, 1, 'CH', 'Chandigarh'),
-(9, 1, 'DL', 'Delhi'),
-(10, 2, 'AP', 'Andhra Pradesh'),
-(11, 2, 'KA', 'Karnataka'),
-(12, 2, 'KL', 'Kerala'),
-(13, 2, 'TN', 'Tamil Nadu'),
-(14, 2, 'TG', 'Telangana'),
-(15, 3, 'WB', 'West Bengal'),
-(16, 3, 'OS', 'Odisa'),
-(17, 3, 'BR', 'Bihar'),
-(18, 3, 'JH', 'Jharkhand'),
-(19, 3, 'AN', 'Andaman and Nicobaar Islands'),
-(20, 4, 'GJ', 'Gujrat'),
-(21, 4, 'MH', 'Maharshtra'),
-(22, 4, 'GO', 'Goa'),
-(23, 4, 'DD', 'Daman and Diu'),
-(24, 4, 'DN', 'Dadra and Nagar Havali'),
-(25, 6, 'MP', 'Madhya Pradesh'),
-(26, 6, 'CG', 'Chhatisgarh'),
-(27, 5, 'AS', 'Assam'),
-(28, 5, 'SK', 'Sikkim'),
-(29, 5, 'NG', 'Nagaland'),
-(30, 5, 'MG', 'Meghalaya'),
-(31, 5, 'MN', 'Manipur'),
-(32, 5, 'MZ', 'Mizoram'),
-(33, 5, 'TR', 'Tripura'),
-(34, 5, 'AZ', 'Arunachal Pradesh');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `_id_`
 --
 
@@ -782,57 +782,27 @@ CREATE TABLE `_id_` (
 --
 
 --
--- Indexes for table `add_flexi_fee_to_students`
+-- Indexes for table `class_1_classes`
 --
-ALTER TABLE `add_flexi_fee_to_students`
-  ADD PRIMARY KEY (`ADFLXFEESTUDID`);
-
---
--- Indexes for table `city_`
---
-ALTER TABLE `city_`
-  ADD PRIMARY KEY (`NAME_`);
-
---
--- Indexes for table `classes`
---
-ALTER TABLE `classes`
+ALTER TABLE `class_1_classes`
   ADD PRIMARY KEY (`CLASSID`);
 
 --
--- Indexes for table `class_fee`
+-- Indexes for table `class_2_in_session`
 --
-ALTER TABLE `class_fee`
-  ADD PRIMARY KEY (`CFEEID`);
-
---
--- Indexes for table `class_fee_in_a_session`
---
-ALTER TABLE `class_fee_in_a_session`
-  ADD PRIMARY KEY (`CFEESESSID`);
-
---
--- Indexes for table `class_fee_split`
---
-ALTER TABLE `class_fee_split`
-  ADD PRIMARY KEY (`CFEESPLITID`);
-
---
--- Indexes for table `class_in_session`
---
-ALTER TABLE `class_in_session`
+ALTER TABLE `class_2_in_session`
   ADD PRIMARY KEY (`CLSSESSID`);
 
 --
--- Indexes for table `country_`
+-- Indexes for table `fee_1_type`
 --
-ALTER TABLE `country_`
-  ADD PRIMARY KEY (`ABREV_`);
+ALTER TABLE `fee_1_type`
+  ADD PRIMARY KEY (`FEETYPEID`);
 
 --
--- Indexes for table `fee`
+-- Indexes for table `fee_2`
 --
-ALTER TABLE `fee`
+ALTER TABLE `fee_2`
   ADD PRIMARY KEY (`feeID`),
   ADD KEY `regID` (`regID`,`date`),
   ADD KEY `userID` (`username`),
@@ -842,28 +812,52 @@ ALTER TABLE `fee`
   ADD KEY `feetype` (`feetype`);
 
 --
--- Indexes for table `feetype`
+-- Indexes for table `fee_3_static_heads`
 --
-ALTER TABLE `feetype`
-  ADD PRIMARY KEY (`FEETYPEID`);
-
---
--- Indexes for table `fee_flexible_heads`
---
-ALTER TABLE `fee_flexible_heads`
-  ADD PRIMARY KEY (`FLX_HD_ID`);
-
---
--- Indexes for table `fee_static_heads`
---
-ALTER TABLE `fee_static_heads`
+ALTER TABLE `fee_3_static_heads`
   ADD PRIMARY KEY (`ST_HD_ID`);
 
 --
--- Indexes for table `invoice`
+-- Indexes for table `fee_4_flexible_heads`
 --
-ALTER TABLE `invoice`
+ALTER TABLE `fee_4_flexible_heads`
+  ADD PRIMARY KEY (`FLX_HD_ID`);
+
+--
+-- Indexes for table `fee_5_add_flexi_head_to_students`
+--
+ALTER TABLE `fee_5_add_flexi_head_to_students`
+  ADD PRIMARY KEY (`ADFLXFEESTUDID`);
+
+--
+-- Indexes for table `fee_6_invoice`
+--
+ALTER TABLE `fee_6_invoice`
   ADD PRIMARY KEY (`INVID`);
+
+--
+-- Indexes for table `fee_7_receipts`
+--
+ALTER TABLE `fee_7_receipts`
+  ADD PRIMARY KEY (`RECPTID`);
+
+--
+-- Indexes for table `fee_8_class_fee`
+--
+ALTER TABLE `fee_8_class_fee`
+  ADD PRIMARY KEY (`CFEEID`);
+
+--
+-- Indexes for table `fee_9_class_fee_split`
+--
+ALTER TABLE `fee_9_class_fee_split`
+  ADD PRIMARY KEY (`CFEESPLITID`);
+
+--
+-- Indexes for table `fee_10_class_fee_in_a_session`
+--
+ALTER TABLE `fee_10_class_fee_in_a_session`
+  ADD PRIMARY KEY (`CFEESESSID`);
 
 --
 -- Indexes for table `login`
@@ -872,10 +866,52 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`USERNAME_`);
 
 --
--- Indexes for table `menu`
+-- Indexes for table `master_0_country_`
 --
-ALTER TABLE `menu`
+ALTER TABLE `master_0_country_`
+  ADD PRIMARY KEY (`ABREV_`);
+
+--
+-- Indexes for table `master_1_zone_`
+--
+ALTER TABLE `master_1_zone_`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `master_2_zone_region`
+--
+ALTER TABLE `master_2_zone_region`
   ADD PRIMARY KEY (`ID_`);
+
+--
+-- Indexes for table `master_4_city_`
+--
+ALTER TABLE `master_4_city_`
+  ADD PRIMARY KEY (`NAME_`);
+
+--
+-- Indexes for table `master_5_user_status`
+--
+ALTER TABLE `master_5_user_status`
+  ADD PRIMARY KEY (`ST_ID`);
+
+--
+-- Indexes for table `master_6_session`
+--
+ALTER TABLE `master_6_session`
+  ADD PRIMARY KEY (`SESSID`);
+
+--
+-- Indexes for table `menu_1`
+--
+ALTER TABLE `menu_1`
+  ADD PRIMARY KEY (`ID_`);
+
+--
+-- Indexes for table `menu_2_submenu`
+--
+ALTER TABLE `menu_2_submenu`
+  ADD PRIMARY KEY (`SUBMENUID`);
 
 --
 -- Indexes for table `online_registration`
@@ -884,71 +920,35 @@ ALTER TABLE `online_registration`
   ADD PRIMARY KEY (`regid`);
 
 --
--- Indexes for table `receipts`
---
-ALTER TABLE `receipts`
-  ADD PRIMARY KEY (`RECPTID`);
-
---
 -- Indexes for table `register_with_us`
 --
 ALTER TABLE `register_with_us`
   ADD PRIMARY KEY (`regid`);
 
 --
--- Indexes for table `session`
---
-ALTER TABLE `session`
-  ADD PRIMARY KEY (`SESSID`);
-
---
--- Indexes for table `submenu`
---
-ALTER TABLE `submenu`
-  ADD PRIMARY KEY (`SUBMENUID`);
-
---
--- Indexes for table `user_status`
---
-ALTER TABLE `user_status`
-  ADD PRIMARY KEY (`ST_ID`);
-
---
--- Indexes for table `zone_`
---
-ALTER TABLE `zone_`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `zone_region`
---
-ALTER TABLE `zone_region`
-  ADD PRIMARY KEY (`ID_`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `fee`
+-- AUTO_INCREMENT for table `fee_2`
 --
-ALTER TABLE `fee`
-  MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `fee_2`
+  MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `menu`
+-- AUTO_INCREMENT for table `menu_1`
 --
-ALTER TABLE `menu`
+ALTER TABLE `menu_1`
   MODIFY `ID_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `menu_2_submenu`
+--
+ALTER TABLE `menu_2_submenu`
+  MODIFY `SUBMENUID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `online_registration`
 --
 ALTER TABLE `online_registration`
   MODIFY `regid` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `submenu`
---
-ALTER TABLE `submenu`
-  MODIFY `SUBMENUID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -77,7 +77,7 @@ class My_model extends CI_Model {
         $file_name = $this->do_upload_reg_photo($regid__);
 
         $this->db->where('REGION', $this->input->post('txtState'));
-        $q = $this->db->get('zone_region');
+        $q = $this->db->get('master_2_zone_region');
         if ($q->num_rows() != 0) {
             $r_ = $q->row();
             $zone__ = $r_->ZONE_;
@@ -137,7 +137,7 @@ class My_model extends CI_Model {
         $file_name = $this->do_upload_reg_photo($regid__);
 
         $this->db->where('REGION', $this->input->post('txtState'));
-        $q = $this->db->get('zone_region');
+        $q = $this->db->get('master_2_zone_region');
         if ($q->num_rows() != 0) {
             $r_ = $q->row();
             $zone__ = $r_->ZONE_;
@@ -211,10 +211,10 @@ class My_model extends CI_Model {
     }
 
     function get_registration_details($regid__, $year__) {
-        $this->db->select('register_with_us.*, zone_.ZONE, zone_region.REG_NAME');
+        $this->db->select('register_with_us.*, master_1_zone_.ZONE, master_2_zone_region.REG_NAME');
         $this->db->from('register_with_us');
-        $this->db->join('zone_', 'register_with_us.ZONE_ = zone_.ID AND register_with_us.regid = ' . $regid__, 'inner');
-        $this->db->join('zone_region', 'register_with_us.STATE_ = zone_region.REGION', 'inner');
+        $this->db->join('master_1_zone_', 'register_with_us.ZONE_ = master_1_zone_.ID AND register_with_us.regid = ' . $regid__, 'inner');
+        $this->db->join('master_2_zone_region', 'register_with_us.STATE_ = master_2_zone_region.REGION', 'inner');
         $this->db->where('YEAR(DOR_)', $year__);
         $query = $this->db->get();
 
@@ -232,7 +232,7 @@ class My_model extends CI_Model {
         $this->db->where('regID', $regid__);
         $this->db->where('feetype', 'Registration');
         $this->db->where('YEAR(DOE_)', $year__);
-        $query = $this->db->get('fee');
+        $query = $this->db->get('fee_2');
 
         if ($query->num_rows() != 0) {
             $record_ = array('res_' => TRUE, 'data_' => $query->row());
@@ -246,27 +246,27 @@ class My_model extends CI_Model {
     function get_states() {
         //$this -> db -> order_by('ZONE_');
         $this->db->order_by('REG_NAME');
-        $query = $this->db->get('zone_region');
+        $query = $this->db->get('master_2_zone_region');
         return $query->result();
     }
 
     function get_country() {
         $this->db->order_by('NAME_');
-        $query = $this->db->get('country_');
+        $query = $this->db->get('master_0_country_');
         return $query->result();
     }
 
     function get_city() {
-        $query = $this->db->get('city_');
+        $query = $this->db->get('master_4_city_');
         return $query->result();
     }
 
     function put_city($city) {
         $this->db->where('NAME_', strtoupper($city));
-        $query = $this->db->get('city_');
+        $query = $this->db->get('master_4_city_');
         if ($query->num_rows() == 0) {
             $data = array('NAME_' => strtoupper($city));
-            $this->db->insert('city_', $data);
+            $this->db->insert('master_4_city_', $data);
         }
     }
 
@@ -292,7 +292,7 @@ class My_model extends CI_Model {
             'dd_ch_date' => $this->input->post('txtDate'),
             'DOE_' => date('Y-m-d H:i:s')
         );
-        $bool_ = $this->db->insert('fee', $data);
+        $bool_ = $this->db->insert('fee_2', $data);
         if ($bool_ == TRUE && $this->session->userdata('_user___')) {
             $username = "migsrdr";
             $password = "123456";
@@ -319,7 +319,7 @@ class My_model extends CI_Model {
 
     function count_fees($feetype_, $year_) {
 
-        $query = $this->db->get('fee');
+        $query = $this->db->get('fee_2');
 
         if ($query->num_rows() != 0) {
             $this->db->select('SUM(Amount) as amt');
@@ -340,7 +340,7 @@ class My_model extends CI_Model {
     }
 
     function seek_registered_cities($year_) {
-        $query = $this->db->get('city_');
+        $query = $this->db->get('master_4_city_');
         if ($query->num_rows() != 0) {
             $this->db->select('count(distinct(CITY_)) as cnt_city');
             $this->db->where('YEAR(DOR_)', $year_);
@@ -358,7 +358,7 @@ class My_model extends CI_Model {
     }
 
     function seek_registered_states($year_) {
-        $query = $this->db->get('state_');
+        $query = $this->db->get('master_3_state_');
         if ($query->num_rows() != 0) {
             $this->db->select('count(distinct(STATE_)) as cnt_state');
             $this->db->where('YEAR(DOR_)', $year_);
@@ -392,7 +392,7 @@ class My_model extends CI_Model {
     function get_total_registration_fee($year__) {
         $this->db->where('YEAR(DOE_)', $year__);
         $this->db->where('feetype', 'Registration');
-        $query = $this->db->get('fee');
+        $query = $this->db->get('fee_2');
 
         return $query->result();
     }

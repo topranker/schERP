@@ -8,12 +8,12 @@ class Menu_model extends CI_Model {
         parent::__construct();
     }
     function get_menu(){
-    	$query = $this->db->get('menu');
+    	$query = $this->db->get('menu_1');
 
     	return $query->result();
     }
     function get_submenu(){
-    	$query = $this->db->get('submenu');
+    	$query = $this->db->get('menu_2_submenu');
 
     	return $query->result();
     }
