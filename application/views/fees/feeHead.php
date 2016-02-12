@@ -45,9 +45,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-5 control-label"></label>
-                        <div class="col-sm-7">
-                            <button type="submit" class="btn btn-primary col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">ADD HEAD</button>
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary col-sm-12 col-xs-12" name="cmbRegSubmit" id="cmbRegSubmit">ADD HEAD</button>
                         </div>
                     </div>
                 </div>
@@ -58,7 +57,7 @@
                         <tbody>
                             <tr>
                                 <th>REGISTRATION</th>
-                                <th align="right">
+                                <th>
                                     <i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i> | 
                                     <i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
                                 </th>
@@ -108,11 +107,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-6">
-                            <button type="submit" class="btn btn-primary col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">SUBMIT</button>                            
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <button type="submit" class="btn btn-primary col-sm-12 col-xs-12 col-md-12" name="cmbRegSubmit" id="cmbRegSubmit" style="overflow:hidden">SUBMIT</button>                            
                         </div>
-                        <div class="col-sm-6">
-                            <button type="submit" class="btn btn-danger col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">CANCEL</button>                            
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 col-md-12" name="cmbRegSubmit" id="cmbRegSubmit" style="overflow:hidden">CANCEL</button>                            
                         </div>
                     </div>
                 </div>
