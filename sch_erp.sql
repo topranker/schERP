@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2016 at 04:17 PM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Feb 12, 2016 at 04:39 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 7.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `sch_erp`
@@ -23,10 +23,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `add_flexi_fee_to_students`
+--
+
+CREATE TABLE `add_flexi_fee_to_students` (
+  `ADFLXFEESTUDID` int(15) NOT NULL,
+  `REGID` varchar(100) NOT NULL,
+  `CLSSESSID` int(15) NOT NULL,
+  `SESSID` int(15) NOT NULL,
+  `FLX_HD_ID` int(15) NOT NULL,
+  `STATUS` varchar(100) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `city_`
 --
 
-CREATE TABLE IF NOT EXISTS `city_` (
+CREATE TABLE `city_` (
   `NAME_` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,10 +57,81 @@ INSERT INTO `city_` (`NAME_`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `classes`
+--
+
+CREATE TABLE `classes` (
+  `CLASSID` int(15) NOT NULL,
+  `CLASS` varchar(100) NOT NULL,
+  `SECTION` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_fee`
+--
+
+CREATE TABLE `class_fee` (
+  `CFEEID` int(15) NOT NULL,
+  `CLSSESSID` int(15) NOT NULL,
+  `TOTFEE` varchar(100) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_fee_in_a_session`
+--
+
+CREATE TABLE `class_fee_in_a_session` (
+  `CFEESESSID` int(15) NOT NULL,
+  `CFEEID` int(15) NOT NULL,
+  `CLSSESSID` int(15) NOT NULL,
+  `SESSID` int(15) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_fee_split`
+--
+
+CREATE TABLE `class_fee_split` (
+  `CFEESPLITID` int(15) NOT NULL,
+  `CFEEID` int(15) NOT NULL,
+  `ST_HD_ID` int(15) NOT NULL,
+  `AMOUNT` varchar(100) NOT NULL,
+  `PAYMENT_STATUS` varchar(100) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_in_session`
+--
+
+CREATE TABLE `class_in_session` (
+  `CLSSESSID` int(15) NOT NULL,
+  `CLASSID` int(15) NOT NULL,
+  `SESSID` int(15) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `country_`
 --
 
-CREATE TABLE IF NOT EXISTS `country_` (
+CREATE TABLE `country_` (
   `ABREV_` varchar(5) NOT NULL,
   `NAME_` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -324,8 +412,8 @@ INSERT INTO `country_` (`ABREV_`, `NAME_`) VALUES
 -- Table structure for table `fee`
 --
 
-CREATE TABLE IF NOT EXISTS `fee` (
-`feeID` int(11) NOT NULL,
+CREATE TABLE `fee` (
+  `feeID` int(11) NOT NULL,
   `regID` varchar(25) NOT NULL,
   `date` varchar(20) NOT NULL,
   `Amount` int(11) NOT NULL,
@@ -336,7 +424,65 @@ CREATE TABLE IF NOT EXISTS `fee` (
   `dd_ch_no` varchar(20) NOT NULL,
   `dd_ch_date` varchar(20) NOT NULL,
   `DOE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feetype`
+--
+
+CREATE TABLE `feetype` (
+  `FEETYPEID` int(15) NOT NULL,
+  `TYPE_` varchar(100) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_flexible_heads`
+--
+
+CREATE TABLE `fee_flexible_heads` (
+  `FLX_HD_ID` int(15) NOT NULL,
+  `FEE_HEAD` varchar(100) NOT NULL,
+  `AMOUNT` varchar(100) NOT NULL,
+  `SESSID` int(15) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fee_static_heads`
+--
+
+CREATE TABLE `fee_static_heads` (
+  `ST_HD_ID` int(15) NOT NULL,
+  `FEE_HEAD` varchar(100) NOT NULL,
+  `SESSID` int(15) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `INVID` int(15) NOT NULL,
+  `CFEESESSID` int(15) NOT NULL,
+  `ADFLXFEESTUDID` int(15) NOT NULL,
+  `ANYDISCOUNT` varchar(100) NOT NULL,
+  `DISCOUNT` varchar(100) NOT NULL,
+  `DISCOUNT_AMOUNT` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -344,7 +490,7 @@ CREATE TABLE IF NOT EXISTS `fee` (
 -- Table structure for table `login`
 --
 
-CREATE TABLE IF NOT EXISTS `login` (
+CREATE TABLE `login` (
   `USERNAME_` varchar(40) NOT NULL,
   `PASSWORD_` varchar(25) NOT NULL,
   `USER_STATUS` varchar(5) NOT NULL
@@ -367,13 +513,13 @@ INSERT INTO `login` (`USERNAME_`, `PASSWORD_`, `USER_STATUS`) VALUES
 -- Table structure for table `menu`
 --
 
-CREATE TABLE IF NOT EXISTS `menu` (
-`ID_` int(11) NOT NULL,
+CREATE TABLE `menu` (
+  `ID_` int(11) NOT NULL,
   `PRE_ICON` varchar(150) NOT NULL,
   `MENU` varchar(30) NOT NULL,
   `PATH_` varchar(300) NOT NULL,
   `PRIORITY_` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `menu`
@@ -390,8 +536,8 @@ INSERT INTO `menu` (`ID_`, `PRE_ICON`, `MENU`, `PATH_`, `PRIORITY_`) VALUES
 -- Table structure for table `online_registration`
 --
 
-CREATE TABLE IF NOT EXISTS `online_registration` (
-`regid` int(11) NOT NULL,
+CREATE TABLE `online_registration` (
+  `regid` int(11) NOT NULL,
   `FULLNAME` varchar(150) NOT NULL,
   `GENDER` varchar(10) NOT NULL,
   `FATHER` varchar(150) NOT NULL,
@@ -411,7 +557,22 @@ CREATE TABLE IF NOT EXISTS `online_registration` (
   `MOBILE_` varchar(15) NOT NULL,
   `EMAIL_` varchar(100) NOT NULL,
   `DOR_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `receipts`
+--
+
+CREATE TABLE `receipts` (
+  `RECPTID` int(15) NOT NULL,
+  `FEEID` int(15) NOT NULL,
+  `FLEXI_FEE_STATUS` varchar(100) NOT NULL,
+  `ADFLXFEESTUDID` int(15) NOT NULL,
+  `INVID` int(15) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -419,7 +580,7 @@ CREATE TABLE IF NOT EXISTS `online_registration` (
 -- Table structure for table `register_with_us`
 --
 
-CREATE TABLE IF NOT EXISTS `register_with_us` (
+CREATE TABLE `register_with_us` (
   `regid` varchar(25) NOT NULL,
   `FULLNAME` varchar(150) NOT NULL,
   `FATHER` varchar(150) NOT NULL,
@@ -451,10 +612,23 @@ CREATE TABLE IF NOT EXISTS `register_with_us` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `session`
+--
+
+CREATE TABLE `session` (
+  `SESSID` int(15) NOT NULL,
+  `SESSSTART` varchar(100) NOT NULL,
+  `SESSEND` varchar(100) NOT NULL,
+  `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `state_`
 --
 
-CREATE TABLE IF NOT EXISTS `state_` (
+CREATE TABLE `state_` (
   `NAME_` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -476,14 +650,14 @@ INSERT INTO `state_` (`NAME_`) VALUES
 -- Table structure for table `submenu`
 --
 
-CREATE TABLE IF NOT EXISTS `submenu` (
-`SUBMENUID` int(11) NOT NULL,
+CREATE TABLE `submenu` (
+  `SUBMENUID` int(11) NOT NULL,
   `PRE_ICON` varchar(150) NOT NULL,
   `SUBMENU` varchar(150) NOT NULL,
   `PATH_` varchar(300) NOT NULL,
   `PRIORITY` int(11) NOT NULL,
   `ID_` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `submenu`
@@ -492,7 +666,7 @@ CREATE TABLE IF NOT EXISTS `submenu` (
 INSERT INTO `submenu` (`SUBMENUID`, `PRE_ICON`, `SUBMENU`, `PATH_`, `PRIORITY`, `ID_`) VALUES
 (1, 'fa fa-child', 'New', 'web/stuRegistration', 1, 2),
 (2, 'fa fa-pencil-square-o', 'Edit', 'web/editReg', 2, 2),
-(3, 'fa fa-pencil-square-o', 'Fee-Head', 'web/addFeeHead', 3, 3);
+(3, 'fa fa-money', 'Add Fee head', 'web/addFeeHead', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -500,7 +674,7 @@ INSERT INTO `submenu` (`SUBMENUID`, `PRE_ICON`, `SUBMENU`, `PATH_`, `PRIORITY`, 
 -- Table structure for table `user_status`
 --
 
-CREATE TABLE IF NOT EXISTS `user_status` (
+CREATE TABLE `user_status` (
   `ST_ID` varchar(5) NOT NULL,
   `STATUS` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -522,7 +696,7 @@ INSERT INTO `user_status` (`ST_ID`, `STATUS`) VALUES
 -- Table structure for table `zone_`
 --
 
-CREATE TABLE IF NOT EXISTS `zone_` (
+CREATE TABLE `zone_` (
   `ID` int(11) NOT NULL,
   `ZONE` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -545,7 +719,7 @@ INSERT INTO `zone_` (`ID`, `ZONE`) VALUES
 -- Table structure for table `zone_region`
 --
 
-CREATE TABLE IF NOT EXISTS `zone_region` (
+CREATE TABLE `zone_region` (
   `ID_` int(11) NOT NULL,
   `ZONE_` int(11) NOT NULL,
   `REGION` varchar(10) NOT NULL,
@@ -598,7 +772,7 @@ INSERT INTO `zone_region` (`ID_`, `ZONE_`, `REGION`, `REG_NAME`) VALUES
 -- Table structure for table `_id_`
 --
 
-CREATE TABLE IF NOT EXISTS `_id_` (
+CREATE TABLE `_id_` (
   `ID_` int(11) NOT NULL,
   `regid_` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -608,70 +782,148 @@ CREATE TABLE IF NOT EXISTS `_id_` (
 --
 
 --
+-- Indexes for table `add_flexi_fee_to_students`
+--
+ALTER TABLE `add_flexi_fee_to_students`
+  ADD PRIMARY KEY (`ADFLXFEESTUDID`);
+
+--
 -- Indexes for table `city_`
 --
 ALTER TABLE `city_`
- ADD PRIMARY KEY (`NAME_`);
+  ADD PRIMARY KEY (`NAME_`);
+
+--
+-- Indexes for table `classes`
+--
+ALTER TABLE `classes`
+  ADD PRIMARY KEY (`CLASSID`);
+
+--
+-- Indexes for table `class_fee`
+--
+ALTER TABLE `class_fee`
+  ADD PRIMARY KEY (`CFEEID`);
+
+--
+-- Indexes for table `class_fee_in_a_session`
+--
+ALTER TABLE `class_fee_in_a_session`
+  ADD PRIMARY KEY (`CFEESESSID`);
+
+--
+-- Indexes for table `class_fee_split`
+--
+ALTER TABLE `class_fee_split`
+  ADD PRIMARY KEY (`CFEESPLITID`);
+
+--
+-- Indexes for table `class_in_session`
+--
+ALTER TABLE `class_in_session`
+  ADD PRIMARY KEY (`CLSSESSID`);
 
 --
 -- Indexes for table `country_`
 --
 ALTER TABLE `country_`
- ADD PRIMARY KEY (`ABREV_`);
+  ADD PRIMARY KEY (`ABREV_`);
 
 --
 -- Indexes for table `fee`
 --
 ALTER TABLE `fee`
- ADD PRIMARY KEY (`feeID`), ADD KEY `regID` (`regID`,`date`), ADD KEY `userID` (`username`), ADD KEY `username` (`username`), ADD KEY `username_2` (`username`), ADD KEY `regID_2` (`regID`), ADD KEY `feetype` (`feetype`);
+  ADD PRIMARY KEY (`feeID`),
+  ADD KEY `regID` (`regID`,`date`),
+  ADD KEY `userID` (`username`),
+  ADD KEY `username` (`username`),
+  ADD KEY `username_2` (`username`),
+  ADD KEY `regID_2` (`regID`),
+  ADD KEY `feetype` (`feetype`);
+
+--
+-- Indexes for table `feetype`
+--
+ALTER TABLE `feetype`
+  ADD PRIMARY KEY (`FEETYPEID`);
+
+--
+-- Indexes for table `fee_flexible_heads`
+--
+ALTER TABLE `fee_flexible_heads`
+  ADD PRIMARY KEY (`FLX_HD_ID`);
+
+--
+-- Indexes for table `fee_static_heads`
+--
+ALTER TABLE `fee_static_heads`
+  ADD PRIMARY KEY (`ST_HD_ID`);
+
+--
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`INVID`);
 
 --
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
- ADD PRIMARY KEY (`USERNAME_`);
+  ADD PRIMARY KEY (`USERNAME_`);
 
 --
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
- ADD PRIMARY KEY (`ID_`);
+  ADD PRIMARY KEY (`ID_`);
 
 --
 -- Indexes for table `online_registration`
 --
 ALTER TABLE `online_registration`
- ADD PRIMARY KEY (`regid`);
+  ADD PRIMARY KEY (`regid`);
+
+--
+-- Indexes for table `receipts`
+--
+ALTER TABLE `receipts`
+  ADD PRIMARY KEY (`RECPTID`);
 
 --
 -- Indexes for table `register_with_us`
 --
 ALTER TABLE `register_with_us`
- ADD PRIMARY KEY (`regid`);
+  ADD PRIMARY KEY (`regid`);
+
+--
+-- Indexes for table `session`
+--
+ALTER TABLE `session`
+  ADD PRIMARY KEY (`SESSID`);
 
 --
 -- Indexes for table `submenu`
 --
 ALTER TABLE `submenu`
- ADD PRIMARY KEY (`SUBMENUID`);
+  ADD PRIMARY KEY (`SUBMENUID`);
 
 --
 -- Indexes for table `user_status`
 --
 ALTER TABLE `user_status`
- ADD PRIMARY KEY (`ST_ID`);
+  ADD PRIMARY KEY (`ST_ID`);
 
 --
 -- Indexes for table `zone_`
 --
 ALTER TABLE `zone_`
- ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `zone_region`
 --
 ALTER TABLE `zone_region`
- ADD PRIMARY KEY (`ID_`);
+  ADD PRIMARY KEY (`ID_`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -681,22 +933,22 @@ ALTER TABLE `zone_region`
 -- AUTO_INCREMENT for table `fee`
 --
 ALTER TABLE `fee`
-MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-MODIFY `ID_` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `ID_` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `online_registration`
 --
 ALTER TABLE `online_registration`
-MODIFY `regid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `regid` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `submenu`
 --
 ALTER TABLE `submenu`
-MODIFY `SUBMENUID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `SUBMENUID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
