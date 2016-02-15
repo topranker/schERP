@@ -23,11 +23,11 @@
                     <?php
                     $attrib_ = array(
                         'class' => 'form-horizontal',
-                        'name' => 'frmRegistration_',
-                        'id' => 'frmRegistration_',
+                        'name' => 'frmStaticHead_',
+                        'id' => 'frmStaticHead_',
                     );
                     ?>
-                    <?php echo form_open_multipart(''); ?>
+                    <?php echo form_open('fee/feed_static_head', $attrib_); ?>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <?php
@@ -36,47 +36,65 @@
                                 'autocomplete' => 'off',
                                 'required' => 'required',
                                 'class' => 'required form-control',
-                                'name' => 'txtFullName',
-                                'id' => 'txtFullName',
+                                'name' => 'txtFeeStaticHead',
+                                'id' => 'txtFeeStaticHead',
                                 'value' => ''
                             );
                             echo form_input($data);
                             ?>
+                            <div style="padding: 5px" id="available_"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-5 control-label"></label>
                         <div class="col-sm-7">
-                            <button type="submit" class="btn btn-primary col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">ADD HEAD</button>
+                            <button type="submit" class="btn btn-primary col-sm-12" name="cmbFeeHeadSubmit" id="cmbFeeHeadSubmit">ADD HEAD</button>
                         </div>
                     </div>
+                    <?php echo form_close(); ?>
                 </div>
                 <div class="col-sm-1"></div>
                 <div class="col-sm-4" style="border:1px #dddddd dotted; border-radius: 10px;">
                     <h3>Heads</h3>
                     <table class="table table-hover">
                         <tbody>
-                            <tr>
-                                <th>REGISTRATION</th>
-                                <th align="right">
-                                    <i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i> | 
-                                    <i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>ADMISSION</th>
-                                <th>
-                                    <i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i> | 
-                                    <i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>TUITION FEES</th>
-                                <th>
-                                    <i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i> | 
-                                    <i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
-                                </th>
-                            </tr>
+                            <?php
+                                $attrib_ = array(
+                                    'class' => 'form-horizontal',
+                                    'name' => 'frmStaticHead_Del',
+                                    'id' => 'frmStaticHead_Del',
+                                );
+                            ?>
+                            <?php echo form_open('fee/delete_static_head',$attrib_); ?>
+                            <?php if(count($static_heads) != 0){ ?>
+                            <?php foreach($static_heads as $item_) { ?>
+                                <tr>
+                                    <th><a href="#"><?php echo strtoupper($item_->FEE_HEAD); ?></a></th>
+                                    <th align="right">
+                                        <a href="#" id="changeHead_<?php echo $item_->ST_HD_ID; ?>" onclick="change_head('<?php echo $item_->ST_HD_ID; ?>','<?php echo $item_->FEE_HEAD; ?>');"><i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i></a> | 
+                                        <a href="#" onclick="delete_head('<?php echo $item_->ST_HD_ID; ?>');"><i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
+                                    </th>
+                                </tr>
+                            <?php } ?>
+                            <?php } else { ?>
+                                <tr>
+                                <th>No data found...</th>
+                                </tr>
+                            <?php } ?>
+                            <?php
+                            $data = array(
+                                'type' => 'hidden',
+                                'autocomplete' => 'off',
+                                'required' => 'required',
+                                'class' => 'required form-control',
+                                'name' => 'txtFeeStaticHeadID_del',
+                                'id' => 'txtFeeStaticHeadID_del',
+                                'value' => ''
+                            );
+                            echo form_input($data);
+                            ?>
+                            <div style="padding: 5px"><?php echo $this->session->flashdata('msg_delete_');?></div>
+                            <?php echo form_close(); ?>
                         </tbody>
                     </table>
                 </div>
@@ -86,11 +104,11 @@
                     <?php
                     $attrib_ = array(
                         'class' => 'form-horizontal',
-                        'name' => 'frmRegistration_',
-                        'id' => 'frmRegistration_',
+                        'name' => 'frmUpdateStaticHead_',
+                        'id' => 'frmUpdateStaticHead_',
                     );
                     ?>
-                    <?php echo form_open_multipart(''); ?>
+                    <?php echo form_open('fee/update_static_head'); ?>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <?php
@@ -99,13 +117,26 @@
                                 'autocomplete' => 'off',
                                 'required' => 'required',
                                 'class' => 'required form-control',
-                                'name' => 'txtFullName',
-                                'id' => 'txtFullName',
+                                'name' => 'txtStaticHead_edit',
+                                'id' => 'txtStaticHead_edit',
+                                'value' => ''
+                            );
+                            echo form_input($data);
+
+                            $data = array(
+                                'type' => 'hidden',
+                                'autocomplete' => 'off',
+                                'required' => 'required',
+                                'class' => 'required form-control',
+                                'name' => 'txtID_edit',
+                                'id' => 'txtID_edit',
                                 'value' => ''
                             );
                             echo form_input($data);
                             ?>
                         </div>
+                        <div style="padding: 5px"><?php echo $this->session->flashdata('msg_edit_');?></div>
+                        
                     </div>
                     <div class="form-group">
                         <div class="col-sm-6">
@@ -115,6 +146,7 @@
                             <button type="submit" class="btn btn-danger col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">CANCEL</button>                            
                         </div>
                     </div>
+                    <?php echo form_close(); ?>
                 </div>
                 </div>
             </div><!--/.col-->

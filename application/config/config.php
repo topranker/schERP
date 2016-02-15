@@ -314,7 +314,7 @@ $config['cache_query_string'] = FALSE;
 | http://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'nitin#naveen@$';
 
 /*
 |--------------------------------------------------------------------------
@@ -512,8 +512,8 @@ $config['proxy_ips'] = '';
 /*
 Customized Definitions --------------------->>>>>
 */
-define('_SCHOOL_', "Mother India Public School, Rudrapur");
-define('_SCHOOL_ABREV_', "MIGS");
+define('_SCHOOL_', "School Name, City");
+define('_SCHOOL_ABREV_', "SN");
 /*
 -------------------------------------------->>>>>
 */

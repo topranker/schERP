@@ -54,4 +54,29 @@ $(function(){
 		$('#txtDate').val('');
 		$('#txtDDChequeNo').val('');
 	});
+
+	$('#txtFeeStaticHead').blur(function(){
+		data_ = $("#frmStaticHead_").serialize();
+		url_ = site_url_+"/fee/check_existing_head";
+
+		$('#available_').css({'color':'#805580', 'font-size': '11px'})
+		$('#available_').html('Checking for availability. Please wait...');
+			$.ajax({
+		          type: "POST",
+		          url: url_,
+		          data: data_,
+		          success: function(data){
+					$('#available_').html(data); 
+		          }
+		    });
+	});
 });
+
+function change_head (id_, val_){
+	document.getElementById('txtStaticHead_edit').value = val_;
+	document.getElementById('txtID_edit').value = id_;
+}
+function delete_head(id_){
+	document.getElementById('txtFeeStaticHeadID_del').value = id_;
+	document.frmStaticHead_Del.submit();
+}

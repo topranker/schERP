@@ -126,4 +126,8 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('My_model' => 'mm', 'Menu_model' => 'mnum');
+$autoload['model'] = array(
+	'My_model' => 'mm', 
+	'Menu_model' => 'mnum',
+	'Fee_model' => 'fm'
+);
