@@ -28,7 +28,7 @@ class Web extends CI_Controller {
         $this -> load -> view('templates/footer');
 	}
         
-    function check_login(){
+    public function check_login(){
         if(! $this -> session -> userdata('_user___')) $this -> logout();
     }
     function stuRegistration() {
@@ -256,22 +256,5 @@ class Web extends CI_Controller {
         $this -> load -> view('registration/totalRegFee', $data);
         $this -> load -> view('templates/footer');
 	}
-        
-    function addFeeHead(){
-        $this -> check_login();
-
-        $data['breadCrumb'] = 'Add Fees Head';
-        $data['title'] = 'ADD FEES HEAD';
-
-        $data['last_reg_'] = $this -> mm -> last_registration();
-
-        $data['menu_'] = $this -> mnum -> get_menu();
-        $data['submenu_'] = $this -> mnum -> get_submenu();
-        $data['static_heads'] = $this -> fm -> get_static_heads();
-
-        $this -> load -> view('templates/header', $data);
-        $this -> load -> view('fees/feeHead', $data);
-        $this -> load -> view('templates/footer');
-    }
     
 }

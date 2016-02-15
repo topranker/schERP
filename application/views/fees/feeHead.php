@@ -1,3 +1,9 @@
+<style type="text/css">
+    .msg_all{
+        float: right;
+        color: #ff0000;
+    }
+</style>
 <!--sidebar start-->
 <?PHP $this->load->view('templates/menu'); ?>
 <!--sidebar end-->
@@ -11,7 +17,8 @@
                 <h3 class="page-header"><i class="fa fa-money"></i><?php echo $title; ?></h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="<?php echo site_url('web'); ?>">Home</a></li>
-                    <li><i class="fa fa-money"></i></li><li><?php echo $breadCrumb; ?></li>                     
+                    <li><i class="fa fa-money"></i></li><li><?php echo $breadCrumb; ?></li>   
+                    <div class="msg_all"><?php echo $this->session->flashdata('msg_all');?></div>                  
                 </ol>
             </div>
         </div>
