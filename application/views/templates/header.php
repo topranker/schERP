@@ -13,6 +13,7 @@
         site_url_ = <?PHP echo '"'.site_url().'"'; ?>;
         base_url_ = <?PHP echo '"'.base_url().'"'; ?>;
     </script>
+    
     <!-- Bootstrap CSS -->    
     <link href="<?PHP echo base_url() . 'nitnav/css/bootstrap.min.css'; ?>" rel="stylesheet">
     <!-- bootstrap theme -->
