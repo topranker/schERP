@@ -46,9 +46,14 @@
                         </div>
                     </div>
                     <div class="form-group">
+<<<<<<< HEAD
                         <label class="col-sm-5 control-label"></label>
                         <div class="col-sm-7">
                             <button type="submit" class="btn btn-primary col-sm-12" name="cmbFeeHeadSubmit" id="cmbFeeHeadSubmit">ADD HEAD</button>
+=======
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary col-sm-12 col-xs-12" name="cmbRegSubmit" id="cmbRegSubmit">ADD HEAD</button>
+>>>>>>> origin/master
                         </div>
                     </div>
                     <?php echo form_close(); ?>
@@ -58,6 +63,7 @@
                     <h3>Heads</h3>
                     <table class="table table-hover">
                         <tbody>
+<<<<<<< HEAD
                             <?php
                                 $attrib_ = array(
                                     'class' => 'form-horizontal',
@@ -95,6 +101,29 @@
                             ?>
                             <div style="padding: 5px"><?php echo $this->session->flashdata('msg_delete_');?></div>
                             <?php echo form_close(); ?>
+=======
+                            <tr>
+                                <th>REGISTRATION</th>
+                                <th>
+                                    <i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i> | 
+                                    <i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>ADMISSION</th>
+                                <th>
+                                    <i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i> | 
+                                    <i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>TUITION FEES</th>
+                                <th>
+                                    <i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i> | 
+                                    <i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
+                                </th>
+                            </tr>
+>>>>>>> origin/master
                         </tbody>
                     </table>
                 </div>
@@ -139,11 +168,11 @@
                         
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-6">
-                            <button type="submit" class="btn btn-primary col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">SUBMIT</button>                            
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <button type="submit" class="btn btn-primary col-sm-12 col-xs-12 col-md-12" name="cmbRegSubmit" id="cmbRegSubmit" style="overflow:hidden">SUBMIT</button>                            
                         </div>
-                        <div class="col-sm-6">
-                            <button type="submit" class="btn btn-danger col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">CANCEL</button>                            
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <button type="submit" class="btn btn-danger col-sm-12 col-xs-12 col-md-12" name="cmbRegSubmit" id="cmbRegSubmit" style="overflow:hidden">CANCEL</button>                            
                         </div>
                     </div>
                     <?php echo form_close(); ?>
