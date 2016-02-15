@@ -11,7 +11,7 @@
                 <h3 class="page-header"><i class="fa fa-money"></i><?php echo $title; ?></h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="<?php echo site_url('web'); ?>">Home</a></li>
-                    <li><i class="fa fa-money"></i></li><li><?php echo $breadCrumb; ?></li>					  	
+                    <li><i class="fa fa-money"></i></li><li><?php echo $breadCrumb; ?></li>                     
                 </ol>
             </div>
         </div>
@@ -46,14 +46,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-<<<<<<< HEAD
                         <label class="col-sm-5 control-label"></label>
                         <div class="col-sm-7">
                             <button type="submit" class="btn btn-primary col-sm-12" name="cmbFeeHeadSubmit" id="cmbFeeHeadSubmit">ADD HEAD</button>
-=======
                         <div class="col-sm-12">
                             <button type="submit" class="btn btn-primary col-sm-12 col-xs-12" name="cmbRegSubmit" id="cmbRegSubmit">ADD HEAD</button>
->>>>>>> origin/master
                         </div>
                     </div>
                     <?php echo form_close(); ?>
@@ -63,7 +60,6 @@
                     <h3>Heads</h3>
                     <table class="table table-hover">
                         <tbody>
-<<<<<<< HEAD
                             <?php
                                 $attrib_ = array(
                                     'class' => 'form-horizontal',
@@ -101,7 +97,6 @@
                             ?>
                             <div style="padding: 5px"><?php echo $this->session->flashdata('msg_delete_');?></div>
                             <?php echo form_close(); ?>
-=======
                             <tr>
                                 <th>REGISTRATION</th>
                                 <th>
@@ -123,7 +118,6 @@
                                     <i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
                                 </th>
                             </tr>
->>>>>>> origin/master
                         </tbody>
                     </table>
                 </div>
