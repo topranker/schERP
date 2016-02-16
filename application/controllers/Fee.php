@@ -9,8 +9,8 @@ class Fee extends CI_Controller{
     function index(){
         $this -> check_login();
 
-        $data['breadCrumb'] = 'Add Fees Head';
-        $data['title'] = 'ADD FEES HEAD';
+        $data['breadCrumb'] = 'Parmanent Fees Head';
+        $data['title'] = 'MANAGE PARMANENT FEES HEAD';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
 
@@ -44,5 +44,43 @@ class Fee extends CI_Controller{
        $res_ = $this -> fm -> delete_static_head();
        $this -> session -> set_flashdata('msg_all', $res_['msg_']);
     redirect('fee');
+    }
+    
+    //-------------------------------FLEXIBLE FEE-------------------------------------
+    function flexibleFee(){
+        $this -> check_login();
+
+        $data[
+            'breadCrumb'] = 'Flexible Fees Head';
+        $data['title'] = 'MANAGE FLEXIBLE FEES HEAD';
+
+        $data['last_reg_'] = $this -> mm -> last_registration();
+
+        $data['menu_'] = $this -> mnum -> get_menu();
+        $data['submenu_'] = $this -> mnum -> get_submenu();
+        $data['flexible_heads'] = $this -> fm -> get_flexible_heads();
+
+        $this -> load -> view('templates/header', $data);
+        $this -> load -> view('fees/flexibleFeeHead', $data);
+        $this -> load -> view('templates/footer');
+    }    
+    function feed_flexible_head(){
+        $res_ = $this -> fm -> submit_flexible_fee_head();
+        $this -> session -> set_flashdata('msg_all', $res_['msg_']);
+    redirect('fee/flexibleFee');
+    }
+    function check_existing_flxhead(){
+        $res_ = $this -> fm -> flexible_head_exists(trim($this->input->post('txtFeeFlexibleHead')));
+        echo $res_['msg_'];
+    }
+    function update_flexible_head(){
+        $res_ = $this -> fm -> update_flexible_head();
+        $this -> session -> set_flashdata('msg_all', $res_['msg_']);
+    redirect('fee/flexibleFee');
+    }
+    function delete_flexible_head(){
+       $res_ = $this -> fm -> delete_flexible_head();
+       $this -> session -> set_flashdata('msg_all', $res_['msg_']);
+    redirect('fee/flexibleFee');
     }
 }

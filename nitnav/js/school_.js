@@ -74,6 +74,26 @@ $(function(){
 				$('#available_').html(''); 
 			}
 	});
+        
+        $('#txtFeeFlexibleHead').blur(function(){
+		if($('#txtFeeFlexibleHead').val() != ''){
+			data_ = $("#frmFlexibleHead_").serialize();
+			url_ = site_url_+"/fee/check_existing_head";
+
+			$('#available_').css({'color':'#805580', 'font-size': '11px'})
+			$('#available_').html('Checking for availability. Please wait...');
+				$.ajax({
+			          type: "POST",
+			          url: url_,
+			          data: data_,
+			          success: function(data){
+						$('#available_').html(data); 
+			          }
+			    });
+			} else {
+				$('#available_').html(''); 
+			}
+	});
 });
 
 function change_head (id_, val_){
@@ -83,4 +103,13 @@ function change_head (id_, val_){
 function delete_head(id_){
 	document.getElementById('txtFeeStaticHeadID_del').value = id_;
 	document.frmStaticHead_Del.submit();
+}
+
+function change_flxhead (id_, val_){
+	document.getElementById('txtFlexibleHead_edit').value = val_;
+	document.getElementById('txtID_edit').value = id_;
+}
+function delete_flxhead(id_){
+	document.getElementById('txtFeeFlexibleHeadID_del').value = id_;
+	document.frmFlexibleHead_Del.submit();
 }

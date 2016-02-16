@@ -4935,3 +4935,27 @@ span.customSelect.changed {
 .mendatory1{
     color: #ff0000;
 }
+
+table.tableSection {
+        display: table;
+        background: #f2f2f2;
+        border: 1px #AEAEAE dotted;
+        width: 100%;
+    }
+    table.tableSection thead, table.tableSection tbody {
+        float: left;
+        width: 100%;
+    }
+    table.tableSection tbody {
+        overflow: auto;
+        min-height: 100px;
+        max-height:350px;
+    }
+    table.tableSection tr {
+        width: 100%;
+        display: table;
+        text-align: left;
+    }
+    table.tableSection th, table.tableSection td {
+        width: 33%;
+    }

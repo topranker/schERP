@@ -18,7 +18,7 @@
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="<?php echo site_url('web'); ?>">Home</a></li>
                     <li><i class="fa fa-money"></i></li><li><?php echo $breadCrumb; ?></li>   
-                    <div class="msg_all"><?php echo $this->session->flashdata('msg_all');?></div>                  
+                    <div class="msg_all"><?php echo $this->session->flashdata('msg_all'); ?></div>                  
                 </ol>
             </div>
         </div>
@@ -26,15 +26,15 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-sm-3">
-                    <h3>New Parmanent Heads</h3>
+                    <h3>New Flexible Heads</h3>
                     <?php
                     $attrib_ = array(
                         'class' => 'form-horizontal',
-                        'name' => 'frmStaticHead_',
-                        'id' => 'frmStaticHead_',
+                        'name' => 'frmFlexibleHead_',
+                        'id' => 'frmFlexibleHead_',
                     );
                     ?>
-                    <?php echo form_open('fee/feed_static_head', $attrib_); ?>
+                    <?php echo form_open('fee/feed_flexible_head', $attrib_); ?>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <?php
@@ -43,8 +43,8 @@
                                 'autocomplete' => 'off',
                                 'required' => 'required',
                                 'class' => 'required form-control',
-                                'name' => 'txtFeeStaticHead',
-                                'id' => 'txtFeeStaticHead',
+                                'name' => 'txtFeeFlexibleHead',
+                                'id' => 'txtFeeFlexibleHead',
                                 'value' => ''
                             );
                             echo form_input($data);
@@ -66,26 +66,26 @@
                     <table class="table table-hover tableSection">
                         <tbody>
                             <?php
-                                $attrib_ = array(
-                                    'class' => 'form-horizontal',
-                                    'name' => 'frmStaticHead_Del',
-                                    'id' => 'frmStaticHead_Del',
-                                );
+                            $attrib_ = array(
+                                'class' => 'form-horizontal',
+                                'name' => 'frmFlexibleHead_Del',
+                                'id' => 'frmFlexibleHead_Del',
+                            );
                             ?>
-                            <?php echo form_open('fee/delete_static_head',$attrib_); ?>
-                            <?php if(count($static_heads) != 0){ ?>
-                            <?php foreach($static_heads as $item_) { ?>
-                                <tr>
-                                    <th><a href="#"><?php echo strtoupper($item_->FEE_HEAD); ?></a></th>
-                                    <th align="right">
-                                        <a href="#" id="changeHead_<?php echo $item_->ST_HD_ID; ?>" onclick="change_head('<?php echo $item_->ST_HD_ID; ?>','<?php echo $item_->FEE_HEAD; ?>');"><i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i></a> | 
-                                        <a href="#" onclick="delete_head('<?php echo $item_->ST_HD_ID; ?>');"><i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
-                                    </th>
-                                </tr>
-                            <?php } ?>
+                            <?php echo form_open('fee/delete_flexible_head', $attrib_); ?>
+                            <?php if (count($flexible_heads) != 0) { ?>
+                                <?php foreach ($flexible_heads as $item_) { ?>
+                                    <tr>
+                                        <th><a href="#"><?php echo strtoupper($item_->FEE_HEAD); ?></a></th>
+                                        <th align="right">
+                                            <a href="#" id="changeHead_<?php echo $item_->FLX_HD_ID; ?>" onclick="change_flxhead('<?php echo $item_->FLX_HD_ID; ?>', '<?php echo $item_->FEE_HEAD; ?>');"><i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i></a> | 
+                                            <a href="#" onclick="delete_flxhead('<?php echo $item_->FLX_HD_ID; ?>');"><i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
+                                        </th>
+                                    </tr>
+                                <?php } ?>
                             <?php } else { ?>
                                 <tr>
-                                <th>No data found...</th>
+                                    <th>No data found...</th>
                                 </tr>
                             <?php } ?>
                             <?php
@@ -94,14 +94,14 @@
                                 'autocomplete' => 'off',
                                 'required' => 'required',
                                 'class' => 'required form-control',
-                                'name' => 'txtFeeStaticHeadID_del',
-                                'id' => 'txtFeeStaticHeadID_del',
+                                'name' => 'txtFeeFlexibleHeadID_del',
+                                'id' => 'txtFeeFlexibleHeadID_del',
                                 'value' => ''
                             );
                             echo form_input($data);
                             ?>
-                            <div style="padding: 5px"><?php echo $this->session->flashdata('msg_delete_');?></div>
-                            <?php echo form_close(); ?>
+                        <div style="padding: 5px"><?php echo $this->session->flashdata('msg_delete_'); ?></div>
+                        <?php echo form_close(); ?>
                         </tbody>
                     </table>
                 </div>
@@ -111,11 +111,11 @@
                     <?php
                     $attrib_ = array(
                         'class' => 'form-horizontal',
-                        'name' => 'frmUpdateStaticHead_',
-                        'id' => 'frmUpdateStaticHead_',
+                        'name' => 'frmUpdateFlexibleHead_',
+                        'id' => 'frmUpdateFlexibleHead_',
                     );
                     ?>
-                    <?php echo form_open('fee/update_static_head'); ?>
+                    <?php echo form_open('fee/update_flexible_head'); ?>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <?php
@@ -124,8 +124,8 @@
                                 'autocomplete' => 'off',
                                 'required' => 'required',
                                 'class' => 'required form-control',
-                                'name' => 'txtStaticHead_edit',
-                                'id' => 'txtStaticHead_edit',
+                                'name' => 'txtFlexibleHead_edit',
+                                'id' => 'txtFlexibleHead_edit',
                                 'value' => ''
                             );
                             echo form_input($data);
@@ -142,8 +142,8 @@
                             echo form_input($data);
                             ?>
                         </div>
-                        <div style="padding: 5px"><?php echo $this->session->flashdata('msg_edit_');?></div>
-                        
+                        <div style="padding: 5px"><?php echo $this->session->flashdata('msg_edit_'); ?></div>
+
                     </div>
                     <div class="form-group">
                         <div class="col-sm-6 col-xs-6 col-md-6">
@@ -155,8 +155,8 @@
                     </div>
                     <?php echo form_close(); ?>
                 </div>
-                </div>
-            </div><!--/.col-->
+            </div>
+        </div><!--/.col-->
         </div><!--/.row-->              
     </section>
 </section>
