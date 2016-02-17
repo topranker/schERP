@@ -76,7 +76,7 @@
                             <?php if (count($flexible_heads) != 0) { ?>
                                 <?php foreach ($flexible_heads as $item_) { ?>
                                     <tr>
-                                        <th><a href="#"><?php echo strtoupper($item_->FEE_HEAD); ?></a></th>
+                                        <th style="width:79%"><a href="#"><?php echo strtoupper($item_->FEE_HEAD); ?></a></th>
                                         <th align="right">
                                             <a href="#" id="changeHead_<?php echo $item_->FLX_HD_ID; ?>" onclick="change_flxhead('<?php echo $item_->FLX_HD_ID; ?>', '<?php echo $item_->FEE_HEAD; ?>');"><i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i></a> | 
                                             <a href="#" onclick="delete_flxhead('<?php echo $item_->FLX_HD_ID; ?>');"><i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>

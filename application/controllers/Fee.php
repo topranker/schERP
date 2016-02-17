@@ -9,8 +9,8 @@ class Fee extends CI_Controller{
     function index(){
         $this -> check_login();
 
-        $data['breadCrumb'] = 'Parmanent Fees Head';
-        $data['title'] = 'MANAGE PARMANENT FEES HEAD';
+        $data['breadCrumb'] = 'Static Fees Head';
+        $data['title'] = 'MANAGE STATIC FEES HEAD';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
 

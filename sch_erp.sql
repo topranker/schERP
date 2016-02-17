@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2016 at 04:34 PM
+-- Generation Time: Feb 17, 2016 at 06:31 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -90,7 +90,20 @@ CREATE TABLE IF NOT EXISTS `fee_3_static_heads` (
   `FEE_HEAD` varchar(100) NOT NULL,
   `USERNAME` varchar(100) NOT NULL,
   `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+
+--
+-- Dumping data for table `fee_3_static_heads`
+--
+
+INSERT INTO `fee_3_static_heads` (`ST_HD_ID`, `FEE_HEAD`, `USERNAME`, `DATE_`) VALUES
+(23, 'ASDASDASD', 'naveen', '2016-02-17 05:26:32'),
+(24, 'ASDASDASDAS', 'naveen', '2016-02-17 05:26:34'),
+(25, 'ASFDFDSFSD', 'naveen', '2016-02-17 05:26:46'),
+(26, 'DFGHADFGDFGDFGDFG', 'naveen', '2016-02-17 05:29:01'),
+(27, 'ASDADDDDDDDDDDDDDD', 'naveen', '2016-02-17 05:29:05'),
+(28, 'ASDASD', 'naveen', '2016-02-17 05:28:23'),
+(29, 'ASDASDAS', 'naveen', '2016-02-17 05:28:27');
 
 -- --------------------------------------------------------
 
@@ -104,7 +117,16 @@ CREATE TABLE IF NOT EXISTS `fee_4_flexible_heads` (
   `AMOUNT` varchar(100) NOT NULL,
   `USERNAME` varchar(100) NOT NULL,
   `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `fee_4_flexible_heads`
+--
+
+INSERT INTO `fee_4_flexible_heads` (`FLX_HD_ID`, `FEE_HEAD`, `AMOUNT`, `USERNAME`, `DATE_`) VALUES
+(21, 'AAAAAAAAAAAAAAAAAAAAA', '', 'naveen', '2016-02-17 05:25:47'),
+(22, 'AAASASASAS', '', 'naveen', '2016-02-17 05:25:51'),
+(23, 'ASAASA', '', 'naveen', '2016-02-17 05:25:54');
 
 -- --------------------------------------------------------
 
@@ -698,7 +720,7 @@ CREATE TABLE IF NOT EXISTS `menu_2_submenu` (
 INSERT INTO `menu_2_submenu` (`SUBMENUID`, `PRE_ICON`, `SUBMENU`, `PATH_`, `PRIORITY`, `ID_`) VALUES
 (1, 'fa fa-child', 'New', 'web/stuRegistration', 1, 2),
 (2, 'fa fa-pencil-square-o', 'Edit', 'web/editReg', 2, 2),
-(3, 'fa fa-money', 'Parmanent head', 'fee', 3, 3),
+(3, 'fa fa-money', 'Static head', 'fee', 3, 3),
 (4, 'fa fa-money', 'Flexible head', 'fee/flexibleFee', 3, 3);
 
 -- --------------------------------------------------------
@@ -931,12 +953,12 @@ MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `fee_3_static_heads`
 --
 ALTER TABLE `fee_3_static_heads`
-MODIFY `ST_HD_ID` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `ST_HD_ID` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `fee_4_flexible_heads`
 --
 ALTER TABLE `fee_4_flexible_heads`
-MODIFY `FLX_HD_ID` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+MODIFY `FLX_HD_ID` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `menu_1`
 --

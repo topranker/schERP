@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-sm-3">
-                    <h3>New Parmanent Heads</h3>
+                    <h3>New Static Heads</h3>
                     <?php
                     $attrib_ = array(
                         'class' => 'form-horizontal',
@@ -76,7 +76,7 @@
                             <?php if(count($static_heads) != 0){ ?>
                             <?php foreach($static_heads as $item_) { ?>
                                 <tr>
-                                    <th><a href="#"><?php echo strtoupper($item_->FEE_HEAD); ?></a></th>
+                                    <th style="width:79%"><a href="#"><?php echo strtoupper($item_->FEE_HEAD); ?></a></th>
                                     <th align="right">
                                         <a href="#" id="changeHead_<?php echo $item_->ST_HD_ID; ?>" onclick="change_head('<?php echo $item_->ST_HD_ID; ?>','<?php echo $item_->FEE_HEAD; ?>');"><i class="fa fa-pencil-square-o" style="color:#0066cc; font-size: 20px;"></i></a> | 
                                         <a href="#" onclick="delete_head('<?php echo $item_->ST_HD_ID; ?>');"><i class="fa fa-times" style="color:#E13300; font-size: 20px;"></i>
