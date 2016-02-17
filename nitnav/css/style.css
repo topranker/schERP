@@ -1496,7 +1496,7 @@ div[data-role="editor-toolbar"] {
     -moz-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.1);
 }
-* /Widget-Content */
+/*Widget-Content */
 
 .widget-content .error .form-inline button{
     margin-left:-2px;
@@ -1674,8 +1674,6 @@ div[data-role="editor-toolbar"] {
     cursor:move;
 }
 /*-----	map-----*/
-* Google maps */
-
 .gmap iframe{
     width: 100%;
     margin: 0px;
