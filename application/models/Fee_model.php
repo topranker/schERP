@@ -99,6 +99,7 @@ class Fee_model extends CI_Model {
         } else {
             $data = array(
                 'FEE_HEAD' => strtoupper($this -> input -> post('txtFeeFlexibleHead')),
+                'AMOUNT' => strtoupper($this -> input -> post('txtFeeFlexibleHeadAmt')),
                 'USERNAME' => $this -> session -> userdata('_user___'),
                 'DATE_' => date('Y-m-d H:i:s')
                 );
@@ -115,6 +116,7 @@ class Fee_model extends CI_Model {
     function update_flexible_head(){
         $data = array(
             'FEE_HEAD' => trim(strtoupper($this->input->post('txtFlexibleHead_edit'))),
+            'AMOUNT' => trim(strtoupper($this->input->post('txtFlexibleHeadAmt_edit'))),
             'USERNAME' => $this -> session -> userdata('_user___'),
             'DATE_' => date('Y-m-d H:i:s')
         );

@@ -2,7 +2,7 @@ $(function(){
 
 	$('#txtregPhoto').blur(function(){
 		var file = this.files[0];
-		
+
 		if(((file.size/1024) > 70) || (file.type != 'image/jpeg' && file.type != 'image/png' && file.type != 'image/gif' && file.type != 'image/bmp')){
 			$('#__reg_err_msg').css('background', '#fdfca1');
 			$('#__reg_err_msg').css('color', '#cf4343');
@@ -12,7 +12,7 @@ $(function(){
 			$('#__reg_err_msg').css('color', '#A0A0A0');
 			$('#__reg_err_msg').html('&nbsp;Selected picture is fine...');
 		}
-		
+
 	});
 
 	$('#optRegistration').click(function(){$('#txtAmount').val(1000);});
@@ -67,14 +67,14 @@ $(function(){
 			          url: url_,
 			          data: data_,
 			          success: function(data){
-						$('#available_').html(data); 
+						$('#available_').html(data);
 			          }
 			    });
 			} else {
-				$('#available_').html(''); 
+				$('#available_').html('');
 			}
 	});
-        
+
         $('#txtFeeFlexibleHead').blur(function(){
 		if($('#txtFeeFlexibleHead').val() != ''){
 			data_ = $("#frmFlexibleHead_").serialize();
@@ -87,11 +87,11 @@ $(function(){
 			          url: url_,
 			          data: data_,
 			          success: function(data){
-						$('#available_').html(data); 
+						$('#available_').html(data);
 			          }
 			    });
 			} else {
-				$('#available_').html(''); 
+				$('#available_').html('');
 			}
 	});
 });
@@ -105,9 +105,11 @@ function delete_head(id_){
 	document.frmStaticHead_Del.submit();
 }
 
-function change_flxhead (id_, val_){
+function change_flxhead (id_, val_, amt_){
 	document.getElementById('txtFlexibleHead_edit').value = val_;
+        document.getElementById('txtFlexibleHeadAmt_edit').value = amt_;
 	document.getElementById('txtID_edit').value = id_;
+        document.getElementById('editFlexibleHead').style.display= 'block';
 }
 function delete_flxhead(id_){
 	document.getElementById('txtFeeFlexibleHeadID_del').value = id_;
