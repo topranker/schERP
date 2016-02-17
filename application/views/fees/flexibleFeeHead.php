@@ -61,7 +61,7 @@
                     <?php echo form_close(); ?>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="col-sm-4" style="border:1px #dddddd dotted; border-radius: 10px; background:  #006699">
+                <div class="col-sm-4" style="border:1px #dddddd dotted; border-radius: 10px; background: #006699">
                     <h3 style="color:#fff;">Heads</h3>
                     <table class="table table-hover tableSection">
                         <tbody>
