@@ -106,7 +106,7 @@
                     </table>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="col-sm-3">
+                <div class="col-sm-3" id="editStaticHead" style="display:none">
                     <h3>Edit Heads</h3>
                     <?php
                     $attrib_ = array(

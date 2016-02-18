@@ -99,6 +99,7 @@ $(function(){
 function change_head (id_, val_){
 	document.getElementById('txtStaticHead_edit').value = val_;
 	document.getElementById('txtID_edit').value = id_;
+        document.getElementById('editStaticHead').style.display= 'block';
 }
 function delete_head(id_){
 	document.getElementById('txtFeeStaticHeadID_del').value = id_;
