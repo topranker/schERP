@@ -256,5 +256,4 @@ class Web extends CI_Controller {
         $this -> load -> view('registration/totalRegFee', $data);
         $this -> load -> view('templates/footer');
 	}
-    
 }

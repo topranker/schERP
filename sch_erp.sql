@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2016 at 06:19 AM
+-- Generation Time: Mar 08, 2016 at 11:56 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -92,7 +92,14 @@ CREATE TABLE IF NOT EXISTS `fee_2` (
   `dd_ch_no` varchar(20) NOT NULL,
   `dd_ch_date` varchar(20) NOT NULL,
   `DOE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `fee_2`
+--
+
+INSERT INTO `fee_2` (`feeID`, `regID`, `date`, `Amount`, `username`, `feetype`, `feemode`, `bankname`, `dd_ch_no`, `dd_ch_date`, `DOE_`) VALUES
+(1, '2016031001', '08/03/2016', 1000, 'naveen', 'Registration', 'Cash', 'x', 'x', 'x', '2016-03-08 06:54:24');
 
 -- --------------------------------------------------------
 
@@ -781,7 +788,7 @@ CREATE TABLE IF NOT EXISTS `menu_1` (
   `MENU` varchar(30) NOT NULL,
   `PATH_` varchar(300) NOT NULL,
   `PRIORITY_` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `menu_1`
@@ -790,7 +797,8 @@ CREATE TABLE IF NOT EXISTS `menu_1` (
 INSERT INTO `menu_1` (`ID_`, `PRE_ICON`, `MENU`, `PATH_`, `PRIORITY_`) VALUES
 (1, 'icon_house_alt', 'Dashboard', 'web', 1),
 (2, 'fa fa-users', 'Registration', 'x', 2),
-(3, 'fa fa-money', 'Fees', 'x', 3);
+(3, 'fa fa-money', 'Fees', 'x', 4),
+(4, 'fa fa-users', 'Admission', 'x', 3);
 
 -- --------------------------------------------------------
 
@@ -805,7 +813,7 @@ CREATE TABLE IF NOT EXISTS `menu_2_submenu` (
   `PATH_` varchar(300) NOT NULL,
   `PRIORITY` int(11) NOT NULL,
   `ID_` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `menu_2_submenu`
@@ -816,7 +824,8 @@ INSERT INTO `menu_2_submenu` (`SUBMENUID`, `PRE_ICON`, `SUBMENU`, `PATH_`, `PRIO
 (2, 'fa fa-pencil-square-o', 'Edit', 'web/editReg', 2, 2),
 (3, 'fa fa-money', 'Add Fee head', 'fee', 3, 3),
 (4, 'fa fa-money', 'Flexible head', 'fee/flexibleFee', 3, 3),
-(5, 'fa fa-money', 'Add Fee to Class', 'fee/addStaticFeeToClass', 4, 3);
+(5, 'fa fa-money', 'Add Fee to Class', 'fee/addStaticFeeToClass', 4, 3),
+(6, 'fa fa-user', 'New Admission', 'adm/stuAdmission', 4, 4);
 
 -- --------------------------------------------------------
 
@@ -882,6 +891,13 @@ CREATE TABLE IF NOT EXISTS `register_with_us` (
   `USERNAME_` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `register_with_us`
+--
+
+INSERT INTO `register_with_us` (`regid`, `FULLNAME`, `FATHER`, `DOB_`, `PHOTO_`, `GENDER`, `NATIONALITY`, `STUDENT_INTEREST`, `ADMISSION_FOR`, `CLASS_FOR_ADMISSION`, `APPLIED_YEAR`, `TRANSPORT_REQUIRED`, `LAST_SCHOOL_NAME`, `LAST_SCHOOL_GRADE`, `ADDRESS_`, `CITY_`, `PINCODE_`, `ZONE_`, `STATE_`, `COUNTRY_`, `MOBILE_`, `EMAIL_`, `KNOWN_SOURCE_`, `PASSWORD_`, `DOR_`, `USERNAME_`) VALUES
+('2016031001', 'NAVEEN TEWARI', 'MR S C TEWARI', '1983-10-20', '2016031001.jpg', 'M', '-x-', '-x-', 'Day Boarder', '4', 2016, 'YES', 'ST PAULS', '3', 'MATTAR CHAYA', 'HALDWANI', '263139', '1', 'UL', 'India', '0789508999', 'navtewari@gmail.com', 'Through Internet', '123456', '2016-03-08 08:48:14', 'naveen');
+
 -- --------------------------------------------------------
 
 --
@@ -892,6 +908,13 @@ CREATE TABLE IF NOT EXISTS `_id_` (
   `ID_` int(11) NOT NULL,
   `regid_` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `_id_`
+--
+
+INSERT INTO `_id_` (`ID_`, `regid_`) VALUES
+(1001, '2016031001');
 
 --
 -- Indexes for dumped tables
@@ -1078,7 +1101,7 @@ MODIFY `ID_` int(15) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `fee_2`
 --
 ALTER TABLE `fee_2`
-MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `feeID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `fee_3_static_heads`
 --
@@ -1108,12 +1131,12 @@ MODIFY `CNTCT_ID` int(15) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `menu_1`
 --
 ALTER TABLE `menu_1`
-MODIFY `ID_` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `ID_` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `menu_2_submenu`
 --
 ALTER TABLE `menu_2_submenu`
-MODIFY `SUBMENUID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `SUBMENUID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `online_registration`
 --

@@ -326,7 +326,7 @@ class My_model extends CI_Model {
             if ($feetype_ != 'all')
                 $this->db->where('feetype', $feetype_);
             $this->db->where("YEAR(DOE_)", $year_);
-            $query = $this->db->get('fee');
+            $query = $this->db->get('fee_2');
             if ($query->num_rows() != 0) {
                 $row = $query->row();
                 $amt = $row->amt;
