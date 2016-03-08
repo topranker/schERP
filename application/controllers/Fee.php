@@ -83,4 +83,24 @@ class Fee extends CI_Controller{
        $this -> session -> set_flashdata('msg_all', $res_['msg_']);
     redirect('fee/flexibleFee');
     }
+    
+    //---------------------------------Add fee to Class----------------------------------
+    
+    function addStaticFeeToClass(){
+        $this -> check_login();
+
+        $data[
+            'breadCrumb'] = 'Add Static Fee to Class';
+        $data['title'] = 'MANAGE STATIC FEES CLASS WISE';
+
+        $data['last_reg_'] = $this -> mm -> last_registration();
+
+        $data['menu_'] = $this -> mnum -> get_menu();
+        $data['submenu_'] = $this -> mnum -> get_submenu();
+        $data['static_heads'] = $this -> fm -> get_static_heads();
+
+        $this -> load -> view('templates/header', $data);
+        $this -> load -> view('fees/staticFeeToClass', $data);
+        $this -> load -> view('templates/footer');
+    } 
 }

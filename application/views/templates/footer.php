@@ -9,7 +9,7 @@
     <!-- nice scroll -->
     <script src="<?PHP echo base_url() . 'nitnav/js/jquery.scrollTo.min.js';?>"></script>
     <script src="<?PHP echo base_url() . 'nitnav/js/jquery.nicescroll.js';?>" type="text/javascript"></script>
-   
+   <script src="<?PHP echo base_url() . 'nitnav/js/checkList.js';?>"></script>
     <!--custome script for all page-->
     <script src="<?PHP echo base_url() . 'nitnav/js/scripts.js';?>"></script>
     
