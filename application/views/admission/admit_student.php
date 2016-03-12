@@ -309,7 +309,8 @@
                             </div>
                             <div id="profile" class="tab-pane">
                                 <div class="form-group"  style='margin-top:20px;'>
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-6">
+                                        <h3>Correspondance Address</h3>
                                         <div class="row form-group">
                                             <div class="col-sm-12">
                                                 <label class="col-sm-2">Address</label>
@@ -409,6 +410,136 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <h3>Parmanent Address <span style="font-size: 14px;color: #007AFF"><input type="checkbox" id="sameAdd">Same as Correspondance</span></h3>
+                                        <div class="row form-group">
+                                            <div class="col-sm-12">
+                                                <label class="col-sm-2">Address</label>
+                                                <div class="col-sm-10">
+                                                    <?php
+                                                    $data = array(
+                                                        'required' => 'required',
+                                                        'rows' => '2',
+                                                        'autocomplete' => 'off',
+                                                        'class' => 'required form-control',
+                                                        'name' => 'txtPAddress',
+                                                        'id' => 'txtPAddress',
+                                                        'value' => ''
+                                                    );
+                                                    echo form_textarea($data);
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-12">
+                                                <label class="col-sm-2">City</label>
+                                                <div class="col-sm-10">
+                                                    <?php
+                                                    $data = array(
+                                                        'type' => 'text',
+                                                        'autocomplete' => 'off',
+                                                        'required' => 'required',
+                                                        'class' => 'required form-control',
+                                                        'name' => 'txtPCity',
+                                                        'id' => 'txtPCity',
+                                                        'value' => ''
+                                                    );
+                                                    echo form_input($data);
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-12">
+                                                <label class="col-sm-2">Pin Code</label>
+                                                <div class="col-sm-10">
+                                                    <?php
+                                                    $data = array(
+                                                        'type' => 'text',
+                                                        'autocomplete' => 'off',
+                                                        'required' => 'required',
+                                                        'class' => 'required form-control',
+                                                        'name' => 'txtPPinCode',
+                                                        'id' => 'txtPPinCode',
+                                                        'value' => ''
+                                                    );
+                                                    echo form_input($data);
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row form-group">
+                                            <div class="col-sm-12">
+                                                <label class="col-sm-2">State</label>
+                                                <div class="col-sm-10">
+                                                    <?php
+                                                    $data = array(
+                                                        'class' => 'required form-control m-bot8',
+                                                        'name' => 'txtPState',
+                                                        'id' => 'txtPState',
+                                                        'required' => 'required'
+                                                    );
+                                                    $options = array();
+                                                    $options[''] = 'Select State';
+                                                    foreach ($states_ as $item_) {
+                                                        $options[$item_->REGION] = $item_->REG_NAME;
+                                                    }
+                                                    echo form_dropdown($data, $options, '');
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-12">
+                                                <label class="col-sm-2">Country</label>
+                                                <div class="col-sm-10">
+                                                    <?php
+                                                    $data = array(
+                                                        'class' => 'required form-control m-bot8',
+                                                        'name' => 'txtPCountry',
+                                                        'id' => 'txtPCountry',
+                                                        'required' => 'required'
+                                                    );
+                                                    $options = array();
+                                                    foreach ($country_ as $item_) {
+                                                        $options[$item_->NAME_] = $item_->NAME_;
+                                                    }
+                                                    echo form_dropdown($data, $options, 'India');
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body" style="background: #2F6FAD">
+                        <div class="row">                            
+                            <div class="col-sm-2"><label style="color:#fff; font-weight: bold; font-size:18px;">Class for Admission</label></div>
+                            <div class="col-sm-4">
+                                <?php
+                                $data = array(
+                                    'class' => 'required form-control m-bot8',
+                                    'name' => 'txtAdmClass',
+                                    'id' => 'txtAdmClass',
+                                    'required' => 'required'
+                                );
+                                $options = array();
+                                foreach ($country_ as $item_) {
+                                    $options[$item_->NAME_] = $item_->NAME_;
+                                }
+                                echo form_dropdown($data, $options, 'India');
+                                ?>  
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-danger col-sm-12" name="cmbRegSubmit" id="cmbRegSubmit">ADMIT STUDENT</button>
                                     </div>
                                 </div>
                             </div>

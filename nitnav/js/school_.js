@@ -177,3 +177,19 @@ $('.add').click(function () {
             $this.trigger('click');
         }
     });
+
+    $('#sameAdd').click(function(){
+        if ($('#sameAdd').is(":checked")){
+            $("#txtPAddress").val($("#txtAddress").val());
+            $("#txtPCity").val($("#txtCity").val());
+            $("#txtPPinCode").val($("#txtPinCode").val());
+            $("#txtPState").val($("#txtState").val());
+            $("#txtPCountry").val($("#txtCountry").val());
+        }else{
+           $("#txtPAddress").val('');
+           $("#txtPCity").val('');
+           $("#txtPPinCode").val('');
+           $("#txtPState").val('');
+           $("#txtPCountry").val('India');
+        }
+    });
