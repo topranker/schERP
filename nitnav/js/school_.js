@@ -93,7 +93,87 @@ $(function(){
 			} else {
 				$('#available_').html('');
 			}
-	});
+		});
+
+	    $('.list-group.checked-list-box .list-group-item').each(function () {
+	        // Settings
+	        var $widget = $(this),
+	            $checkbox = $('<input type="checkbox" class="hidden" />'),
+	            color = ($widget.data('color') ? $widget.data('color') : "primary"),
+	            style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
+	            settings = {
+	                on: {
+	                    icon: 'fa fa-check-square-o'
+	                },
+	                off: {
+	                    icon: 'fa fa-square-o'
+	                }
+	            };
+	            
+	        $widget.css('cursor', 'pointer')
+	        $widget.append($checkbox);
+
+	        // Event Handlers
+	        $widget.on('click', function () {
+	            $checkbox.prop('checked', !$checkbox.is(':checked'));
+	            $checkbox.triggerHandler('change');
+	            updateDisplay();
+	        });
+	        $checkbox.on('change', function () {
+	            updateDisplay();
+	        });
+	          
+
+	        // Actions
+	        function updateDisplay() {
+	            var isChecked = $checkbox.is(':checked');
+
+	            // Set the button's state
+	            $widget.data('state', (isChecked) ? "on" : "off");
+
+	            // Set the button's icon
+	            $widget.find('.state-icon')
+	                .removeClass()
+	                .addClass('state-icon ' + settings[$widget.data('state')].icon);
+
+	            // Update the button's color
+	            if (isChecked) {
+	                $widget.addClass(style + color + ' active');
+	            } else {
+	                $widget.removeClass(style + color + ' active');
+	            }
+
+	            $('#get-checked-data').click();
+	        }
+
+	        // Initialization
+	        function init() {
+	            
+	            if ($widget.data('checked') == true) {
+	                $checkbox.prop('checked', !$checkbox.is(':checked'));
+	            }
+	            
+	            updateDisplay();
+
+	            // Inject the icon if applicable
+	            if ($widget.find('.state-icon').length == 0) {
+	                $widget.prepend('<span class="state-icon ' + settings[$widget.data('state')].icon + '"></span>');
+	            }
+	        }
+	        init();
+	    });
+	    
+	    $('#get-checked-data').on('click', function(event) {
+	        event.preventDefault(); 
+	        var checkedItems = {}, counter = 0;
+	        $("#check-list-box li.active").each(function(idx, li) {
+	            checkedItems[counter] = $(li).attr('id');
+	            counter++;
+	        });
+	        
+	        $('#txtIds').html(JSON.stringify(checkedItems, null, ''));
+	        $('#txtClsIds_').val($('#txtClsIds_').html());
+	    });
 });
 
 function change_head (id_, val_){
@@ -116,64 +196,3 @@ function delete_flxhead(id_){
 	document.getElementById('txtFeeFlexibleHeadID_del').value = id_;
 	document.frmFlexibleHead_Del.submit();
 }
-
-$('.add').click(function () {
-        $('.all').prop("checked", false);
-        var items = $("#list1 input:checked:not('.all')");
-        var n = items.length;
-        if (n > 0) {
-            items.each(function (idx, item) {
-                var choice = $(item);
-                choice.prop("checked", false);
-                choice.parent().appendTo("#list2");
-            });
-        }
-        else {
-            alert("Choose an item from list 1");
-        }
-    });
-
-    $('.remove').click(function () {
-        $('.all').prop("checked", false);
-        var items = $("#list2 input:checked:not('.all')");
-        items.each(function (idx, item) {
-            var choice = $(item);
-            choice.prop("checked", false);
-            choice.parent().appendTo("#list1");
-        });
-    });
-
-    /* toggle all checkboxes in group */
-    $('.all').click(function (e) {
-        e.stopPropagation();
-        var $this = $(this);
-        if ($this.is(":checked")) {
-            $this.parents('.list-group').find("[type=checkbox]").prop("checked", true);
-        }
-        else {
-            $this.parents('.list-group').find("[type=checkbox]").prop("checked", false);
-            $this.prop("checked", false);
-        }
-    });
-
-    $('[type=checkbox]').click(function (e) {
-        e.stopPropagation();
-    });
-
-    /* toggle checkbox when list group item is clicked */
-    $('.list-group a').click(function (e) {
-
-        e.stopPropagation();
-
-        var $this = $(this).find("[type=checkbox]");
-        if ($this.is(":checked")) {
-            $this.prop("checked", false);
-        }
-        else {
-            $this.prop("checked", true);
-        }
-
-        if ($this.hasClass("all")) {
-            $this.trigger('click');
-        }
-    });

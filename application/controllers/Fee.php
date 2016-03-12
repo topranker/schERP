@@ -50,8 +50,7 @@ class Fee extends CI_Controller{
     function flexibleFee(){
         $this -> check_login();
 
-        $data[
-            'breadCrumb'] = 'Flexible Fees Head';
+        $data['breadCrumb'] = 'Flexible Fees Head';
         $data['title'] = 'MANAGE FLEXIBLE FEES HEAD';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
@@ -89,8 +88,7 @@ class Fee extends CI_Controller{
     function addStaticFeeToClass(){
         $this -> check_login();
 
-        $data[
-            'breadCrumb'] = 'Add Static Fee to Class';
+        $data['breadCrumb'] = 'Add Static Fee to Class';
         $data['title'] = 'MANAGE STATIC FEES CLASS WISE';
 
         $data['last_reg_'] = $this -> mm -> last_registration();
@@ -98,9 +96,18 @@ class Fee extends CI_Controller{
         $data['menu_'] = $this -> mnum -> get_menu();
         $data['submenu_'] = $this -> mnum -> get_submenu();
         $data['static_heads'] = $this -> fm -> get_static_heads();
+        $data['class_in_session'] = $this -> fm -> get_class_in_session($this -> session -> userdata('_current_year___'));
 
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('fees/staticFeeToClass', $data);
         $this -> load -> view('templates/footer');
     } 
+
+    function associateStaticHead_with_class(){
+        $this -> check_login();
+
+        $res_ = $this -> fm -> submit_static_fee_to_class($this -> session -> userdata('_current_year___'));
+        $this -> session -> set_flashdata('msg_all', $res_['msg_']);
+    redirect('fee/addStaticFeeToClass');
+    }
 }

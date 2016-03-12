@@ -26,10 +26,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-sm-4">
-                    <div class="col-sm-12" style="border:1px #dddddd dotted; border-radius: 10px; background:  #006699;">
+                    <div class="col-sm-12" style="border:1px #dddddd dotted; border-radius: 10px; background:  #006699; padding: 10px">
                         <h3 style="color:#fff;">Static Heads</h3>
-                        <table class="table table-hover tableSection">
-                            <tbody  style="max-height:150px;">
                                 <?php
                                 $attrib_ = array(
                                     'class' => 'form-horizontal',
@@ -37,52 +35,25 @@
                                     'id' => 'frmStaticHead_Del',
                                 );
                                 ?>
-                                <?php echo form_open('fee/delete_static_head', $attrib_); ?>
-                                <?php if (count($static_heads) != 0) { ?>
-                                    <?php foreach ($static_heads as $item_) { ?>
-                                        <tr>
-                                            <th><a href="#"><?php echo strtoupper($item_->FEE_HEAD); ?></a></th>
-                                        </tr>
-                                    <?php } ?>
-                                <?php } else { ?>
-                                    <tr>
-                                        <th>No data found...</th>
-                                    </tr>
-                                <?php } ?>    
+                                <?php echo form_open('fee/associateStaticHead_with_class', $attrib_); ?>
                                 <?php
                                 $data = array(
                                     'type' => 'hidden',
                                     'autocomplete' => 'off',
                                     'required' => 'required',
                                     'class' => 'required form-control',
-                                    'name' => 'txtFeeFlexibleHeadID_del',
-                                    'id' => 'txtFeeFlexibleHeadID_del',
-                                    'value' => ''
-                                );
-                                echo form_input($data);
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-sm-12">
-                        <h3>Selected Head</span></h3>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <?php
-                                $data = array(
-                                    'type' => 'text',
-                                    'autocomplete' => 'off',
-                                    'required' => 'required',
-                                    'class' => 'required form-control',
                                     'name' => 'txtStaticHeadSelected',
                                     'id' => 'txtStaticHeadSelected',
-                                    'value' => ''
                                 );
-                                echo form_input($data);
+                                $options = array();
+                                $options[''] = 'Select Head';
+                                foreach ($static_heads as $item_) {
+                                    $options[strtoupper($item_->ST_HD_ID)] = strtoupper($item_->FEE_HEAD);
+                                }
+                                echo form_dropdown($data, $options);
                                 ?>
-                                <div style="padding: 5px" id="available_"></div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="col-sm-12">
                         <h3>Amount <span style="font-size:15px; color: #0066cc;">(in Rs)</span></h3>
                         <div class="form-group">
                             <div class="col-sm-12">
@@ -92,8 +63,8 @@
                                     'autocomplete' => 'off',
                                     'required' => 'required',
                                     'class' => 'required form-control',
-                                    'name' => 'txtFeeFlexibleHeadAmt',
-                                    'id' => 'txtFeeFlexibleHeadAmt',
+                                    'name' => 'txtFeeStaticHeadAmt',
+                                    'id' => 'txtFeeStaticHeadAmt',
                                     'value' => ''
                                 );
                                 echo form_input($data);
@@ -106,29 +77,24 @@
                 <div class="col-sm-3" style="border:1px #dddddd dotted; border-radius: 10px; background:  #006699;">
                     <h3 style="color:#fff;">Select Class</h3>
                     <div class="well" style="max-height:300px;overflow: auto;">
-                        <ul class="list-group checked-list-box" id="all">
-                            <li class="list-group-item"> CLASS 1A</li>
-                            <li class="list-group-item"> CLASS 1B</li>
-                            <li class="list-group-item"> CLASS 1C</li>
-                            <li class="list-group-item"> CLASS 2A</li>
-                            <li class="list-group-item"> CLASS 3A</li>
-                            <li class="list-group-item"> CLASS 2A</li>
-                            <li class="list-group-item"> CLASS 3A</li>
-                            <li class="list-group-item"> CLASS 2A</li>
-                            <li class="list-group-item"> CLASS 3A</li>
+                        <ul class="list-group checked-list-box" id="check-list-box">
+                            <?php foreach($class_in_session as $item){ ?>
+                            <li><input type="checkbox" name="class_in_session_[]" value="<?php echo $item -> CLSSESSID ; ?>" id="<?php echo $item -> CLSSESSID ; ?>"> CLASS <?php echo $item -> CLASSID ; ?> </li>
+                            <?php } ?>
                         </ul>
+                        <input type="hidden" name="txtClsIds_" id="txtClsIds_" />
+                        <div id="txtIds" style="display: none"></div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-5 control-label"></label>
                         <div class="col-sm-12">
-                            <button type="submit" class="btn btn-default col-sm-12" name="cmbFeeHeadSubmit" id="cmbFeeHeadSubmit">ADD FEE TO SELECTED CLASS</button>
-                        </div>   
+                            <button type="submit" class="btn btn-default col-sm-12" name="cmbFeeHeadClassSubmit" id="cmbFeeHeadClassSubmit">ADD FEE TO SELECTED CLASS</button>
+                        </div>  
                     </div>
-                    <div style="padding: 5px"><?php echo $this->session->flashdata('msg_delete_'); ?></div>
                     <?php echo form_close(); ?>
                 </div>                
                 <div class="col-sm-5" id="editStaticHead">
-                    <h3>Heads & Fees in Selected Class</h3>
+                    <h3>Heads &amp; Fees in Selected Class</h3>
                     <table class="table table-hover tableSection">
                         <tbody  style="max-height:150px;">
                             <tr>
