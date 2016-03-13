@@ -97,7 +97,8 @@ class Fee extends CI_Controller{
         $data['submenu_'] = $this -> mnum -> get_submenu();
         $data['static_heads'] = $this -> fm -> get_static_heads();
         $data['class_in_session'] = $this -> fm -> get_class_in_session($this -> session -> userdata('_current_year___'));
-
+        $data['class_fee_in_session'] = $this -> fm -> get_class_fee_in_session($this -> session -> userdata('_current_year___'));
+        $data['class_splitted_fee_in_session'] = $this -> fm -> get_class_splitted_fee_in_session($this -> session -> userdata('_current_year___'));
         $this -> load -> view('templates/header', $data);
         $this -> load -> view('fees/staticFeeToClass', $data);
         $this -> load -> view('templates/footer');

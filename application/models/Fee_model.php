@@ -156,7 +156,48 @@ class Fee_model extends CI_Model {
 
         return $query -> result();
     }
+    function get_class_fee_in_session($year__){
 
+        if(date('m') <= 3){
+            $oldyear = $year__ - 1;
+            $session_ = $oldyear . "-" . substr($year__, -2);
+        } else {
+            $newyear = $year__ + 1;
+            $session_ = $year__ . "-" . substr($newyear, -2);
+        }
+
+        $this->db->select('a.CLSSESSID, a.CLASSID, b.CFEEID, b.TOTFEE');
+        $this->db->from('fee_8_class_fee b');
+        $this->db->join('class_2_in_session a', 'a.CLSSESSID = b.CLSSESSID', 'left');
+        $this->db->where('a.SESSID', $session_);
+        $query = $this -> db -> get();
+
+        //echo $this->db->last_query();
+        
+        return $query->result();
+    }
+    function get_class_splitted_fee_in_session($year__){
+
+        if(date('m') <= 3){
+            $oldyear = $year__ - 1;
+            $session_ = $oldyear . "-" . substr($year__, -2);
+        } else {
+            $newyear = $year__ + 1;
+            $session_ = $year__ . "-" . substr($newyear, -2);
+        }
+
+        $this->db->select('a.CLSSESSID, a.CLASSID, b.CFEEID, c. CFEESPLITID, c.ST_HD_ID, c.AMOUNT, c.PAYMENT_STATUS, d.FEE_HEAD');
+        $this->db->from('fee_8_class_fee b');
+        $this->db->join('class_2_in_session a', 'a.CLSSESSID = b.CLSSESSID', 'left');
+        $this->db->join('fee_9_class_fee_split c', 'b.CFEEID = c.CFEEID');
+        $this->db->join('fee_3_static_heads d', 'd.ST_HD_ID = c.ST_HD_ID');
+        $this->db->where('a.SESSID', $session_);
+        $query = $this -> db -> get();
+
+        //echo $this->db->last_query();
+        
+        return $query->result();
+    }
     //------------------------------------ASSOCIATE STATIC HEADS FEE AMT TO CLASS --------------------------------------
     function submit_static_fee_to_class($year__){
         $static_head = $this -> input -> post ('txtStaticHeadSelected');
@@ -186,7 +227,7 @@ class Fee_model extends CI_Model {
                         'USERNAME'=> $this -> session -> userdata('_user___'),
                         'DATE_' => date('Y-m-d H:i:s')
                     );
-                    $this -> db -> where ('CLSSESSID', $id__);
+                    $this -> db -> where ('CFEEID', $id__);
                     $query_update = $this -> db -> update('fee_8_class_fee', $data);
 
                     if($query_update == TRUE){

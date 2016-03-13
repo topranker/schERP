@@ -96,24 +96,30 @@
                 <div class="col-sm-5" id="editStaticHead">
                     <h3>Heads &amp; Fees in Selected Class</h3>
                     <table class="table table-hover tableSection">
-                        <tbody  style="max-height:150px;">
-                            <tr>
-                                <th><a href="#">REGISTRATION</a></th>
-                                <th><a href="#">Rs. 1000</a></th>
-                            </tr>
-                            <tr>
-                                <th><a href="#">REGISTRATION</a></th>
-                                <th><a href="#">Rs. 1000</a></th>
-                            </tr>
-                            <tr>
-                                <th><a href="#">REGISTRATION</a></th>
-                                <th><a href="#">Rs. 1000</a></th>
-                            </tr>
-                            <tr>
-                                <th><a href="#">REGISTRATION</a></th>
-                                <th><a href="#">Rs. 1000</a></th>
-                            </tr>
-                        </tbody>
+                        <?php foreach($class_fee_in_session as $item) { ?>
+                            <tbody  style="max-height:150px;">
+                                <tr>
+                                    <td><a href="#">Class <?php echo $item->CLASSID; ?></a></th>
+                                    <td align="right"><a href="#">Rs. <?php echo $item->TOTFEE; ?></a></th>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table class="table table-hover tableSection">
+                                            <tbody  style="max-height:150px;">
+                                                    <?php foreach($class_splitted_fee_in_session as $sub_item) { ?>
+                                                        <?PHP if($item->CFEEID == $sub_item->CFEEID){ ?>
+                                                        <tr>
+                                                            <td><?php echo $sub_item->FEE_HEAD ;?></td>
+                                                            <td align="right">Rs. <?php echo $sub_item->AMOUNT ;?></td>
+                                                        </tr>
+                                                        <?php } ?>
+                                                    <?php } ?>
+                                            </tbody>        
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        <?PHP } ?>
                     </table>
                     <?php
                     $attrib_ = array(
