@@ -530,10 +530,10 @@
                                     'required' => 'required'
                                 );
                                 $options = array();
-                                foreach ($country_ as $item_) {
-                                    $options[$item_->NAME_] = $item_->NAME_;
+                                foreach ($class_in_session as $item_) {
+                                    $options[$item_ -> CLSSESSID] = 'CLASS '.$item_->CLSSESSID;
                                 }
-                                echo form_dropdown($data, $options, 'India');
+                                echo form_dropdown($data, $options);
                                 ?>  
                             </div>
                             <div class="col-sm-6">

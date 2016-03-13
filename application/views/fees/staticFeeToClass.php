@@ -28,30 +28,30 @@
                 <div class="col-sm-4">
                     <div class="col-sm-12" style="border:1px #dddddd dotted; border-radius: 10px; background:  #006699; padding: 10px">
                         <h3 style="color:#fff;">Static Heads</h3>
-                                <?php
-                                $attrib_ = array(
-                                    'class' => 'form-horizontal',
-                                    'name' => 'frmStaticHead_Del',
-                                    'id' => 'frmStaticHead_Del',
-                                );
-                                ?>
-                                <?php echo form_open('fee/associateStaticHead_with_class', $attrib_); ?>
-                                <?php
-                                $data = array(
-                                    'type' => 'hidden',
-                                    'autocomplete' => 'off',
-                                    'required' => 'required',
-                                    'class' => 'required form-control',
-                                    'name' => 'txtStaticHeadSelected',
-                                    'id' => 'txtStaticHeadSelected',
-                                );
-                                $options = array();
-                                $options[''] = 'Select Head';
-                                foreach ($static_heads as $item_) {
-                                    $options[strtoupper($item_->ST_HD_ID)] = strtoupper($item_->FEE_HEAD);
-                                }
-                                echo form_dropdown($data, $options);
-                                ?>
+                        <?php
+                        $attrib_ = array(
+                            'class' => 'form-horizontal',
+                            'name' => 'frmStaticHead_Del',
+                            'id' => 'frmStaticHead_Del',
+                        );
+                        ?>
+                        <?php echo form_open('fee/associateStaticHead_with_class', $attrib_); ?>
+                        <?php
+                        $data = array(
+                            'type' => 'hidden',
+                            'autocomplete' => 'off',
+                            'required' => 'required',
+                            'class' => 'required form-control',
+                            'name' => 'txtStaticHeadSelected',
+                            'id' => 'txtStaticHeadSelected',
+                        );
+                        $options = array();
+                        $options[''] = 'Select Head';
+                        foreach ($static_heads as $item_) {
+                            $options[strtoupper($item_->ST_HD_ID)] = strtoupper($item_->FEE_HEAD);
+                        }
+                        echo form_dropdown($data, $options);
+                        ?>
                     </div>
                     <div class="col-sm-12">
                         <h3>Amount <span style="font-size:15px; color: #0066cc;">(in Rs)</span></h3>
@@ -78,8 +78,8 @@
                     <h3 style="color:#fff;">Select Class</h3>
                     <div class="well" style="max-height:300px;overflow: auto;">
                         <ul class="list-group checked-list-box" id="check-list-box">
-                            <?php foreach($class_in_session as $item){ ?>
-                            <li><input type="checkbox" name="class_in_session_[]" value="<?php echo $item -> CLSSESSID ; ?>" id="<?php echo $item -> CLSSESSID ; ?>"> CLASS <?php echo $item -> CLASSID ; ?> </li>
+                            <?php foreach ($class_in_session as $item) { ?>
+                                <li><input type="checkbox" name="class_in_session_[]" value="<?php echo $item->CLSSESSID; ?>" id="<?php echo $item->CLSSESSID; ?>"> CLASS <?php echo $item->CLASSID; ?> </li>
                             <?php } ?>
                         </ul>
                         <input type="hidden" name="txtClsIds_" id="txtClsIds_" />

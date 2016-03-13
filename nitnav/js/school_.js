@@ -196,7 +196,6 @@ function delete_flxhead(id_){
 	document.getElementById('txtFeeFlexibleHeadID_del').value = id_;
 	document.frmFlexibleHead_Del.submit();
 }
-<<<<<<< HEAD
 
 $('.add').click(function () {
         $('.all').prop("checked", false);
@@ -274,5 +273,3 @@ $('.add').click(function () {
            $("#txtPCountry").val('India');
         }
     });
-=======
->>>>>>> origin/master

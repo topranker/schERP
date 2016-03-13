@@ -46,6 +46,7 @@ class Adm extends CI_Controller {
         $data['country_'] = $this->mm->get_country();
         $data['states_'] = $this->mm->get_states();
         $data['fee_rec'] = $this->mm->get_fees_status($reg_id__, $this->session->userdata('_current_year___'));
+        $data['class_in_session'] = $this -> fm -> get_class_in_session($this -> session -> userdata('_current_year___'));
 
         if ($data['record_']['res_']) {
             $data['menu_'] = $this->mnum->get_menu();
