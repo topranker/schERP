@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2016 at 10:10 AM
+-- Generation Time: Mar 13, 2016 at 05:50 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 7.0.1
 
@@ -196,11 +196,8 @@ CREATE TABLE `fee_6_invoice` (
   `INVID` int(15) NOT NULL,
   `CFEESESSID` int(15) NOT NULL,
   `ADFLXFEESTUDID` int(15) NOT NULL,
-  `ANYDISCOUNT` varchar(100) NOT NULL,
-  `DISCOUNT` varchar(100) NOT NULL,
-  `DISCOUNT_AMOUNT` varchar(100) NOT NULL,
-  `DESCRIPTION_IFANY` text NOT NULL,
   `ACTUAL_AMOUNT` float(11,2) NOT NULL,
+  `DESCRIPTION_IFANY` text NOT NULL,
   `REGID` varchar(25) NOT NULL,
   `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -216,6 +213,10 @@ CREATE TABLE `fee_7_receipts` (
   `FEEID` int(15) NOT NULL,
   `FLEXI_FEE_STATUS` varchar(100) NOT NULL,
   `ADFLXFEESTUDID` int(15) NOT NULL,
+  `ANYDISCOUNT` varchar(10) NOT NULL,
+  `DISCOUNT` varchar(10) NOT NULL,
+  `DISCOUNT_AMOUNT` varchar(10) NOT NULL,
+  `DESCRIPTION_IFANY` text NOT NULL,
   `INVID` int(15) NOT NULL,
   `DATE_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
